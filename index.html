@@ -1,95 +1,187 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
-    <!-- Intégration de Font Awesome pour les icônes -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Georgia', serif; /* Police Georgia */
-            background-color: #2f2f2f; /* Fond noir-gris */
-            margin: 0;
-            padding: 0;
-        }
-        :root {
-            --rose-pale: #FFB6C1; /* Rose pâle uniforme */
-            --pastel-blue: #A7C7E7; /* Bleu pastel */
-            --pastel-lavender: #E3D8FF; /* Lavande pastel */
-            --pastel-peach: #FFDAB9; /* Pêche pastel */
-            --blanc-marbre: linear-gradient(135deg, #fff 25%, #f4f4f4 50%, #fff 75%); /* Effet marbré blanc */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #2f2f2f;
+      margin: 0;
+      padding: 0;
+    }
 
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--blanc-marbre); /* Fond marbré */
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            border-radius: 8px; /* Coins arrondis pour le rectangle */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-        }
-        .header button {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--rose-pale); /* Rose pâle uniforme pour le texte */
-            display: flex;
-            align-items: center;
-            gap: 8px; /* Espacement entre l'icône et le texte */
-            font-family: 'Georgia', serif; /* Application de la police Georgia */
-        }
-        .header button:hover {
-            color: var(--pastel-lavender); /* Changer la couleur au survol */
-        }
+    :root {
+      --rose-pale: #ffb6c1;
+      --pastel-blue: #a7c7e7;
+      --pastel-lavender: #e3d8ff;
+      --pastel-peach: #ffdab9;
+      --blanc-marbre: linear-gradient(135deg, #fff 25%, #f4f4f4 50%, #fff 75%);
+    }
 
-        .header button i {
-            font-size: 28px;
-            color: var(--pastel-lavender); /* Couleur lavande pour les icônes */
-        }
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--blanc-marbre);
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
 
-        .title {
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            transform: translateY(-50%);
-            font-size: 50px;
-            color: var(--rose-pale);
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-            font-family: 'Georgia', serif; /* Application de la police Georgia */
-        }
+    .header button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--rose-pale);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Georgia", serif;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+    .header button:hover,
+    .header button.active {
+      color: var(--pastel-lavender);
+      text-decoration: underline;
+    }
+
+    .intro-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 200px;
+      padding: 120px 60px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .intro-left {
+      max-width: 700px;
+    }
+
+    .title {
+      font-size: 50px;
+      color: var(--rose-pale);
+      font-family: "Georgia", serif;
+      margin-bottom: 20px;
+      white-space: nowrap;
+      opacity: 1;
+    }
+
+    .intro-text {
+      font-size: 22px;
+      color: white;
+      max-width: 600px;
+      text-align: justify;
+      opacity: 0;
+      animation: fadeInText 2s 1s forwards;
+      z-index: 10;
+    }
+
+    .photo-moi {
+      width: 350px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      animation: fadeInImage 2s 1s forwards;
+    }
+
+    @keyframes fadeInImage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .intro-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 160px 20px 60px;
+        text-align: center;
+      }
+
+      .intro-left {
+        max-width: 90%;
+      }
+
+      .title {
+        white-space: normal;
+        font-size: 36px;
+      }
+
+      .intro-text {
+        font-size: 14px;
+      }
+
+      .photo-moi {
+        width: 80%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <button onclick="location.href='index.html'">
-            <i class="fas fa-home"></i> <span>Accueil</span>
-        </button>
-        <button onclick="location.href='projets.html'">
-            <i class="fas fa-folder"></i> <span>Mes Projets universitaires</span>
-        </button>
-        <button onclick="location.href='bilan.html'">
-            <i class="fas fa-chart-bar"></i> <span>Bilan sur l'année</span>
-        </button>
-        <button onclick="location.href='infos.html'">
-            <i class="fas fa-envelope"></i> <span>Infos personnelles</span>
-        </button>
-    </div>
-    <h1 class="title">Bonjour je suis Clara Decros</h1>
+  <div class="header">
+    <button id="home-btn" onclick="location.href='index.html'">
+      <i class="fas fa-home"></i> <span>Accueil</span>
+    </button>
+    <button id="about-btn" onclick="location.href='infos.html'">
+      <i class="fas fa-user"></i> <span>À propos de moi</span>
+    </button>
+    <button id="projects-btn" onclick="location.href='projets.html'">
+      <i class="fas fa-folder"></i> <span>Mes Projets universitaires</span>
+    </button>
+    <button id="report-btn" onclick="location.href='bilan.html'">
+      <i class="fas fa-chart-bar"></i> <span>Bilan sur l'année</span>
+    </button>
+  </div>
 
-    <script>
-        feather.replace(); // Initialiser Feather Icons
-    </script>
+  <div class="intro-container">
+    <div class="intro-left">
+      <h1 class="title">Bonjour je suis Clara Decros</h1>
+      <div class="intro-text">
+        <p>Bienvenue sur mon portfolio. Je suis Clara Decros, étudiante en BUT Science des données. À travers ce site, vous découvrirez mon parcours, mes projets académiques ainsi que mes compétences. Je partage également mon ressenti sur ma formation et les défis qu'elle m'a permis de relever.</p>
+      </div>
+    </div>
+    <img src="photomoi.jpeg" alt="Photo de Clara Decros" class="photo-moi" />
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const path = window.location.pathname;
+      const page = path.split("/").pop();
+
+      if (page === "index.html") {
+        document.getElementById("home-btn").classList.add("active");
+      } else if (page === "infos.html") {
+        document.getElementById("about-btn").classList.add("active");
+      } else if (page === "projets.html") {
+        document.getElementById("projects-btn").classList.add("active");
+      } else if (page === "bilan.html") {
+        document.getElementById("report-btn").classList.add("active");
+      }
+    });
+  </script>
 </body>
 </html>
