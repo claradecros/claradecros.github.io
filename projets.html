@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mes Projets universitaires</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #2f2f2f;
+      margin: 0;
+      padding: 0 20px 40px;
+      color: white;
+    }
+
+    :root {
+      --rose-pale-case: #ffe4ec;
+      --rose-pale-bandeau: #ffb6c1;
+      --blanc-marbre: linear-gradient(135deg, #fff 25%, #f4f4f4 50%, #fff 75%);
+      --bleu-pale-actif: #d8b7dd;
+    }
+
+    /* Bandeau fixe en haut - pleine largeur */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      background: var(--blanc-marbre);
+      padding: 40px 0;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      user-select: none;
+      color: var(--rose-pale-bandeau);
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .header > div {
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      white-space: nowrap;
+    }
+
+    .header button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--rose-pale-bandeau);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Georgia", serif;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .header button:hover {
+      color: #a8d0ff !important;
+      text-decoration: underline;
+    }
+
+    .header button.active {
+      color: var(--bleu-pale-actif) !important;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    main {
+      padding-top: 140px;
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      gap: 1.5%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Cases projets */
+    .project-card {
+      background-color: var(--rose-pale-case);
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00000080;
+      color: #2f2f2f;
+      font-size: 18px;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      width: 23%;
+      aspect-ratio: 1 / 1;
+      box-sizing: border-box;
+    }
+
+    .project-card strong,
+    .project-card h2 {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: #2f2f2f;
+    }
+
+    .project-card p {
+      white-space: pre-line;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .project-card a.read-more {
+      align-self: flex-start;
+      background-color: #db7093;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-style: normal;
+      font-size: 1.1rem;
+      padding: 10px 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(219, 112, 147, 0.7);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-card a.read-more:hover {
+      background-color: #ff8dbd;
+      box-shadow: 0 6px 12px rgba(255, 141, 189, 0.85);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+        padding-top: 140px;
+      }
+      .project-card {
+        width: 100%;
+        aspect-ratio: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        padding: 20px 0;
+      }
+      .header button {
+        font-size: 20px;
+      }
+      main {
+        padding-top: 120px;
+      }
+      .project-card {
+        font-size: 16px;
+        padding: 15px 18px;
+      }
+      .project-card strong,
+      .project-card h2 {
+        font-size: 1.3rem;
+      }
+      .project-card a.read-more {
+        font-size: 1rem;
+        padding: 8px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <button id="home-btn" onclick="location.href='index.html'">
+        <i class="fas fa-home"></i> <span>Accueil</span>
+      </button>
+      <button id="about-btn" onclick="location.href='infos.html'">
+        <i class="fas fa-user"></i> <span>À propos de moi</span>
+      </button>
+      <button id="projects-btn" class="active" onclick="location.href='projets.html'">
+        <i class="fas fa-folder"></i> <span>Mes Projets universitaires</span>
+      </button>
+      <button id="report-btn" onclick="location.href='bilan.html'">
+        <i class="fas fa-chart-bar"></i> <span>Bilan sur l'année</span>
+      </button>
+      <button id="contact-btn" onclick="location.href='contact.html'">
+        <i class="fas fa-envelope"></i> <span>Contacts</span>
+      </button>
+    </div>
+  </div>
+
+  <main>
+    <div class="project-card">
+      <strong>SAÉ 1.01 : Reporting à partir de données stockées dans un SGBD relationnel</strong>
+      <p>
+AC11.01 | Interpréter et prendre en compte correctement le besoin du client
+AC11.02 | Respecter les formalismes de notation
+AC11.03 | Connaître la syntaxe des langages et savoir l’utiliser
+AC11.04 | Maîtriser la structure des données exploitées
+      </p>
+      <a href="sae101.html" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="project-card">
+      <h2>SAÉ 1.02 : Écriture et lecture de fichiers de données</h2>
+      <p>
+        Apprentissages critiques :<br>
+        AC11.01 | Interpréter et prendre en compte correctement le besoin du client<br>
+        AC11.02 | Respecter les formalismes de notation<br>
+        AC11.03 | Connaître la syntaxe des langages et savoir l’utiliser<br>
+        AC11.04 | Maîtriser la structure des données exploitées
+      </p>
+      <a href="sae102.html" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="project-card">
+      <h2>SAÉ 1.03 : Préparation et synthèse d’un tableau de données</h2>
+      <p>
+        Apprentissages critiques :<br>
+        AC12.01 | Prendre en compte les caractéristiques propres des sources de données<br>
+        AC12.02 | Comprendre qu’une analyse correcte repose sur des données propres et bien préparées<br>
+        AC12.03 | Appréhender l’importance des synthèses numériques et graphiques pour décrire une variable statistique<br>
+        AC12.04 | Utiliser les synthèses numériques et graphiques pour mettre en évidence des liaisons entre variables<br>
+        AC11.06 | Prendre conscience de l’intérêt de la programmation
+      </p>
+      <a href="sae103.html" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Cases vides pour compléments futurs -->
+    <div class="project-card">
+      <a href="#" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="project-card">
+      <a href="#" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="project-card">
+      <a href="#" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="project-card">
+      <a href="#" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="project-card">
+      <a href="#" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="project-card">
+      <a href="#" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="project-card">
+      <a href="#" class="read-more">Description complète <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </main>
+
+  <script>
+    // Activation automatique du bouton actif en fonction du nom de la page
+    document.addEventListener("DOMContentLoaded", function() {
+      const path = window.location.pathname;
+      const page = path.split("/").pop();
+
+      // Retirer la classe active sur tous les boutons
+      document.querySelectorAll('.header button').forEach(btn => btn.classList.remove('active'));
+
+      if (page === "index.html") {
+        document.getElementById("home-btn").classList.add("active");
+      } else if (page === "infos.html") {
+        document.getElementById("about-btn").classList.add("active");
+      } else if (page === "projets.html") {
+        document.getElementById("projects-btn").classList.add("active");
+      } else if (page === "bilan.html")

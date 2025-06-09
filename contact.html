@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mes Contacts - Clara Decros</title>
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #2f2f2f;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --rose-pale: #ffb6c1;
+      --pastel-blue: #a7c7e7;
+      --pastel-lavender: #e3d8ff;
+      --pastel-peach: #ffdab9;
+      --blanc-marbre: linear-gradient(135deg, #fff 25%, #f4f4f4 50%, #fff 75%);
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--blanc-marbre);
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    .header button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--rose-pale);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Georgia", serif;
+    }
+    .header button:hover,
+    .header button.active {
+      color: var(--pastel-lavender);
+      text-decoration: underline;
+    }
+    main {
+      padding: 180px 30px 50px; /* Décalage top augmenté pour laisser plus d'espace */
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(255, 182, 193, 0.1); /* léger fond rose pastel */
+      border: 2px solid var(--rose-pale);
+      border-radius: 12px;
+      box-shadow: 0 0 15px 3px rgba(255, 182, 193, 0.3);
+    }
+    h1 {
+      font-size: 44px;
+      color: var(--rose-pale);
+      margin-bottom: 30px;
+      text-align: center;
+      text-shadow: 0 0 6px var(--rose-pale);
+    }
+    p, a {
+      font-size: 18px;
+      line-height: 1.5;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 18px;
+    }
+    a:hover {
+      color: var(--pastel-lavender);
+      text-decoration: underline;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    }
+    .contact-item strong {
+      min-width: 90px;
+      color: var(--pastel-peach);
+      display: inline-block;
+    }
+    .contact-icon {
+      font-size: 26px;
+      color: var(--rose-pale);
+      flex-shrink: 0;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="header">
+    <button onclick="location.href='portfolio.html'" id="home-btn">
+      <i class="fas fa-home"></i> <span>Accueil</span>
+    </button>
+    <button onclick="location.href='infos.html'" id="about-btn">
+      <i class="fas fa-user"></i> <span>À propos de moi</span>
+    </button>
+    <button onclick="location.href='projets.html'" id="projects-btn">
+      <i class="fas fa-folder"></i> <span>Mes Projets universitaires</span>
+    </button>
+    <button onclick="location.href='bilan.html'" id="report-btn">
+      <i class="fas fa-chart-bar"></i> <span>Bilan sur l'année</span>
+    </button>
+    <button onclick="location.href='contact.html'" id="contact-btn">
+      <i class="fas fa-address-book"></i> <span>Mes Contacts</span>
+    </button>
+  </div>
+
+  <main>
+    <h1>Mes Contacts</h1>
+    <p class="contact-item">
+      <i class="fas fa-envelope contact-icon" aria-hidden="true"></i>
+      <strong>Email :</strong> <a href="mailto:claradecros@gmail.com">claradecros@gmail.com</a>
+    </p>
+    <p class="contact-item">
+      <i class="fas fa-phone contact-icon" aria-hidden="true"></i>
+      <strong>Téléphone :</strong> <a href="tel:+33619200172">06 19 20 01 72</a>
+    </p>
+    <p class="contact-item">
+      <i class="fab fa-linkedin contact-icon" aria-hidden="true"></i>
+      <strong>LinkedIn :</strong>
+      <a href="https://www.linkedin.com/in/clara-decros-345502342" target="_blank" rel="noopener noreferrer">
+        www.linkedin.com/in/clara-decros-345502342
+      </a>
+    </p>
+    <p class="contact-item">
+      <i class="fas fa-file-pdf contact-icon" aria-hidden="true"></i>
+      <strong>Mon CV :</strong>
+      <a href="CV%20DECROS%20CLARA.pdf" target="_blank" rel="noopener noreferrer" download>Télécharger mon CV</a>
+    </p>
+  </main>
+
+  <script>
+    // Ajoute la classe active au bouton du bandeau selon la page
+    document.addEventListener("DOMContentLoaded", function() {
+      const path = window.location.pathname;
+      const page = path.split("/").pop();
+      if (page === "portfolio.html") {
+        document.getElementById("home-btn").classList.add("active");
+      } else if (page === "infos.html") {
+        document.getElementById("about-btn").classList.add("active");
+      } else if (page === "projets.html") {
+        document.getElementById("projects-btn").classList.add("active");
+      } else if (page === "bilan.html") {
+        document.getElementById("report-btn").classList.add("active");
+      } else if (page === "contact.html") {
+        document.getElementById("contact-btn").classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bilan sur l'année - Clara Decros</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #2f2f2f;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    :root {
+      --rose-pale: #ffb6c1;
+      --pastel-blue: #a7c7e7;
+      --pastel-lavender: #e3d8ff;
+      --pastel-peach: #ffdab9;
+      --blanc-marbre: linear-gradient(135deg, #fff 25%, #f4f4f4 50%, #fff 75%);
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--blanc-marbre);
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .header button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--rose-pale);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Georgia", serif;
+    }
+
+    .header button:hover,
+    .header button.active {
+      color: var(--pastel-lavender);
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 140px auto 60px;
+      padding: 0 20px;
+      font-family: "Georgia", serif;
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    h1.title {
+      font-size: 50px;
+      color: var(--rose-pale);
+      font-family: "Georgia", serif;
+      margin-bottom: 40px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      h1.title {
+        font-size: 36px;
+        white-space: normal;
+      }
+    }
+
+    /* Effet halo rose derrière chaque paragraphe */
+    p {
+      position: relative;
+      background-color: #3b3b3b;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px 5px rgba(255, 182, 193, 0.6);
+      transition: box-shadow 0.3s ease;
+    }
+
+    p:hover {
+      box-shadow: 0 0 25px 10px rgba(255, 182, 193, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <button id="home-btn" onclick="location.href='index.html'">
+      <i class="fas fa-home"></i> <span>Accueil</span>
+    </button>
+    <button id="about-btn" onclick="location.href='infos.html'">
+      <i class="fas fa-user"></i> <span>À propos de moi</span>
+    </button>
+    <button id="projects-btn" onclick="location.href='projets.html'">
+      <i class="fas fa-folder"></i> <span>Mes Projets universitaires</span>
+    </button>
+    <button id="report-btn" class="active" onclick="location.href='bilan.html'">
+      <i class="fas fa-chart-bar"></i> <span>Bilan sur l'année</span>
+    </button>
+  </div>
+
+  <div class="container">
+    <h1 class="title">Bilan sur l'année</h1>
+
+    <p>
+      Cette première année universitaire a conforté mon choix de parcours. Bien que ce ne fût pas mon premier choix, j’ai choisi cette formation par envie et curiosité, et non par dépit. À l’heure actuelle, je ne ressens aucun regret : cette formation offre une large palette de débouchés et de nombreuses matières m’intéressent, en lien avec les domaines dans lesquels je souhaiterais m’orienter plus tard.
+    </p>
+    <p>
+      Cependant, il est important d’admettre aussi les aspects plus négatifs de mon parcours. Comme je le craignais, les matières informatiques ainsi que les compétences associées représentent une difficulté pour moi. Mais je refuse de céder à la facilité ou de me reposer sur mes acquis. Bien que cet aspect de ma filière me pose problème, je ne dois pas le négliger, mais plutôt apprendre à le gérer pour les semestres à venir. Contrairement aux mathématiques et à la communication, qui me sont plus familières, l’informatique est un domaine totalement nouveau pour moi, ce qui explique mes difficultés.
+    </p>
+    <p>
+      Je pense que mon erreur principale a été de baisser les bras dès le début, ce qui est contraire à ma nature, et de me laisser submerger par tous ces langages qui me dépassaient. Une approche plus rigoureuse et une meilleure ouverture à l’apprentissage me permettraient de progresser.
+    </p>
+    <p>
+      Il n’y a donc pas de réelle surprise dans ce bilan : mon ressenti sur les matières correspond à ce que j’avais estimé. Ma méthode de travail a également évolué par rapport au lycée : la plupart des matières m’intéressent réellement, ce qui me pousse à les réviser avec plaisir et même à prendre de l’avance sur mon temps libre. En termes d’organisation, je me suis aussi améliorée : j’établis régulièrement un emploi du temps de révision et je m’y prends à l’avance pour éviter d’être dépassée.  Ne voulant pas céder à la facilité, j’accepte cette formation avec ses défis, que je perçois non comme des obstacles, mais comme des opportunités d’apprentissage et de progression dans un domaine qui m’attire.
+    </p>
+    <p>
+      L’un des plus grands atouts de cette formation, à mon sens, est la multiplicité des projets, qui me permettent de concrétiser mes acquis et de passer du théorique au réel. Cette approche m’aide particulièrement, car elle me permet de m’exercer dans des situations concrètes, d’évaluer mon niveau et de prendre conscience à la fois de mes compétences et de mes difficultés. Ces projets me rapprochent des missions que je pourrais être amenée à réaliser en alternance, en stage ou dans un futur emploi.
+    </p>
+    <p>
+      Ces méthodes de travail sont particulièrement bénéfiques pour moi, car j’ai toujours préféré le concret et le fait de comprendre l’utilité d’un apprentissage plutôt que de me contenter d’appliquer un cours. Même dans les matières plus complexes, ces projets m’ont toujours aidée à mieux comprendre les concepts et les langages utilisés. De plus, ils me préparent aussi au monde professionnel en me familiarisant avec le travail en groupe, en développant ma capacité d’adaptation et en m’obligeant à une meilleure organisation avec les autres.
+    </p>
+	 <p>
+      Pour l’année prochaine, je souhaite m’orienter vers le parcours EMS, qui combine statistiques, mathématiques et utilisation des données, car il correspond davantage à mes points forts. Les débouchés associés à ce parcours, par rapport à ceux du parcours VCODE, plus axé sur les outils et la conception de bases de données, correspondent mieux à mes aspirations professionnelles.Les débouchés associés à ce parcours EMS correspondent mieux à mes facilités et à mes envies, comparé au parcours VCODE qui concerne davantage les outils et la conception de bases de données.
+    </p>
+
+    <p>
+      Pour les deux années restantes, mon objectif est de continuer à renforcer mes points forts tout en progressant dans les domaines qui me posent plus de difficultés. Je souhaite me réconcilier avec ces matières et les transformer en atouts pour réussir mon BUT. Je vise également à réaliser une alternance ou un stage, afin d’acquérir une expérience concrète, de progresser au contact de situations réelles et d’échanger avec des professionnels du secteur pour enrichir mes compétences et affiner mon projet professionnel.
+    </p>
+
+   
+    
+      
+
+  </div>
+</body>
+</html>
+
