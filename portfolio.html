@@ -2,110 +2,157 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mon Portfolio</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
   <style>
-    body {
-      font-family: "Georgia", serif;
-      background-color: #2f2f2f;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* Variables couleurs */
     :root {
       --rose-pale: #ffb6c1;
       --pastel-blue: #a7c7e7;
       --pastel-lavender: #e3d8ff;
       --pastel-peach: #ffdab9;
       --blanc-marbre: linear-gradient(135deg, #fff 25%, #f4f4f4 50%, #fff 75%);
+      --fond-gris-fonce: #a9acb2;
+      --texte-principal: #2c2c2c;
+      --ombre-header: rgba(0, 0, 0, 0.15);
     }
 
+    /* Fond de la page */
+    body {
+      font-family: "Georgia", serif;
+      background: url("https://www.transparenttextures.com/patterns/asfalt-light.png") repeat, var(--fond-gris-fonce);
+      margin: 0;
+      padding: 0;
+      color: var(--texte-principal);
+    }
+
+    /* Bandeau header fixe en haut, plus grand */
     .header {
       position: fixed;
-      top: 20px; /* Décalage vers le bas */
-      left: 50%;
-      transform: translateX(-50%);
-      width: auto;
+      top: 0;
+      left: 0;
+      width: 100%;
       background: var(--blanc-marbre);
-      padding: 40px 20px;
+      padding: 35px 40px;
       display: flex;
       justify-content: center;
-      gap: 60px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      max-width: 95vw;
+      gap: 40px;
+      box-shadow: 0 4px 15px var(--ombre-header);
+      z-index: 10000;
       white-space: nowrap;
+      animation: slideDown 1s ease forwards;
+    }
+
+    @keyframes slideDown {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .header button {
       background: none;
       border: none;
-      font-size: 24px;
+      font-size: 22px;
       cursor: pointer;
       color: var(--rose-pale);
       display: flex;
       align-items: center;
       gap: 8px;
       font-family: "Georgia", serif;
+      transition: color 0.4s, transform 0.3s;
     }
 
     .header button:hover,
     .header button.active {
       color: var(--pastel-lavender);
       text-decoration: underline;
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 4px var(--pastel-lavender));
     }
 
+    /* Conteneur principal */
     .intro-container {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 80px;
-      padding: 120px 60px;
+      padding: 210px 60px 60px;
       min-height: 100vh;
       box-sizing: border-box;
     }
 
+    /* Case blanche plus rectangulaire et plus petite */
     .intro-left {
-      max-width: 700px;
-      z-index: 2;
-    }
-
-    .title {
-      font-size: 50px;
-      color: var(--rose-pale);
-      font-family: "Georgia", serif;
-      margin-bottom: 20px;
-      white-space: nowrap;
-      opacity: 1;
-    }
-
-    .intro-text {
-      font-size: 22px;
-      color: white;
-      max-width: 600px;
-      text-align: justify;
-      opacity: 0;
-      animation: fadeInText 2s 1s forwards;
-    }
-
-    .photo-moi {
-      width: 350px;
-      height: auto;
+      max-width: 650px;
+      min-height: 200px;
+      background: rgba(255 255 255 / 0.85);
       border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      padding: 20px 25px;
+      box-shadow: 0 0 30px rgba(255, 182, 193, 0.3);
+      backdrop-filter: blur(8px);
+      animation: fadeInScale 2s ease forwards;
       opacity: 0;
-      animation: fadeInImage 2s 1s forwards;
-      margin-right: 60px;
+      transform: scale(0.95);
     }
 
-    @keyframes fadeInImage {
-      from {
-        opacity: 0;
-      }
+    /* Titre plus petit */
+    .title {
+      font-size: 38px;
+      color: var(--rose-pale);
+      margin-bottom: 18px;
+      letter-spacing: 1.2px;
+      line-height: 1.2;
+    }
+
+    .title br {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* Texte intro plus petit */
+    .intro-text {
+      font-size: 18px;
+      max-width: 100%;
+      text-align: justify;
+      color: var(--texte-principal);
+      line-height: 1.4;
+      opacity: 0;
+      animation: fadeInText 3s 1s forwards;
+    }
+
+    /* Photo réduite */
+    .photo-moi {
+      width: 280px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      animation: photoEntrance 2s 1.2s forwards;
+      transform: rotate(-4deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 10px solid #fff;
+      outline: 4px dashed var(--rose-pale);
+      outline-offset: -12px;
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    .photo-moi:hover {
+      transform: rotate(0deg) scale(1.12);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Animations */
+    @keyframes fadeInScale {
       to {
         opacity: 1;
+        transform: scale(1);
       }
     }
 
@@ -118,37 +165,53 @@
       }
     }
 
+    @keyframes photoEntrance {
+      0% {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(-4deg) scale(1);
+      }
+    }
+
+    /* Responsive */
     @media (max-width: 1000px) {
       .header {
         flex-wrap: wrap;
-        gap: 20px;
-        padding: 20px 10px;
+        gap: 25px;
+        padding: 30px 15px;
       }
 
       .intro-container {
         flex-direction: column;
         align-items: center;
-        gap: 40px;
-        padding: 160px 20px 60px;
+        gap: 50px;
+        padding: 250px 20px 60px;
         text-align: center;
       }
 
       .intro-left {
         max-width: 90%;
+        min-height: auto;
+        padding: 18px 15px;
+        border-radius: 16px;
       }
 
       .title {
+        font-size: 28px;
         white-space: normal;
-        font-size: 36px;
       }
 
       .intro-text {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .photo-moi {
-        width: 80%;
-        margin-right: 0;
+        width: 75%;
+        transform: none;
+        outline-offset: -6px;
       }
     }
   </style>
@@ -174,7 +237,7 @@
 
   <div class="intro-container">
     <div class="intro-left">
-      <h1 class="title">Bonjour je suis Clara Decros</h1>
+      <h1 class="title">Bonjour, je suis<br>Clara Decros</h1>
       <div class="intro-text">
         <p>Bienvenue sur mon portfolio. Je suis Clara Decros, étudiante en BUT Science des données. À travers ce site, vous découvrirez mon parcours, mes projets académiques ainsi que mes compétences. Je partage également mon ressenti sur ma formation et les défis qu'elle m'a permis de relever.</p>
       </div>
@@ -183,7 +246,7 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       const path = window.location.pathname;
       const page = path.split("/").pop();
 
@@ -202,3 +265,8 @@
   </script>
 </body>
 </html>
+
+
+
+
+
