@@ -1,212 +1,192 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clara Decros | Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-color: #FDFBF7;      /* Fond crème très clair */
-            --accent-rose: #D4A3A3;    /* Vieux rose poudré */
-            --text-main: #4A4A4A;      /* Gris anthracite pour la douceur */
-            --nav-bg: rgba(255, 255, 255, 0.85);
-            --border-soft: #EAE3D8;
+            --bg-color: #FDFBF7;      
+            --accent-rose: #D4A3A3;    
+            --text-dark: #333333;      
+            --border-color: #EAE3D8;
         }
 
         body {
-            font-family: "Georgia", serif;
+            font-family: 'Cormorant Garamond', serif; 
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Navigation Minimaliste */
-        .header {
+        /* --- NAVIGATION --- */
+        .nav-container {
             position: fixed;
             top: 0;
             width: 100%;
-            background: var(--nav-bg);
-            backdrop-filter: blur(8px);
-            padding: 25px 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: center;
-            gap: 40px;
-            border-bottom: 1px solid var(--border-soft);
+            align-items: center;
+            padding: 12px 0;
             z-index: 1000;
         }
 
-        .header button {
-            background: none;
-            border: none;
-            font-size: 14px;
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 17px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            color: var(--text-main);
             display: flex;
             align-items: center;
             gap: 10px;
-            font-family: "Georgia", serif;
-            transition: all 0.3s ease;
-            position: relative;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 5px 10px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
         }
 
-        /* Effet de soulignement élégant */
-        .header button::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-rose);
-            transition: width 0.3s ease;
-        }
-
-        .header button:hover, .header button.active {
-            color: var(--accent-rose);
-        }
-
-        .header button:hover::after, .header button.active::after {
-            width: 100%;
-        }
-
-        .header button i {
+        .nav-item i {
             font-size: 16px;
             color: var(--accent-rose);
         }
 
-        /* Conteneur Principal */
-        .intro-container {
+        .nav-item.active {
+            border-bottom: 1.5px solid var(--accent-rose);
+        }
+
+        /* --- SECTION HERO --- */
+        .hero-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 80px;
-            padding: 150px 10% 60px;
             min-height: 100vh;
-            box-sizing: border-box;
+            padding: 100px 10% 40px; 
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 80px;
         }
 
-        .intro-left {
-            max-width: 600px;
-        }
-
-        .title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            color: var(--text-main);
-            font-weight: normal;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: var(--accent-rose);
-            margin-bottom: 25px;
-        }
-
-        .intro-text {
-            font-size: 18px;
-            color: #666;
-            text-align: justify;
-            opacity: 0;
-            animation: fadeIn 1.5s 0.5s forwards;
-        }
-
-        /* Photo avec bordure élégante */
-        .photo-wrapper {
+        .photo-container {
+            flex: 0 0 380px;
             position: relative;
-            opacity: 0;
-            animation: fadeIn 1.5s 0.8s forwards;
+            z-index: 1;
+        }
+
+        /* Rectangle décoratif beige */
+        .photo-container::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--border-color);
+            z-index: -1;
         }
 
         .photo-moi {
-            width: 320px;
-            height: 420px;
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 2px;
+            /* On s'assure que l'image n'est pas masquée */
+            position: relative;
             object-fit: cover;
-            border-radius: 4px; /* Coins à peine arrondis pour plus de sérieux */
-            box-shadow: 20px 20px 0px var(--border-soft); /* Carré décoratif derrière */
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        .hero-content {
+            flex: 1;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .intro-container {
-                flex-direction: column-reverse;
+        .hero-content h1 {
+            font-weight: 400;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .hero-content h1 strong {
+            font-weight: 700;
+            display: block;
+        }
+
+        .divider {
+            width: 50px;
+            height: 1px;
+            background: var(--accent-rose);
+            margin: 30px 0;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        @media (max-width: 900px) {
+            .hero-wrapper {
+                flex-direction: column-reverse; 
+                text-align: center;
                 padding-top: 120px;
-                text-align: center;
-                gap: 40px;
+                gap: 50px;
             }
-            .intro-text {
-                text-align: center;
-            }
-            .divider {
-                margin: 0 auto 25px;
-            }
-            .header {
-                gap: 15px;
-            }
-            .header button span {
-                display: none; /* Cache le texte sur petit écran */
-            }
+            .photo-container { flex: none; width: 280px; }
+            .hero-content { text-align: center; }
+            .divider { margin: 30px auto; }
+            .nav-item span { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="header">
-        <button id="home-btn" onclick="location.href='index.html'">
-            <i class="fas fa-home"></i> <span>Accueil</span>
-        </button>
-        <button id="about-btn" onclick="location.href='infos.html'">
-            <i class="fas fa-user"></i> <span>Profil</span>
-        </button>
-        <button id="projects-btn" onclick="location.href='projets.html'">
-            <i class="fas fa-feather"></i> <span>Projets</span>
-        </button>
-        <button id="report-btn" onclick="location.href='bilan.html'">
-            <i class="fas fa-leaf"></i> <span>Bilan</span>
-        </button>
+    <nav class="nav-container">
+        <div class="nav-links">
+            <button class="nav-item active" onclick="location.href='index.html'">
+                <i class="fas fa-home"></i> <span>Accueil</span>
+            </button>
+            <button class="nav-item" onclick="location.href='infos.html'">
+                <i class="fas fa-user"></i> <span>Profil</span>
+            </button>
+            <button class="nav-item" onclick="location.href='projets.html'">
+                <i class="fas fa-chart-bar"></i> <span>Projets</span>
+            </button>
+            <button class="nav-item" onclick="location.href='bilan.html'">
+                <i class="fas fa-book"></i> <span>Bilan</span>
+            </button>
+        </div>
     </nav>
 
-    <main class="intro-container">
-        <div class="intro-left">
-            <h1 class="title">Bonjour, je suis <br><strong>Clara Decros</strong></h1>
-            <div class="divider"></div>
-            <div class="intro-text">
-                <p>Étudiante en BUT Science des données. Passionnée par l'analyse et la valorisation des informations, je construis mon parcours entre rigueur académique et projets créatifs. Ce portfolio est le reflet de mes compétences acquises et des défis relevés cette année.</p>
-            </div>
+    <main class="hero-wrapper">
+        <div class="photo-container">
+            <img src="photomoi.jpeg" alt="Clara Decros" class="photo-moi">
         </div>
 
-        <div class="photo-wrapper">
-            <img src="photomoi.jpeg" alt="Clara Decros" class="photo-moi" />
+        <div class="hero-content">
+            <h1>Bonjour je suis <strong>Clara Decros</strong></h1>
+            <div class="divider"></div>
+            <p>
+                Bienvenue sur mon portfolio. Je suis Clara Decros, étudiante en BUT Science des données. 
+                À travers ce site, vous découvrirez mon parcours, mes projets académiques ainsi que mes compétences. 
+                Je partage également mon ressenti sur ma formation et les défis qu'elle m'a permis de relever.
+            </p>
         </div>
     </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const path = window.location.pathname;
-            const page = path.split("/").pop() || "index.html";
-
-            const btnMap = {
-                "index.html": "home-btn",
-                "infos.html": "about-btn",
-                "projets.html": "projects-btn",
-                "bilan.html": "report-btn"
-            };
-
-            if (btnMap[page]) {
-                document.getElementById(btnMap[page]).classList.add("active");
-            }
-        });
-    </script>
 </body>
 </html>
