@@ -70,6 +70,13 @@
             border-bottom: 1.5px solid var(--accent-rose);
         }
 
+        /* 🔥 AJOUT HOVER */
+        .nav-item:hover {
+            border-bottom: 1.5px solid var(--accent-rose);
+            color: var(--accent-rose);
+            transition: all 0.2s ease;
+        }
+
         /* --- SECTION HERO --- */
         .hero-wrapper {
             display: flex;
@@ -88,7 +95,6 @@
             z-index: 1;
         }
 
-        /* Rectangle décoratif beige */
         .photo-container::after {
             content: "";
             position: absolute;
@@ -105,7 +111,6 @@
             height: auto;
             display: block;
             border-radius: 2px;
-            /* On s'assure que l'image n'est pas masquée */
             position: relative;
             object-fit: cover;
         }
@@ -169,6 +174,11 @@
             <button class="nav-item" onclick="location.href='bilan.html'">
                 <i class="fas fa-book"></i> <span>Bilan</span>
             </button>
+
+            <!-- 🔥 AJOUT CONTACT -->
+            <button class="nav-item" onclick="location.href='contact.html'">
+                <i class="fas fa-phone"></i> <span>Contact</span>
+            </button>
         </div>
     </nav>
 
@@ -182,8 +192,8 @@
             <div class="divider"></div>
             <p>
                 Bienvenue sur mon portfolio. Je m’appelle Clara Decros et je suis étudiante en BUT Science des données.
-À travers ce site, je vous propose de découvrir mon parcours, mes projets académiques ainsi que les compétences que j’ai acquises au fil de ma formation.
-Je partage également mon expérience, mon évolution et les différents défis que j’ai pu relever tout au long de mon cursus.
+                À travers ce site, je vous propose de découvrir mon parcours, mes projets académiques ainsi que les compétences que j’ai acquises au fil de ma formation.
+                Je partage également mon expérience, mon évolution et les différents défis que j’ai pu relever tout au long de mon cursus.
             </p>
         </div>
     </main>
