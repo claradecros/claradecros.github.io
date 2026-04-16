@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,7 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* ANIMATED BACKGROUND */
         body::before {
             content: "";
             position: fixed;
@@ -43,7 +41,6 @@
             100% {transform: translate(-10%, -10%);}
         }
 
-        /* NAV */
         .nav {
             position: fixed;
             top: 0;
@@ -92,7 +89,6 @@
             width: 100%;
         }
 
-        /* HERO */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -100,6 +96,7 @@
             justify-content: center;
             gap: 80px;
             padding: 120px 10%;
+            animation: fadeUp 1s ease;
         }
 
         .photo img {
@@ -138,11 +135,6 @@
         p {
             line-height: 1.8;
             font-size: 1.1rem;
-        }
-
-        /* ENTRY ANIMATION */
-        .hero {
-            animation: fadeUp 1s ease;
         }
 
         @keyframes fadeUp {
@@ -185,10 +177,11 @@
             <h1>Bonjour, je suis <span>Clara Decros</span></h1>
             <div class="line"></div>
             <p>
-        
                 Bienvenue sur mon portfolio. Je m’appelle Clara Decros et je suis étudiante en BUT Science des données.
-À travers ce site, je vous propose de découvrir mon parcours, mes projets académiques ainsi que les compétences que j’ai acquises au fil de ma formation.
-Je partage également mon expérience, mon évolution et les différents défis que j’ai pu relever tout au long de mon cursus.
+                <br><br>
+                À travers ce site, je vous propose de découvrir mon parcours, mes projets académiques ainsi que les compétences que j’ai acquises au fil de ma formation.
+                <br><br>
+                Je partage également mon expérience, mon évolution et les différents défis que j’ai pu relever tout au long de mon cursus.
             </p>
         </div>
     </section>
