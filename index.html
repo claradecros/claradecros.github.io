@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clara Decros | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -14,185 +14,169 @@
             --rose-soft: #e7c8c8;
             --text: #2f2f2f;
             --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.4);
         }
 
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: var(--bg);
+            background: linear-gradient(120deg, #f8f6f4, #f1ebe5);
             color: var(--text);
             overflow-x: hidden;
-            min-height: 100vh;
         }
 
-        /* FOND ANIMÉ PLUS DOUX ET MODERNE */
-        .bg-glow {
+        /* ANIMATED BACKGROUND */
+        body::before {
+            content: "";
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, #e7c8c8 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, #d4a3a3 0%, transparent 40%),
+                        radial-gradient(circle at 50% 80%, #e8dfd8 0%, transparent 40%);
+            animation: moveBg 12s infinite alternate ease-in-out;
             z-index: -1;
-            background: radial-gradient(circle at 10% 20%, rgba(212, 163, 163, 0.15) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, rgba(231, 200, 200, 0.2) 0%, transparent 40%),
-                        radial-gradient(circle at 50% 50%, rgba(232, 223, 216, 0.3) 0%, transparent 50%);
-            animation: moveBg 20s infinite alternate ease-in-out;
         }
 
         @keyframes moveBg {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1) translate(2%, 2%); }
+            0% {transform: translate(0,0);}
+            100% {transform: translate(-10%, -10%);}
         }
 
-        /* NAV GLASSMORPHISM */
+        /* NAV */
         .nav {
             position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 0;
+            width: 100%;
             display: flex;
             justify-content: center;
-            padding: 12px 30px;
-            backdrop-filter: blur(15px);
-            background: var(--glass);
-            border: 1px solid rgba(255,255,255,0.5);
-            border-radius: 50px;
-            z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.7);
+            z-index: 100;
         }
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
         .nav-item {
             border: none;
             background: none;
             color: var(--text);
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 14px;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: 0.4s;
-            opacity: 0.7;
+            position: relative;
         }
 
-        .nav-item i { color: var(--rose); font-size: 14px; }
-
-        .nav-item:hover {
-            opacity: 1;
-            transform: translateY(-2px);
+        .nav-item i {
+            color: var(--rose);
         }
 
-        /* HERO SECTION */
+        .nav-item::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--rose), var(--rose-soft));
+            transition: 0.3s;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: clamp(40px, 8vw, 120px);
-            padding: 0 10%;
-        }
-
-        /* PHOTO STYLE MODERNE */
-        .photo {
-            position: relative;
-        }
-
-        .photo::after { /* Décoration derrière l'image */
-            content: "";
-            position: absolute;
-            top: 20px; right: -20px;
-            width: 100%; height: 100%;
-            border: 2px solid var(--rose-soft);
-            border-radius: 20px;
-            z-index: -1;
-            transition: 0.5s;
-        }
-
-        .photo:hover::after {
-            transform: translate(-10px, -10px);
+            gap: 80px;
+            padding: 120px 10%;
         }
 
         .photo img {
-            width: clamp(280px, 25vw, 380px);
+            width: 340px;
             border-radius: 20px;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
-            display: block;
-            transition: 0.5s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: float 4s ease-in-out infinite;
         }
 
-        /* TEXT CONTENT */
+        @keyframes float {
+            0%,100% {transform: translateY(0);}
+            50% {transform: translateY(-15px);}
+        }
+
         .content {
-            max-width: 550px;
+            max-width: 520px;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: 3.8rem;
             margin: 0;
-            line-height: 1.1;
-            font-weight: 800;
         }
 
         h1 span {
-            display: block;
             color: var(--rose);
-            margin-top: 5px;
         }
 
         .line {
-            width: 60px;
+            width: 80px;
             height: 4px;
-            background: var(--rose);
-            margin: 30px 0;
-            border-radius: 2px;
+            background: linear-gradient(90deg, var(--rose), var(--rose-soft));
+            margin: 20px 0;
         }
 
         p {
-            line-height: 1.9;
-            font-size: 1.05rem;
-            color: #555;
-            font-weight: 300;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
-        /* ANIMATIONS */
-        .fade-in {
-            animation: fadeUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        /* ENTRY ANIMATION */
+        .hero {
+            animation: fadeUp 1s ease;
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {opacity:0; transform: translateY(40px);}
+            to {opacity:1; transform: translateY(0);}
         }
 
         @media(max-width:900px){
-            .nav { width: 90%; top: 10px; padding: 10px; }
-            .nav-links { gap: 15px; }
-            .nav-item span { display: none; } /* On ne garde que les icônes sur mobile */
-            .hero { flex-direction: column; text-align: center; padding-top: 100px; padding-bottom: 50px;}
-            .line { margin: 25px auto; }
-            .photo::after { display: none; }
+            .hero{
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .nav-links {
+                gap: 15px;
+            }
+            .photo img {
+                width: 280px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="bg-glow"></div>
 
     <nav class="nav">
         <div class="nav-links">
-            <button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i><span>Accueil</span></button>
-            <button class="nav-item" onclick="location.href='infos.html'"><i class="fas fa-user"></i><span>Profil</span></button>
-            <button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i><span>Projets</span></button>
-            <button class="nav-item" onclick="location.href='bilan.html'"><i class="fas fa-book"></i><span>Bilan</span></button>
-            <button class="nav-item" onclick="location.href='contact.html'"><i class="fas fa-phone"></i><span>Contact</span></button>
+            <button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i>Accueil</button>
+            <button class="nav-item" onclick="location.href='infos.html'"><i class="fas fa-user"></i>Profil</button>
+            <button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i>Projets</button>
+            <button class="nav-item" onclick="location.href='bilan.html'"><i class="fas fa-book"></i>Bilan</button>
+            <button class="nav-item" onclick="location.href='contact.html'"><i class="fas fa-phone"></i>Contact</button>
         </div>
     </nav>
 
-    <section class="hero fade-in">
+    <section class="hero">
         <div class="photo">
             <img src="photomoi.jpeg" alt="Clara Decros">
         </div>
@@ -200,12 +184,12 @@
             <h1>Bonjour, je suis <span>Clara Decros</span></h1>
             <div class="line"></div>
             <p>
-                Bienvenue sur mon portfolio. Étudiante en <strong>BUT Science des données</strong>, 
-                je vous invite à découvrir mon parcours, mes projets et mes compétences.
-                <br><br> 
-                Ce site reflète mon évolution, ma créativité et ma passion pour l'analyse et la valorisation des données.
+                Bienvenue sur mon portfolio. Étudiante en BUT Science des données, je vous invite à découvrir mon parcours, mes projets et mes compétences.
+                <br><br>
+                Ce site reflète mon évolution, ma créativité et ma capacité à relever des défis.
             </p>
         </div>
     </section>
+
 </body>
 </html>
