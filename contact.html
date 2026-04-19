@@ -11,7 +11,7 @@
             --bg: #f8f6f4;
             --rose: #d4a3a3;
             --rose-soft: #e7c8c8;
-            --text: #2f2f2f; /* Ton noir/anthracite */
+            --text: #2f2f2f;
         }
 
         body {
@@ -22,7 +22,6 @@
             min-height: 100vh;
         }
 
-        /* Arrière-plan animé */
         body::before {
             content: "";
             position: fixed;
@@ -33,7 +32,10 @@
             z-index: -1;
         }
 
-        @keyframes moveBg { 0% {transform: translate(0,0);} 100% {transform: translate(-10%, -10%);} }
+        @keyframes moveBg { 
+            0% {transform: translate(0,0);} 
+            100% {transform: translate(-10%, -10%);} 
+        }
 
         .nav {
             position: fixed; top: 0; width: 100%; display: flex; justify-content: center;
@@ -41,11 +43,24 @@
         }
 
         .nav-links { display: flex; gap: 30px; }
-        .nav-item { border: none; background: none; color: var(--text); font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; position: relative; padding: 5px 0; }
-        .nav-item i { color: var(--rose); }
-        .nav-item.active::after { content: ""; position: absolute; width: 100%; height: 2px; bottom: -5px; left: 0; background: var(--rose); }
 
-        .container { max-width: 800px; margin: 120px auto 60px; padding: 0 20px; animation: fadeUp 1s ease; }
+        .nav-item { 
+            border: none; background: none; color: var(--text); 
+            font-size: 14px; cursor: pointer; display: flex; 
+            align-items: center; gap: 8px; position: relative; padding: 5px 0; 
+        }
+
+        .nav-item i { color: var(--rose); }
+
+        .nav-item.active::after { 
+            content: ""; position: absolute; width: 100%; height: 2px; 
+            bottom: -5px; left: 0; background: var(--rose); 
+        }
+
+        .container { 
+            max-width: 800px; margin: 120px auto 60px; padding: 0 20px; 
+            animation: fadeUp 1s ease; 
+        }
 
         .contact-card {
             background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(15px);
@@ -55,9 +70,12 @@
 
         h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 0; }
         h1 span { color: var(--rose); }
-        .line { width: 60px; height: 4px; background: var(--rose); margin: 15px auto 35px; border-radius: 2px; }
 
-        /* Grille des options */
+        .line { 
+            width: 60px; height: 4px; background: var(--rose); 
+            margin: 15px auto 35px; border-radius: 2px; 
+        }
+
         .contact-options {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -72,36 +90,45 @@
             transition: 0.3s;
         }
 
-        .option-box:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.6); }
+        .option-box:hover { 
+            transform: translateY(-5px); 
+            background: rgba(255, 255, 255, 0.6); 
+        }
 
-        /* BOUTONS NOIRS PAR DÉFAUT */
         .btn-action {
             display: block; width: 100%; padding: 12px; margin-top: 15px;
-            background: var(--text); /* Noir */
-            color: white; text-decoration: none;
+            background: var(--text); color: white; text-decoration: none;
             border-radius: 10px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s;
         }
 
-        .btn-action:hover { 
-            background: var(--rose); /* Rose au survol */
-            transform: translateY(-2px);
-        }
+        .btn-action:hover { background: var(--rose); }
 
-        /* Bouton CV tout en bas (Rose pour le faire ressortir, ou noir si tu préfères) */
+        /* Correction ici : même style que les autres */
+        .btn-gmail { background: var(--text); }
+        .btn-gmail:hover { background: var(--rose); }
+
         .cv-btn-large {
-            display: block; 
-            background: var(--rose); 
-            color: white; 
-            text-decoration: none;
+            display: block; background: var(--rose); color: white; text-decoration: none;
             padding: 18px; border-radius: 15px; font-weight: 600; margin-top: 20px; transition: 0.3s;
         }
-        .cv-btn-large:hover { transform: scale(1.02); background: var(--text); }
 
-        @keyframes fadeUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+        .cv-btn-large:hover { 
+            transform: scale(1.02); 
+            background: var(--text); 
+        }
 
-        @media(max-width:768px){ .contact-options { grid-template-columns: 1fr; } .nav-item span { display: none; } }
+        @keyframes fadeUp { 
+            from {opacity:0; transform: translateY(20px);} 
+            to {opacity:1; transform: translateY(0);} 
+        }
+
+        @media(max-width:768px){ 
+            .contact-options { grid-template-columns: 1fr; } 
+            .nav-item span { display: none; } 
+        }
     </style>
 </head>
+
 <body>
 
     <nav class="nav">
@@ -120,14 +147,50 @@
             <div class="line"></div>
             
             <div class="contact-options">
+
                 <div class="option-box">
-                    <i class="fas fa-copy" style="font-size: 2rem; color: var(--rose);"></i>
+                    <i class="fas fa-envelope" style="font-size: 2rem; color: var(--rose);"></i>
                     <h3>Email</h3>
                     <p style="font-size: 0.9rem;">claradecros@gmail.com</p>
                     <button class="btn-action" onclick="copyEmail()">Copier l'adresse</button>
                 </div>
 
                 <div class="option-box">
-                    <i class="fab fa-linkedin" style="font-size: 2rem; color: var(--rose);"></i>
+                    <i class="fab fa-linkedin" style="font-size: 2rem; color: #0077b5;"></i>
                     <h3>LinkedIn</h3>
-                    <p style="font-size:
+                    <p style="font-size: 0.9rem;">Clara Decros</p>
+                    <a href="https://www.linkedin.com/in/clara-decros-345502342" target="_blank" class="btn-action">Voir le profil</a>
+                </div>
+
+                <div class="option-box">
+                    <i class="fas fa-at" style="font-size: 2rem; color: #ea4335;"></i>
+                    <h3>Gmail</h3>
+                    <p style="font-size: 0.9rem;">Ouvrir dans le navigateur</p>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=claradecros@gmail.com" target="_blank" class="btn-action btn-gmail">Écrire un mail</a>
+                </div>
+
+                <div class="option-box">
+                    <i class="fas fa-phone" style="font-size: 2rem; color: #34b7f1;"></i>
+                    <h3>Téléphone</h3>
+                    <p style="font-size: 0.9rem;">06 19 20 01 72</p>
+                    <a href="tel:+33619200172" class="btn-action">Appeler</a>
+                </div>
+
+            </div>
+
+            <a href="Curriculum vitae DECROS Clara.pdf" target="_blank" download class="cv-btn-large">
+                <i class="fas fa-file-pdf"></i> Télécharger mon CV (PDF)
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function copyEmail() {
+            const email = "claradecros@gmail.com";
+            navigator.clipboard.writeText(email);
+            alert("L'adresse email a été copiée dans votre presse-papier !");
+        }
+    </script>
+
+</body>
+</html>
