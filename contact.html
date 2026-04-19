@@ -11,7 +11,7 @@
             --bg: #f8f6f4;
             --rose: #d4a3a3;
             --rose-soft: #e7c8c8;
-            --text: #2f2f2f;
+            --text: #2f2f2f; /* Ton noir/anthracite */
         }
 
         body {
@@ -74,19 +74,25 @@
 
         .option-box:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.6); }
 
+        /* BOUTONS NOIRS PAR DÉFAUT */
         .btn-action {
             display: block; width: 100%; padding: 12px; margin-top: 15px;
-            background: var(--text); color: white; text-decoration: none;
+            background: var(--text); /* Noir */
+            color: white; text-decoration: none;
             border-radius: 10px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s;
         }
 
-        .btn-action:hover { background: var(--rose); }
+        .btn-action:hover { 
+            background: var(--rose); /* Rose au survol */
+            transform: translateY(-2px);
+        }
 
-        .btn-gmail { background: #ea4335; }
-        .btn-gmail:hover { background: #c5221f; }
-
+        /* Bouton CV tout en bas (Rose pour le faire ressortir, ou noir si tu préfères) */
         .cv-btn-large {
-            display: block; background: var(--rose); color: white; text-decoration: none;
+            display: block; 
+            background: var(--rose); 
+            color: white; 
+            text-decoration: none;
             padding: 18px; border-radius: 15px; font-weight: 600; margin-top: 20px; transition: 0.3s;
         }
         .cv-btn-large:hover { transform: scale(1.02); background: var(--text); }
@@ -115,47 +121,13 @@
             
             <div class="contact-options">
                 <div class="option-box">
-                    <i class="fas fa-envelope" style="font-size: 2rem; color: var(--rose);"></i>
+                    <i class="fas fa-copy" style="font-size: 2rem; color: var(--rose);"></i>
                     <h3>Email</h3>
                     <p style="font-size: 0.9rem;">claradecros@gmail.com</p>
                     <button class="btn-action" onclick="copyEmail()">Copier l'adresse</button>
                 </div>
 
                 <div class="option-box">
-                    <i class="fab fa-linkedin" style="font-size: 2rem; color: #0077b5;"></i>
+                    <i class="fab fa-linkedin" style="font-size: 2rem; color: var(--rose);"></i>
                     <h3>LinkedIn</h3>
-                    <p style="font-size: 0.9rem;">Clara Decros</p>
-                    <a href="https://www.linkedin.com/in/clara-decros-345502342" target="_blank" class="btn-action">Voir le profil</a>
-                </div>
-
-                <div class="option-box">
-                    <i class="fas fa-at" style="font-size: 2rem; color: #ea4335;"></i>
-                    <h3>Gmail</h3>
-                    <p style="font-size: 0.9rem;">Ouvrir dans le navigateur</p>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=claradecros@gmail.com" target="_blank" class="btn-action btn-gmail">Écrire un mail</a>
-                </div>
-
-                <div class="option-box">
-                    <i class="fas fa-phone" style="font-size: 2rem; color: #34b7f1;"></i>
-                    <h3>Téléphone</h3>
-                    <p style="font-size: 0.9rem;">06 19 20 01 72</p>
-                    <a href="tel:+33619200172" class="btn-action">Appeler</a>
-                </div>
-            </div>
-
-            <a href="Curriculum vitae DECROS Clara.pdf" target="_blank" download class="cv-btn-large">
-                <i class="fas fa-file-pdf"></i> Télécharger mon CV (PDF)
-            </a>
-        </div>
-    </div>
-
-    <script>
-        function copyEmail() {
-            const email = "claradecros@gmail.com";
-            navigator.clipboard.writeText(email);
-            alert("L'adresse email a été copiée dans votre presse-papier !");
-        }
-    </script>
-
-</body>
-</html>
+                    <p style="font-size:
