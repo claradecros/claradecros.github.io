@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* Arrière-plan animé identique à l'index */
+        /* Arrière-plan animé */
         body::before {
             content: "";
             position: fixed;
@@ -42,7 +42,7 @@
             100% {transform: translate(-10%, -10%);}
         }
 
-        /* Navigation identique */
+        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
@@ -177,7 +177,7 @@
             box-shadow: 0 12px 28px rgba(0,0,0,0.12);
         }
 
-        /* Galerie Album Photo pour les Pâtisseries */
+        /* Galerie Album Photo pour les Pâtisseries (plus grandes) */
         .album-container {
             display: flex;
             justify-content: center;
@@ -190,13 +190,13 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 24px;
-            max-width: 850px;
+            max-width: 950px;
             margin: 0 auto;
         }
 
         .album-grid .album-img {
-            width: 155px;
-            height: 155px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
         }
 
@@ -229,8 +229,8 @@
                 gap: 16px;
             }
             .album-grid .album-img {
-                width: 120px;
-                height: 120px;
+                width: 130px;
+                height: 130px;
             }
             .section-divider {
                 width: 80%;
