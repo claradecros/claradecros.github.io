@@ -141,6 +141,10 @@
             transform: translateY(-3px);
         }
 
+        .block.text-only {
+            grid-template-columns: 1fr;
+        }
+
         .block.reverse {
             grid-template-columns: 1fr 1.2fr;
         }
@@ -177,6 +181,47 @@
             transform: scale(1.04);
         }
 
+        /* Album photos en vrac */
+        .album-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .album-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .album-grid img {
+            width: 42%;
+            height: auto;
+            border-radius: 12px;
+            background: var(--white);
+            padding: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+        }
+
+        .album-grid img:nth-child(odd) {
+            transform: rotate(-3deg);
+        }
+
+        .album-grid img:nth-child(even) {
+            transform: rotate(3deg);
+        }
+
+        .album-grid img:hover {
+            transform: scale(1.06) rotate(0deg) !important;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -207,6 +252,13 @@
                 padding: 35px;
                 gap: 35px;
             }
+            .album-grid {
+                max-width: 100%;
+                gap: 16px;
+            }
+            .album-grid img {
+                width: 45%;
+            }
             .photo-grid { grid-template-columns: repeat(2, 1fr); }
             .photo-grid img:nth-child(1) { grid-row: auto; height: 220px; }
             h1 { font-size: 2.8rem; }
@@ -230,16 +282,13 @@
     <h1>À propos de <span>moi</span></h1>
     <div class="line"></div>
 
-    <div class="block">
+    <div class="block text-only">
         <div class="text">
             <p>Actuellement en première année de BUT Science des données, j’ai toujours eu une affinité pour les matières littéraires. Écrire et laisser libre cours à mon imagination ont toujours été mes points forts. Cependant, en grandissant, j’ai compris que les matières scientifiques m’accompagneraient tout au long de ma scolarité. J’ai donc dû m’adapter et apprivoiser ces disciplines qui ne me facilitaient pas la tâche. Ma détermination et ma capacité à ne jamais baisser les bras ont été mes plus grandes forces pour surmonter les obstacles sur mon parcours scolaire.</p>
 
             <p>Au-delà de mon envie de me démarquer, un rêve est né en moi. Après avoir lu plusieurs livres retraçant les expériences d’un célèbre médecin légiste français, je me suis découvert une passion pour la médecine. Moi qui avais toujours été une élève dans la moyenne, je rêvais désormais de faire des études de médecine. Pour y parvenir, j’ai choisi des spécialités à l’encontre des mes facilités (SVT et Physique-chimie), pris deux options supplémentaires et réalisé des stages pendant mes vacances. Mon objectif était de me démarquer et d’avoir un dossier solide pour intégrer la formation LAS.</p>
 
             <p>Malheureusement, cette expérience m’a appris qu’il ne suffit pas toujours d’avoir de l’ambition pour surpasser toutes les difficultés. Placée sur liste d’attente, mon rêve s’est effondré. Cependant, j’avais un deuxième choix : le BUT Science des données à l’Université de Poitiers. Cette formation correspondait à mes compétences et avait déjà été brillamment réussie par mon frère. Mes parents m’ont encouragée à suivre cette voie, me rassurant sur ma principale crainte : l’aspect informatique.</p>
-        </div>
-        <div class="img-wrapper">
-            <img src="photocinema.jpeg" class="img-main" alt="Clara Decros">
         </div>
     </div>
 
@@ -256,12 +305,14 @@
         <div class="text">
             <p>Mon père m’a également transmis son amour de la cuisine, et plus particulièrement de la pâtisserie. Toujours en quête de progression, j’aime tester de nouvelles recettes et je prends plaisir à les partager avec mes amis et ma famille. J’accueille volontiers leurs critiques pour m'améliorer. Cette passion m’a appris la rigueur et le perfectionnisme.</p>
         </div>
-        <div class="photo-grid">
-            <img src="photopatisserie2.jpeg" alt="Pâtisserie 1">
-            <img src="photopatisserie3.jpeg" alt="Pâtisserie 2">
-            <img src="tarte.jpeg" alt="Tarte faite maison">
-            <img src="photopatisserie4.jpeg" alt="Pâtisserie 3">
-            <img src="photopatisserie5.jpeg" alt="Pâtisserie 4">
+        <div class="album-container">
+            <div class="album-grid">
+                <img src="photopatisserie2.jpeg" alt="Pâtisserie 1">
+                <img src="photopatisserie3.jpeg" alt="Pâtisserie 2">
+                <img src="tarte.jpeg" alt="Tarte faite maison">
+                <img src="photopatisserie4.jpeg" alt="Pâtisserie 3">
+                <img src="photopatisserie5.jpeg" alt="Pâtisserie 4">
+            </div>
         </div>
     </div>
 
