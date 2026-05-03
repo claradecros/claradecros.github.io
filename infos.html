@@ -82,8 +82,8 @@
         .nav-item:hover::after, .nav-item.active::after { width: 100%; }
 
         .container {
-            max-width: 1100px;
-            margin: 120px auto;
+            max-width: 1200px;
+            margin: 120px auto 60px;
             padding: 40px;
         }
 
@@ -102,51 +102,60 @@
             margin: 10px auto 50px;
         }
 
-        .section {
+        .block {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
             align-items: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
-        .section.reverse { direction: rtl; }
-        .section.reverse * { direction: ltr; }
+        .block.reverse {
+            grid-template-columns: 1fr 1.2fr;
+        }
 
-        p {
-            line-height: 1.8;
-            font-size: 1.05rem;
+        .text p {
+            line-height: 1.9;
+            margin-bottom: 20px;
+            text-align: justify;
         }
 
         .img-main {
             width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: 0.3s;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: 0.4s;
         }
 
-        .img-main:hover { transform: scale(1.03); }
+        .img-main:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
 
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 180px;
             gap: 15px;
         }
 
         .photo-grid img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
             border-radius: 15px;
-            transition: 0.3s;
+            transition: 0.4s;
         }
 
+        .photo-grid img:nth-child(1) { grid-row: span 2; }
+        .photo-grid img:nth-child(4) { grid-column: span 2; }
+
         .photo-grid img:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         @media(max-width:900px){
-            .section { grid-template-columns: 1fr; }
+            .block { grid-template-columns: 1fr; }
+            .block.reverse { grid-template-columns: 1fr; }
             .photo-grid { grid-template-columns: repeat(2,1fr); }
         }
     </style>
@@ -167,24 +176,41 @@
     <h1>À propos de <span>moi</span></h1>
     <div class="line"></div>
 
-    <div class="section">
-        <p>Actuellement en BUT Science des données, mon parcours est marqué par une évolution constante entre créativité et rigueur scientifique. J’ai appris à transformer mes difficultés en force grâce à ma détermination.</p>
+    <div class="block">
+        <div class="text">
+            <p>Actuellement en première année de BUT Science des données, j’ai toujours eu une affinité pour les matières littéraires. Écrire et laisser libre cours à mon imagination ont toujours été mes points forts. Cependant, en grandissant, j’ai compris que les matières scientifiques m’accompagneraient tout au long de ma scolarité. J’ai donc dû m’adapter et apprivoiser ces disciplines qui ne me facilitaient pas la tâche. Ma détermination et ma capacité à ne jamais baisser les bras ont été mes plus grandes forces pour surmonter les obstacles sur mon parcours scolaire.</p>
+
+            <p>Au-delà de mon envie de me démarquer, un rêve est né en moi. Après avoir lu plusieurs livres retraçant les expériences d’un célèbre médecin légiste français, je me suis découvert une passion pour la médecine. Moi qui avais toujours été une élève dans la moyenne, je rêvais désormais de faire des études de médecine. Pour y parvenir, j’ai choisi des spécialités à l’encontre des mes facilités (SVT et Physique-chimie), pris deux options supplémentaires et réalisé des stages pendant mes vacances. Mon objectif était de me démarquer et d’avoir un dossier solide pour intégrer la formation LAS.</p>
+
+            <p>Malheureusement, cette expérience m’a appris qu’il ne suffit pas toujours d’avoir de l’ambition pour surpasser toutes les difficultés. Placée sur liste d’attente, mon rêve s’est effondré. Cependant, j’avais un deuxième choix : le BUT Science des données à l’Université de Poitiers. Cette formation correspondait à mes compétences et avait déjà été brillamment réussie par mon frère. Mes parents m’ont encouragée à suivre cette voie, me rassurant sur ma principale crainte : l’aspect informatique.</p>
+        </div>
         <img src="photocinema.jpeg" class="img-main">
     </div>
 
-    <div class="section reverse">
-        <img src="photodessin.jpeg" class="img-main">
-        <p>Le dessin est devenu une discipline personnelle exigeante. Il reflète ma capacité à progresser avec patience et régularité.</p>
+    <div class="block reverse">
+        <img src="photocinema.jpeg" class="img-main">
+        <div class="text">
+            <p>Mes passions ont également été influencées par ma famille. Mon père et mon frère, tous deux grands cinéphiles, m’ont transmis leur amour du cinéma dès mon plus âge. J’ai développé une préférence pour les films d’horreur et d’épouvante. Mon frère m’a même aidée à créer mon propre blog de critiques. Cette passion a affiné mon sens critique et mon esprit d’analyse.</p>
+        </div>
     </div>
 
-    <div class="section">
-        <p>La pâtisserie représente pour moi précision, créativité et partage. Chaque recette est un défi que je relève avec passion.</p>
+    <div class="block">
+        <div class="text">
+            <p>Mon père m’a également transmis son amour de la cuisine, et plus particulièrement de la pâtisserie. Toujours en quête de progression, j’aime tester de nouvelles recettes et je prends plaisir à les partager avec mes amis et ma famille. J’accueille volontiers leurs critiques pour m'améliorer. Cette passion m’a appris la rigueur et le perfectionnisme.</p>
+        </div>
         <div class="photo-grid">
             <img src="photopatisserie2.jpeg">
             <img src="photopatisserie3.jpeg">
             <img src="tarte.jpeg">
             <img src="photopatisserie4.jpeg">
             <img src="photopatisserie5.jpeg">
+        </div>
+    </div>
+
+    <div class="block reverse">
+        <img src="photodessin.jpeg" class="img-main">
+        <div class="text">
+            <p>Pour finir, ma troisième passion est le dessin. C’est la plus récente et celle qui me demande le plus d’assiduité. N’étant pas née avec un don particulier, c’est le travail et l’expérience qui m’ont permis de progresser. Cette passion m’a enseigné l’importance d’un travail régulier et appliqué.</p>
         </div>
     </div>
 
