@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* Arrière-plan animé identique à l'index */
+        /* Arrière-plan animé */
         body::before {
             content: "";
             position: fixed;
@@ -42,7 +42,7 @@
             100% {transform: translate(-10%, -10%);}
         }
 
-        /* Navigation identique */
+        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
@@ -148,50 +148,47 @@
             transform: scale(1.02);
         }
 
-        /* Galerie asymétrique dynamique pour les pâtisseries */
-        .pastry-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        /* Effet "Album Photo" pour la pâtisserie */
+        .album-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 40px 0;
         }
 
-        .pastry-gallery img {
-            width: 100%;
-            height: 100%;
+        .album-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .album-grid img {
+            width: 155px;
+            height: 155px;
             object-fit: cover;
-            border-radius: 18px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            background: var(--white);
+            padding: 8px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            border: 1.5px solid var(--rose-soft);
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
         }
 
-        .pastry-gallery img:hover {
-            transform: scale(1.03) translateY(-3px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        .album-grid img:nth-child(odd) {
+            transform: rotate(-3deg);
         }
 
-        /* Disposition asymétrique des photos */
-        .pastry-gallery img:nth-child(1) {
-            grid-column: span 2;
-            grid-row: span 2;
-            height: 350px;
+        .album-grid img:nth-child(even) {
+            transform: rotate(3deg);
         }
 
-        .pastry-gallery img:nth-child(2) {
-            height: 165px;
-        }
-
-        .pastry-gallery img:nth-child(3) {
-            height: 165px;
-        }
-
-        .pastry-gallery img:nth-child(4) {
-            grid-column: span 2;
-            height: 210px;
-        }
-
-        .pastry-gallery img:nth-child(5) {
-            height: 210px;
+        .album-grid img:hover {
+            transform: scale(1.06) rotate(0deg) !important;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+            z-index: 10;
         }
 
         @keyframes fadeUp {
@@ -204,14 +201,13 @@
             h1 { font-size: 2.2rem; }
             .nav-links { gap: 10px; }
             .nav-item span { display: none; } /* Garde les icônes sur mobile */
-            
-            .pastry-gallery {
-                grid-template-columns: 1fr;
+
+            .album-grid {
+                gap: 16px;
             }
-            .pastry-gallery img {
-                height: 240px !important;
-                grid-column: span 1 !important;
-                grid-row: span 1 !important;
+            .album-grid img {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
@@ -242,12 +238,14 @@
 
         <p>Mes passions ont également été influencées par ma famille. Mon père et mon frère, tous deux grands cinéphiles, m’ont transmis leur amour du cinéma dès mon plus âge. J’ai développé une préférence pour les films d’horreur et d’épouvante. Mon frère m’a même aidée à créer mon propre blog de critiques. Cette passion a affiné mon sens critique et mon esprit d’analyse.</p>
 
-        <div class="pastry-gallery">
-            <img src="photopatisserie2.jpeg" alt="Pâtisserie 2">
-            <img src="photopatisserie3.jpeg" alt="Pâtisserie 3">
-            <img src="tarte.jpeg" alt="Tarte faite maison">
-            <img src="photopatisserie4.jpeg" alt="Pâtisserie 4">
-            <img src="photopatisserie5.jpeg" alt="Pâtisserie 5">
+        <div class="album-container">
+            <div class="album-grid">
+                <img src="photopatisserie2.jpeg" alt="Pâtisserie 2">
+                <img src="photopatisserie3.jpeg" alt="Pâtisserie 3">
+                <img src="tarte.jpeg" alt="Tarte faite maison">
+                <img src="photopatisserie4.jpeg" alt="Pâtisserie 4">
+                <img src="photopatisserie5.jpeg" alt="Pâtisserie 5">
+            </div>
         </div>
 
         <p>Mon père m’a également transmis son amour de la cuisine, et plus particulièrement de la pâtisserie. Toujours en quête de progression, j’aime tester de nouvelles recettes et je prends plaisir à les partager avec mes amis et ma famille. J’accueille volontiers leurs critiques pour m'améliorer. Cette passion m’a appris la rigueur et le perfectionnisme.</p>
