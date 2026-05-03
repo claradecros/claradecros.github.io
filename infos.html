@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos de moi | Clara Decros</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -24,6 +24,7 @@
             overflow-x: hidden;
         }
 
+        /* Arrière-plan animé identique à l'index */
         body::before {
             content: "";
             position: fixed;
@@ -37,305 +38,224 @@
         }
 
         @keyframes moveBg {
-            0% {transform: translate(0,0);} 
-            100% {transform: translate(-10%, -10%);} 
+            0% {transform: translate(0,0);}
+            100% {transform: translate(-10%, -10%);}
         }
 
+        /* Navigation identique */
         .nav {
             position: fixed;
             top: 0;
             width: 100%;
             display: flex;
             justify-content: center;
-            padding: 20px 0;
-            backdrop-filter: blur(12px);
-            background: rgba(248, 246, 244, 0.85);
-            border-bottom: 1px solid rgba(232, 223, 216, 0.4);
+            padding: 15px 0;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.7);
             z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .nav-links { display: flex; gap: 40px; }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
 
         .nav-item {
             border: none;
             background: none;
             color: var(--text);
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 500;
+            font-size: 14px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             position: relative;
-            transition: color 0.3s ease, transform 0.2s ease;
+            padding: 5px 0;
+            transition: 0.3s;
         }
 
-        .nav-item:hover {
+        .nav-item i {
             color: var(--rose);
-            transform: translateY(-2px);
         }
-
-        .nav-item i { color: var(--rose); font-size: 1.1rem; }
 
         .nav-item::after {
             content: "";
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -8px;
+            bottom: -5px;
             left: 0;
             background: linear-gradient(90deg, var(--rose), var(--rose-soft));
-            transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: 0.3s;
         }
 
-        .nav-item:hover::after, .nav-item.active::after { width: 100%; }
-
-        .nav-item.active {
-            color: var(--rose);
-            font-weight: 600;
+        .nav-item:hover::after, .nav-item.active::after {
+            width: 100%;
         }
 
+        /* Conteneur de contenu */
         .container {
-            max-width: 1200px;
-            margin: 160px auto 80px;
+            max-width: 900px;
+            margin: 120px auto 60px;
             padding: 40px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            animation: fadeUp 1s ease;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 15px;
+            font-size: 3rem;
             color: var(--text);
-            letter-spacing: 0.5px;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
-        h1 span { color: var(--rose); }
+        h1 span {
+            color: var(--rose);
+        }
 
         .line {
-            width: 120px;
+            width: 100px;
             height: 4px;
             background: linear-gradient(90deg, var(--rose), var(--rose-soft));
-            margin: 0 auto 60px;
+            margin: 0 auto 40px;
             border-radius: 2px;
         }
 
-        .block {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 80px;
-            background: rgba(255, 255, 255, 0.75);
-            padding: 55px;
-            border-radius: 36px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(16px);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-        }
-
-        .block:hover {
-            box-shadow: 0 16px 50px rgba(0,0,0,0.06);
-            transform: translateY(-3px);
-        }
-
-        .block.text-only {
-            grid-template-columns: 1fr;
-        }
-
-        .block.block-vertical {
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        .block.reverse {
-            grid-template-columns: 1fr 1.2fr;
-        }
-
-        .text p {
-            line-height: 2;
-            margin-bottom: 24px;
-            text-align: justify;
+        p {
+            line-height: 1.8;
             font-size: 1.05rem;
-            color: #444444;
+            margin-bottom: 25px;
+            text-align: justify;
         }
 
-        .text p:last-child {
-            margin-bottom: 0;
-        }
-
-        .img-wrapper {
-            position: relative;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            transition: box-shadow 0.4s ease;
-        }
-
+        /* Style des images principales */
         .img-main {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 600px;
             display: block;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            margin: 30px auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .img-wrapper:hover .img-main {
-            transform: scale(1.04);
+        .img-main:hover {
+            transform: scale(1.02);
         }
 
-        /* Album photos en vrac */
-        .album-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .album-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .album-grid img {
-            max-width: 180px;
-            max-height: 180px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border-radius: 12px;
-            background: var(--white);
-            padding: 8px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-            border: 1.5px solid var(--rose-soft);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-        }
-
-        .album-grid img:nth-child(odd) {
-            transform: rotate(-3deg);
-        }
-
-        .album-grid img:nth-child(even) {
-            transform: rotate(3deg);
-        }
-
-        .album-grid img:hover {
-            transform: scale(1.06) rotate(0deg) !important;
-            box-shadow: 0 10px 24px rgba(0,0,0,0.1);
-            z-index: 10;
-        }
-
-        .photo-grid {
+        /* Galerie asymétrique dynamique pour les pâtisseries */
+        .pastry-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 190px;
-            gap: 16px;
+            gap: 20px;
+            margin: 40px 0;
         }
 
-        .photo-grid img {
+        .pastry-gallery img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 18px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
         }
 
-        .photo-grid img:nth-child(1) { grid-row: span 2; }
-        .photo-grid img:nth-child(4) { grid-column: span 2; }
-
-        .photo-grid img:hover {
+        .pastry-gallery img:hover {
             transform: scale(1.03) translateY(-3px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
         }
 
-        @media(max-width: 1024px){
-            .block { 
-                grid-template-columns: 1fr !important; 
-                padding: 35px;
-                gap: 35px;
+        /* Disposition asymétrique des photos */
+        .pastry-gallery img:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+            height: 350px;
+        }
+
+        .pastry-gallery img:nth-child(2) {
+            height: 165px;
+        }
+
+        .pastry-gallery img:nth-child(3) {
+            height: 165px;
+        }
+
+        .pastry-gallery img:nth-child(4) {
+            grid-column: span 2;
+            height: 210px;
+        }
+
+        .pastry-gallery img:nth-child(5) {
+            height: 210px;
+        }
+
+        @keyframes fadeUp {
+            from {opacity:0; transform: translateY(30px);}
+            to {opacity:1; transform: translateY(0);}
+        }
+
+        @media(max-width:768px){
+            .container { margin: 100px 20px 40px; padding: 25px; }
+            h1 { font-size: 2.2rem; }
+            .nav-links { gap: 10px; }
+            .nav-item span { display: none; } /* Garde les icônes sur mobile */
+            
+            .pastry-gallery {
+                grid-template-columns: 1fr;
             }
-            .album-grid {
-                max-width: 100%;
-                gap: 16px;
+            .pastry-gallery img {
+                height: 240px !important;
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
             }
-            .album-grid img {
-                max-width: 130px;
-                max-height: 130px;
-            }
-            .photo-grid { grid-template-columns: repeat(2, 1fr); }
-            .photo-grid img:nth-child(1) { grid-row: auto; height: 220px; }
-            h1 { font-size: 2.8rem; }
-            .nav-links { gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-<nav class="nav">
-    <div class="nav-links">
-        <button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i><span>Accueil</span></button>
-        <button class="nav-item active" onclick="location.href='infos.html'"><i class="fas fa-user"></i><span>Profil</span></button>
-        <button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i><span>Projets</span></button>
-        <button class="nav-item" onclick="location.href='bilan.html'"><i class="fas fa-book"></i><span>Bilan</span></button>
-        <button class="nav-item" onclick="location.href='contact.html'"><i class="fas fa-phone"></i><span>Contact</span></button>
+    <nav class="nav">
+        <div class="nav-links">
+            <button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i><span>Accueil</span></button>
+            <button class="nav-item active" onclick="location.href='infos.html'"><i class="fas fa-user"></i><span>Profil</span></button>
+            <button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i><span>Projets</span></button>
+            <button class="nav-item" onclick="location.href='bilan.html'"><i class="fas fa-book"></i><span>Bilan</span></button>
+            <button class="nav-item" onclick="location.href='contact.html'"><i class="fas fa-phone"></i><span>Contact</span></button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>À propos de <span>moi</span></h1>
+        <div class="line"></div>
+
+        <p>Actuellement en première année de BUT Science des données, j’ai toujours eu une affinité pour les matières littéraires. Écrire et laisser libre cours à mon imagination ont toujours été mes points forts. Cependant, en grandissant, j’ai compris que les matières scientifiques m’accompagneraient tout au long de ma scolarité. J’ai donc dû m’adapter et apprivoiser ces disciplines qui ne me facilitaient pas la tâche. Ma détermination et ma capacité à ne jamais baisser les bras ont été mes plus grandes forces pour surmonter les obstacles sur mon parcours scolaire.</p>
+
+        <p>Au-delà de mon envie de me démarquer, un rêve est né en moi. Après avoir lu plusieurs livres retraçant les expériences d’un célèbre médecin légiste français, je me suis découvert une passion pour la médecine. Moi qui avais toujours été une élève dans la moyenne, je rêvais désormais de faire des études de médecine. Pour y parvenir, j’ai choisi des spécialités à l’encontre des mes facilités (SVT et Physique-chimie), pris deux options supplémentaires et réalisé des stages pendant mes vacances. Mon objectif était de me démarquer et d’avoir un dossier solide pour intégrer la formation LAS.</p>
+
+        <p>Malheureusement, cette expérience m’a appris qu’il ne suffit pas toujours d’avoir de l’ambition pour surpasser toutes les difficultés. Placée sur liste d’attente, mon rêve s’est effondré. Cependant, j’avais un deuxième choix : le BUT Science des données à l’Université de Poitiers. Cette formation correspondait à mes compétences et avait déjà été brillamment réussie par mon frère. Mes parents m’ont encouragée à suivre cette voie, me rassurant sur ma principale crainte : l’aspect informatique.</p>
+
+        <img src="photocinema.jpeg" alt="Passion Cinéma" class="img-main">
+
+        <p>Mes passions ont également été influencées par ma famille. Mon père et mon frère, tous deux grands cinéphiles, m’ont transmis leur amour du cinéma dès mon plus âge. J’ai développé une préférence pour les films d’horreur et d’épouvante. Mon frère m’a même aidée à créer mon propre blog de critiques. Cette passion a affiné mon sens critique et mon esprit d’analyse.</p>
+
+        <div class="pastry-gallery">
+            <img src="photopatisserie2.jpeg" alt="Pâtisserie 2">
+            <img src="photopatisserie3.jpeg" alt="Pâtisserie 3">
+            <img src="tarte.jpeg" alt="Tarte faite maison">
+            <img src="photopatisserie4.jpeg" alt="Pâtisserie 4">
+            <img src="photopatisserie5.jpeg" alt="Pâtisserie 5">
+        </div>
+
+        <p>Mon père m’a également transmis son amour de la cuisine, et plus particulièrement de la pâtisserie. Toujours en quête de progression, j’aime tester de nouvelles recettes et je prends plaisir à les partager avec mes amis et ma famille. J’accueille volontiers leurs critiques pour m'améliorer. Cette passion m’a appris la rigueur et le perfectionnisme.</p>
+
+        <img src="photodessin.jpeg" alt="Mes dessins" class="img-main">
+
+        <p>Pour finir, ma troisième passion est le dessin. C’est la plus récente et celle qui me demande le plus d’assiduité. N’étant pas née avec un don particulier, c’est le travail et l’expérience qui m’ont permis de progresser. Cette passion m’a enseigné l’importance d’un travail régulier et appliqué.</p>
     </div>
-</nav>
-
-<div class="container">
-    <h1>À propos de <span>moi</span></h1>
-    <div class="line"></div>
-
-    <div class="block text-only">
-        <div class="text">
-            <p>Actuellement en première année de BUT Science des données, j’ai toujours eu une affinité pour les matières littéraires. Écrire et laisser libre cours à mon imagination ont toujours été mes points forts. Cependant, en grandissant, j’ai compris que les matières scientifiques m’accompagneraient tout au long de ma scolarité. J’ai donc dû m’adapter et apprivoiser ces disciplines qui ne me facilitaient pas la tâche. Ma détermination et ma capacité à ne jamais baisser les bras ont été mes plus grandes forces pour surmonter les obstacles sur mon parcours scolaire.</p>
-
-            <p>Au-delà de mon envie de me démarquer, un rêve est né en moi. Après avoir lu plusieurs livres retraçant les expériences d’un célèbre médecin légiste français, je me suis découvert une passion pour la médecine. Moi qui avais toujours été une élève dans la moyenne, je rêvais désormais de faire des études de médecine. Pour y parvenir, j’ai choisi des spécialités à l’encontre des mes facilités (SVT et Physique-chimie), pris deux options supplémentaires et réalisé des stages pendant mes vacances. Mon objectif était de me démarquer et d’avoir un dossier solide pour intégrer la formation LAS.</p>
-
-            <p>Malheureusement, cette expérience m’a appris qu’il ne suffit pas toujours d’avoir de l’ambition pour surpasser toutes les difficultés. Placée sur liste d’attente, mon rêve s’est effondré. Cependant, j’avais un deuxième choix : le BUT Science des données à l’Université de Poitiers. Cette formation correspondait à mes compétences et avait déjà été brillamment réussie par mon frère. Mes parents m’ont encouragée à suivre cette voie, me rassurant sur ma principale crainte : l’aspect informatique.</p>
-        </div>
-    </div>
-
-    <div class="block reverse">
-        <div class="img-wrapper">
-            <img src="photocinema.jpeg" class="img-main" alt="Cinéma et audiovisuel">
-        </div>
-        <div class="text">
-            <p>Mes passions ont également été influencées par ma famille. Mon père et mon frère, tous deux grands cinéphiles, m’ont transmis leur amour du cinéma dès mon plus âge. J’ai développé une préférence pour les films d’horreur et d’épouvante. Mon frère m’a même aidée à créer mon propre blog de critiques. Cette passion a affiné mon sens critique et mon esprit d’analyse.</p>
-        </div>
-    </div>
-
-    <div class="block block-vertical">
-        <div class="text">
-            <p>Mon père m’a également transmis son amour de la cuisine, et plus particulièrement de la pâtisserie. Toujours en quête de progression, j’aime tester de nouvelles recettes et je prends plaisir à les partager avec mes amis et ma famille. J’accueille volontiers leurs critiques pour m'améliorer. Cette passion m’a appris la rigueur et le perfectionnisme.</p>
-        </div>
-        <div class="album-container">
-            <div class="album-grid">
-                <img src="photopatisserie2.jpeg" alt="Pâtisserie 1">
-                <img src="photopatisserie3.jpeg" alt="Pâtisserie 2">
-                <img src="tarte.jpeg" alt="Tarte faite maison">
-                <img src="photopatisserie4.jpeg" alt="Pâtisserie 3">
-                <img src="photopatisserie5.jpeg" alt="Pâtisserie 4">
-            </div>
-        </div>
-    </div>
-
-    <div class="block reverse">
-        <div class="img-wrapper">
-            <img src="photodessin.jpeg" class="img-main" alt="Dessin">
-        </div>
-        <div class="text">
-            <p>Pour finir, ma troisième passion est le dessin. C’est la plus récente et celle qui me demande le plus d’assiduité. N’étant pas née avec un don particulier, c’est le travail et l’expérience qui m’ont permis de progresser. Cette passion m’a enseigné l’importance d’un travail régulier et appliqué.</p>
-        </div>
-    </div>
-
-</div>
 
 </body>
 </html>
