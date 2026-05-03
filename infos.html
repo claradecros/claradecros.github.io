@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* Arrière-plan animé */
+        /* Arrière-plan animé identique à l'index */
         body::before {
             content: "";
             position: fixed;
@@ -42,7 +42,7 @@
             100% {transform: translate(-10%, -10%);}
         }
 
-        /* Navigation */
+        /* Navigation identique */
         .nav {
             position: fixed;
             top: 0;
@@ -133,22 +133,51 @@
             text-align: justify;
         }
 
+        /* Séparateurs de sections */
+        .section-divider {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--rose-soft), transparent);
+            margin: 40px auto;
+            width: 60%;
+        }
+
         /* Style des images principales */
         .img-main {
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             display: block;
-            margin: 30px auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            margin: 40px auto;
         }
 
-        .img-main:hover {
-            transform: scale(1.02);
+        /* Effet "Album Photo" pour toutes les images */
+        .album-img {
+            background: var(--white);
+            padding: 10px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            border: 1.5px solid var(--rose-soft);
+            border-radius: 16px;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
         }
 
-        /* Effet "Album Photo" pour la pâtisserie */
+        .img-main.album-img {
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+        }
+
+        .img-main.album-img:nth-child(odd) {
+            transform: rotate(-1.5deg);
+        }
+
+        .img-main.album-img:nth-child(even) {
+            transform: rotate(1.5deg);
+        }
+
+        .img-main.album-img:hover {
+            transform: scale(1.02) rotate(0deg) !important;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+
+        /* Galerie Album Photo pour les Pâtisseries */
         .album-container {
             display: flex;
             justify-content: center;
@@ -165,27 +194,21 @@
             margin: 0 auto;
         }
 
-        .album-grid img {
+        .album-grid .album-img {
             width: 155px;
             height: 155px;
             object-fit: cover;
-            border-radius: 12px;
-            background: var(--white);
-            padding: 8px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-            border: 1.5px solid var(--rose-soft);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
         }
 
-        .album-grid img:nth-child(odd) {
+        .album-grid .album-img:nth-child(odd) {
             transform: rotate(-3deg);
         }
 
-        .album-grid img:nth-child(even) {
+        .album-grid .album-img:nth-child(even) {
             transform: rotate(3deg);
         }
 
-        .album-grid img:hover {
+        .album-grid .album-img:hover {
             transform: scale(1.06) rotate(0deg) !important;
             box-shadow: 0 10px 24px rgba(0,0,0,0.1);
             z-index: 10;
@@ -205,9 +228,13 @@
             .album-grid {
                 gap: 16px;
             }
-            .album-grid img {
+            .album-grid .album-img {
                 width: 120px;
                 height: 120px;
+            }
+            .section-divider {
+                width: 80%;
+                margin: 30px auto;
             }
         }
     </style>
@@ -234,23 +261,35 @@
 
         <p>Malheureusement, cette expérience m’a appris qu’il ne suffit pas toujours d’avoir de l’ambition pour surpasser toutes les difficultés. Placée sur liste d’attente, mon rêve s’est effondré. Cependant, j’avais un deuxième choix : le BUT Science des données à l’Université de Poitiers. Cette formation correspondait à mes compétences et avait déjà été brillamment réussie par mon frère. Mes parents m’ont encouragée à suivre cette voie, me rassurant sur ma principale crainte : l’aspect informatique.</p>
 
-        <img src="photocinema.jpeg" alt="Passion Cinéma" class="img-main">
+        <hr class="section-divider">
+
+        <img src="photocinema.jpeg" alt="Passion Cinéma" class="img-main album-img">
+
+        <hr class="section-divider">
 
         <p>Mes passions ont également été influencées par ma famille. Mon père et mon frère, tous deux grands cinéphiles, m’ont transmis leur amour du cinéma dès mon plus âge. J’ai développé une préférence pour les films d’horreur et d’épouvante. Mon frère m’a même aidée à créer mon propre blog de critiques. Cette passion a affiné mon sens critique et mon esprit d’analyse.</p>
 
+        <hr class="section-divider">
+
         <div class="album-container">
             <div class="album-grid">
-                <img src="photopatisserie2.jpeg" alt="Pâtisserie 2">
-                <img src="photopatisserie3.jpeg" alt="Pâtisserie 3">
-                <img src="tarte.jpeg" alt="Tarte faite maison">
-                <img src="photopatisserie4.jpeg" alt="Pâtisserie 4">
-                <img src="photopatisserie5.jpeg" alt="Pâtisserie 5">
+                <img src="photopatisserie2.jpeg" alt="Pâtisserie 2" class="album-img">
+                <img src="photopatisserie3.jpeg" alt="Pâtisserie 3" class="album-img">
+                <img src="tarte.jpeg" alt="Tarte faite maison" class="album-img">
+                <img src="photopatisserie4.jpeg" alt="Pâtisserie 4" class="album-img">
+                <img src="photopatisserie5.jpeg" alt="Pâtisserie 5" class="album-img">
             </div>
         </div>
 
+        <hr class="section-divider">
+
         <p>Mon père m’a également transmis son amour de la cuisine, et plus particulièrement de la pâtisserie. Toujours en quête de progression, j’aime tester de nouvelles recettes et je prends plaisir à les partager avec mes amis et ma famille. J’accueille volontiers leurs critiques pour m'améliorer. Cette passion m’a appris la rigueur et le perfectionnisme.</p>
 
-        <img src="photodessin.jpeg" alt="Mes dessins" class="img-main">
+        <hr class="section-divider">
+
+        <img src="photodessin.jpeg" alt="Mes dessins" class="img-main album-img">
+
+        <hr class="section-divider">
 
         <p>Pour finir, ma troisième passion est le dessin. C’est la plus récente et celle qui me demande le plus d’assiduité. N’étant pas née avec un don particulier, c’est le travail et l’expérience qui m’ont permis de progresser. Cette passion m’a enseigné l’importance d’un travail régulier et appliqué.</p>
     </div>
