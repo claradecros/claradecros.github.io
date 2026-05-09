@@ -487,6 +487,66 @@
 
         }
 
+        /* LIGHTBOX */
+
+        .lightbox{
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,0.82);
+            backdrop-filter:blur(10px);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            opacity:0;
+            visibility:hidden;
+            transition:0.4s ease;
+            z-index:5000;
+            padding:30px;
+        }
+
+        .lightbox.active{
+            opacity:1;
+            visibility:visible;
+        }
+
+        .lightbox img{
+            max-width:90%;
+            max-height:85vh;
+            border-radius:22px;
+            box-shadow:0 20px 50px rgba(0,0,0,0.4);
+            animation:zoomIn 0.4s ease;
+        }
+
+        @keyframes zoomIn{
+            from{
+                transform:scale(0.8);
+                opacity:0;
+            }
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+
+        .close-lightbox{
+            position:absolute;
+            top:30px;
+            right:40px;
+            font-size:2rem;
+            color:white;
+            cursor:pointer;
+            transition:0.3s ease;
+        }
+
+        .close-lightbox:hover{
+            transform:rotate(90deg) scale(1.1);
+            color:var(--rose-soft);
+        }
+
+        .photo-card img{
+            cursor:pointer;
+        }
+
         @media(max-width:768px){
 
             .nav-links{
@@ -758,6 +818,43 @@
         </section>
 
     </div>
+
+    <!-- LIGHTBOX -->
+
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox" id="closeLightbox">
+            <i class="fas fa-times"></i>
+        </span>
+
+        <img src="" alt="Image agrandie" id="lightboxImg">
+    </div>
+
+    <script>
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeLightbox = document.getElementById('closeLightbox');
+
+        const images = document.querySelectorAll('.photo-card img');
+
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = img.src;
+            });
+        });
+
+        closeLightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox){
+                lightbox.classList.remove('active');
+            }
+        });
+
+    </script>
 
 </body>
 </html>
