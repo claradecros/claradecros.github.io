@@ -4,294 +4,491 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos de moi | Clara Decros</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <style>
-        :root {
-            --bg: #f8f6f4;
-            --beige: #e8dfd8;
-            --rose: #d4a3a3;
-            --rose-soft: #e7c8c8;
-            --text: #2f2f2f;
-            --white: #ffffff;
+
+        :root{
+            --bg:#f8f6f4;
+            --beige:#e8dfd8;
+            --rose:#d4a3a3;
+            --rose-soft:#ead1d1;
+            --text:#2f2f2f;
+            --white:#ffffff;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(120deg, #f8f6f4, #f1ebe5);
-            color: var(--text);
-            overflow-x: hidden;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
 
-        /* Arrière-plan animé */
-        body::before {
-            content: "";
-            position: fixed;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 30%, #e7c8c8 0%, transparent 40%),
-                        radial-gradient(circle at 70% 60%, #d4a3a3 0%, transparent 40%),
-                        radial-gradient(circle at 50% 80%, #e8dfd8 0%, transparent 40%);
-            animation: moveBg 12s infinite alternate ease-in-out;
-            z-index: -1;
+        body{
+            font-family:'Poppins',sans-serif;
+            background:linear-gradient(120deg,#f8f6f4,#f1ebe5);
+            color:var(--text);
+            overflow-x:hidden;
         }
 
-        @keyframes moveBg {
-            0% {transform: translate(0,0);}
-            100% {transform: translate(-10%, -10%);}
+        /* Fond animé */
+
+        body::before{
+            content:"";
+            position:fixed;
+            width:200%;
+            height:200%;
+            background:
+                radial-gradient(circle at 30% 30%, #e7c8c8 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, #d4a3a3 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, #e8dfd8 0%, transparent 40%);
+            animation:moveBg 12s infinite alternate ease-in-out;
+            z-index:-1;
         }
 
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            backdrop-filter: blur(8px);
-            background: rgba(255,255,255,0.7);
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        @keyframes moveBg{
+            0%{transform:translate(0,0);}
+            100%{transform:translate(-10%,-10%);}
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
+        /* NAVIGATION */
+
+        .nav{
+            position:fixed;
+            top:0;
+            width:100%;
+            display:flex;
+            justify-content:center;
+            padding:15px 0;
+            backdrop-filter:blur(8px);
+            background:rgba(255,255,255,0.7);
+            z-index:100;
+            box-shadow:0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .nav-item {
-            border: none;
-            background: none;
-            color: var(--text);
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            position: relative;
-            padding: 5px 0;
-            transition: 0.3s;
+        .nav-links{
+            display:flex;
+            gap:30px;
         }
 
-        .nav-item i {
-            color: var(--rose);
+        .nav-item{
+            border:none;
+            background:none;
+            color:var(--text);
+            font-size:14px;
+            cursor:pointer;
+            display:flex;
+            align-items:center;
+            gap:8px;
+            position:relative;
+            padding:5px 0;
+            transition:0.3s;
         }
 
-        .nav-item::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(90deg, var(--rose), var(--rose-soft));
-            transition: 0.3s;
+        .nav-item i{
+            color:var(--rose);
         }
 
-        .nav-item:hover::after, .nav-item.active::after {
-            width: 100%;
+        .nav-item::after{
+            content:"";
+            position:absolute;
+            width:0;
+            height:2px;
+            bottom:-5px;
+            left:0;
+            background:linear-gradient(90deg,var(--rose),var(--rose-soft));
+            transition:0.3s;
         }
 
-        /* Conteneur de contenu */
-        .container {
-            max-width: 900px;
-            margin: 120px auto 60px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            animation: fadeUp 1s ease;
+        .nav-item:hover::after,
+        .nav-item.active::after{
+            width:100%;
         }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--text);
-            text-align: center;
-            margin-bottom: 10px;
+        /* CONTENEUR */
+
+        .container{
+            max-width:950px;
+            margin:120px auto 60px;
+            padding:45px;
+            background:rgba(255,255,255,0.4);
+            backdrop-filter:blur(10px);
+            border-radius:30px;
+            box-shadow:0 20px 40px rgba(0,0,0,0.05);
+            animation:fadeUp 1s ease;
         }
 
-        h1 span {
-            color: var(--rose);
+        h1{
+            font-family:'Playfair Display',serif;
+            font-size:3.2rem;
+            text-align:center;
+            margin-bottom:10px;
         }
 
-        .line {
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--rose), var(--rose-soft));
-            margin: 0 auto 40px;
-            border-radius: 2px;
+        h1 span{
+            color:var(--rose);
         }
 
-        p {
-            line-height: 1.8;
-            font-size: 1.05rem;
-            margin-bottom: 25px;
-            text-align: justify;
+        .line{
+            width:110px;
+            height:4px;
+            background:linear-gradient(90deg,var(--rose),var(--rose-soft));
+            margin:0 auto 50px;
+            border-radius:2px;
         }
 
-        /* Séparateurs de sections */
-        .section-divider {
-            border: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--rose-soft), transparent);
-            margin: 40px auto;
-            width: 60%;
+        h2{
+            font-family:'Playfair Display',serif;
+            font-size:2rem;
+            margin-bottom:25px;
+            color:var(--text);
+            text-align:center;
         }
 
-        /* Style des images principales */
-        .img-main {
-            width: 100%;
-            max-width: 500px;
-            display: block;
-            margin: 40px auto;
+        h3{
+            font-family:'Playfair Display',serif;
+            font-size:1.5rem;
+            margin:35px 0 20px;
+            color:var(--rose);
+            text-align:center;
         }
 
-        /* Effet "Album Photo" pour toutes les images */
-        .album-img {
-            background: var(--white);
-            padding: 10px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-            border: 1.5px solid var(--rose-soft);
-            border-radius: 16px;
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+        p{
+            line-height:1.9;
+            font-size:1.05rem;
+            margin-bottom:25px;
+            text-align:justify;
         }
 
-        .img-main.album-img {
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+        .section-divider{
+            border:0;
+            height:2px;
+            background:linear-gradient(
+                90deg,
+                transparent,
+                var(--rose-soft),
+                transparent
+            );
+            margin:50px auto;
+            width:65%;
         }
 
-        .img-main.album-img:nth-child(odd) {
-            transform: rotate(-1.5deg);
+        /* STYLE PHOTOS */
+
+        .album-img{
+            background:var(--white);
+            padding:10px;
+            border-radius:18px;
+            border:1.5px solid var(--rose-soft);
+            box-shadow:0 8px 20px rgba(0,0,0,0.07);
+            transition:
+                transform 0.4s cubic-bezier(0.25,1,0.5,1),
+                box-shadow 0.4s ease;
         }
 
-        .img-main.album-img:nth-child(even) {
-            transform: rotate(1.5deg);
+        .album-img:hover{
+            transform:scale(1.03) rotate(0deg)!important;
+            box-shadow:0 12px 28px rgba(0,0,0,0.12);
         }
 
-        .img-main.album-img:hover {
-            transform: scale(1.02) rotate(0deg) !important;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        .img-main{
+            width:100%;
+            max-width:520px;
+            display:block;
+            margin:40px auto;
         }
 
-        /* Galerie Album Photo pour les Pâtisseries (plus grandes) */
-        .album-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 40px 0;
+        .img-main:nth-of-type(odd){
+            transform:rotate(-2deg);
         }
 
-        .album-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px;
-            max-width: 950px;
-            margin: 0 auto;
+        .img-main:nth-of-type(even){
+            transform:rotate(2deg);
         }
 
-        .album-grid .album-img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
+        /* GALERIES */
+
+        .album-grid{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:24px;
+            margin:40px auto;
         }
 
-        .album-grid .album-img:nth-child(odd) {
-            transform: rotate(-3deg);
+        .album-grid .album-img{
+            width:180px;
+            height:180px;
+            object-fit:cover;
         }
 
-        .album-grid .album-img:nth-child(even) {
-            transform: rotate(3deg);
+        .album-grid .album-img:nth-child(odd){
+            transform:rotate(-3deg);
         }
 
-        .album-grid .album-img:hover {
-            transform: scale(1.06) rotate(0deg) !important;
-            box-shadow: 0 10px 24px rgba(0,0,0,0.1);
-            z-index: 10;
+        .album-grid .album-img:nth-child(even){
+            transform:rotate(3deg);
         }
 
-        @keyframes fadeUp {
-            from {opacity:0; transform: translateY(30px);}
-            to {opacity:1; transform: translateY(0);}
+        /* Galerie balade */
+
+        .walk-gallery{
+            display:flex;
+            justify-content:center;
+            gap:30px;
+            flex-wrap:wrap;
+            margin-top:35px;
         }
+
+        .walk-gallery img{
+            width:280px;
+            height:360px;
+            object-fit:cover;
+        }
+
+        .walk-gallery img:first-child{
+            transform:rotate(-3deg);
+        }
+
+        .walk-gallery img:last-child{
+            transform:rotate(3deg);
+        }
+
+        @keyframes fadeUp{
+            from{
+                opacity:0;
+                transform:translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
 
         @media(max-width:768px){
-            .container { margin: 100px 20px 40px; padding: 25px; }
-            h1 { font-size: 2.2rem; }
-            .nav-links { gap: 10px; }
-            .nav-item span { display: none; } /* Garde les icônes sur mobile */
 
-            .album-grid {
-                gap: 16px;
+            .container{
+                margin:100px 20px 40px;
+                padding:25px;
             }
-            .album-grid .album-img {
-                width: 130px;
-                height: 130px;
+
+            h1{
+                font-size:2.4rem;
             }
-            .section-divider {
-                width: 80%;
-                margin: 30px auto;
+
+            h2{
+                font-size:1.7rem;
+            }
+
+            h3{
+                font-size:1.3rem;
+            }
+
+            .nav-links{
+                gap:10px;
+            }
+
+            .nav-item span{
+                display:none;
+            }
+
+            .album-grid{
+                gap:15px;
+            }
+
+            .album-grid .album-img{
+                width:130px;
+                height:130px;
+            }
+
+            .walk-gallery img{
+                width:220px;
+                height:300px;
+            }
+
+            .section-divider{
+                width:80%;
             }
         }
+
     </style>
 </head>
+
 <body>
+
+    <!-- NAVIGATION -->
 
     <nav class="nav">
         <div class="nav-links">
-            <button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i><span>Accueil</span></button>
-            <button class="nav-item active" onclick="location.href='infos.html'"><i class="fas fa-user"></i><span>Profil</span></button>
-            <button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i><span>Projets</span></button>
-            <button class="nav-item" onclick="location.href='bilan.html'"><i class="fas fa-book"></i><span>Bilan</span></button>
-            <button class="nav-item" onclick="location.href='contact.html'"><i class="fas fa-phone"></i><span>Contact</span></button>
+
+            <button class="nav-item" onclick="location.href='index.html'">
+                <i class="fas fa-home"></i>
+                <span>Accueil</span>
+            </button>
+
+            <button class="nav-item active" onclick="location.href='infos.html'">
+                <i class="fas fa-user"></i>
+                <span>Profil</span>
+            </button>
+
+            <button class="nav-item" onclick="location.href='projets.html'">
+                <i class="fas fa-chart-bar"></i>
+                <span>Projets</span>
+            </button>
+
+            <button class="nav-item" onclick="location.href='bilan.html'">
+                <i class="fas fa-book"></i>
+                <span>Bilan</span>
+            </button>
+
+            <button class="nav-item" onclick="location.href='contact.html'">
+                <i class="fas fa-phone"></i>
+                <span>Contact</span>
+            </button>
+
         </div>
     </nav>
 
+    <!-- CONTENU -->
+
     <div class="container">
-        <h1>À propos de <span>moi</span></h1>
+
+        <h1>L’étudiante que je <span>suis</span></h1>
         <div class="line"></div>
 
-        <p>Actuellement en première année de BUT Science des données, j’ai toujours eu une affinité pour les matières littéraires. Écrire et laisser libre cours à mon imagination ont toujours été mes points forts. Cependant, en grandissant, j’ai compris que les matières scientifiques m’accompagneraient tout au long de ma scolarité. J’ai donc dû m’adapter et apprivoiser ces disciplines qui ne me facilitaient pas la tâche. Ma détermination et ma capacité à ne jamais baisser les bras ont été mes plus grandes forces pour surmonter les obstacles sur mon parcours scolaire.</p>
+        <p>
+            Actuellement en deuxième année de BUT Science des données, je souhaite à travers cette présentation revenir sur le parcours qui m’a menée jusqu’à ces études, les choix qui ont marqué mon évolution, mais aussi les passions qui m’animent et qui participent aujourd’hui à construire la personne que je suis.
+        </p>
 
-        <p>Au-delà de mon envie de me démarquer, un rêve est né en moi. Après avoir lu plusieurs livres retraçant les expériences d’un célèbre médecin légiste français, je me suis découvert une passion pour la médecine. Moi qui avais toujours été une élève dans la moyenne, je rêvais désormais de faire des études de médecine. Pour y parvenir, j’ai choisi des spécialités à l’encontre des mes facilités (SVT et Physique-chimie), pris deux options supplémentaires et réalisé des stages pendant mes vacances. Mon objectif était de me démarquer et d’avoir un dossier solide pour intégrer la formation LAS.</p>
+        <p>
+            Depuis mon plus jeune âge, j’ai toujours eu une grande sensibilité pour les matières littéraires et artistiques. Écrire, imaginer, analyser et laisser libre cours à ma créativité ont longtemps été les domaines dans lesquels je me sentais le plus à l’aise. J’ai toujours aimé exprimer mes idées, raconter, observer et développer mon esprit critique à travers différentes formes artistiques et culturelles.
+        </p>
 
-        <p>Malheureusement, cette expérience m’a appris qu’il ne suffit pas toujours d’avoir de l’ambition pour surpasser toutes les difficultés. Placée sur liste d’attente, mon rêve s’est effondré. Cependant, j’avais un deuxième choix : le BUT Science des données à l’Université de Poitiers. Cette formation correspondait à mes compétences et avait déjà été brillamment réussie par mon frère. Mes parents m’ont encouragée à suivre cette voie, me rassurant sur ma principale crainte : l’aspect informatique.</p>
+        <p>
+            Cependant, en grandissant, j’ai compris que les matières scientifiques occuperaient une place importante tout au long de mon parcours scolaire. J’ai donc dû apprendre à m’adapter et à apprivoiser des disciplines qui ne me venaient pas naturellement. Même lorsque certaines notions me semblaient difficiles, je n’ai jamais abandonné. Ma persévérance, ma capacité de travail et ma volonté constante de progresser ont toujours été mes principales forces pour surmonter les obstacles rencontrés au cours de ma scolarité.
+        </p>
+
+        <p>
+            Après avoir lu plusieurs livres retraçant les expériences d’un célèbre médecin légiste français, je me suis découvert une passion pour la médecine. Moi qui avais toujours été une élève dans la moyenne, je rêvais désormais de faire des études de médecine.
+        </p>
+
+        <p>
+            Pour y parvenir, j’ai choisi des spécialités à l’encontre de mes facilités, pris deux options supplémentaires et réalisé des stages pendant mes vacances afin de préparer mon entrée dans ce domaine. Mon objectif était de me dépasser et de prouver que, malgré les difficultés, j’étais capable d’atteindre mes ambitions.
+        </p>
+
+        <p>
+            À la veille de la fermeture des vœux Parcoursup, j’ai ajouté le BUT Science des données de l’Université de Poitiers sur les conseils de mes parents. Même si j’ai finalement été acceptée en médecine, j’ai pris le temps de réfléchir honnêtement à ce qui me correspondait réellement.
+        </p>
+
+        <p>
+            Le BUT Science des données représentait pour moi une formation moderne, polyvalente et tournée vers l’avenir. En me renseignant davantage, j’ai compris qu’elle ouvrait de nombreuses portes professionnelles, notamment dans un monde où l’intelligence artificielle transforme progressivement les métiers.
+        </p>
+
+        <p>
+            Plus les années passent, plus je prends conscience d’avoir trouvé une voie qui me correspond réellement et qui, je l’espère, me préparera à un avenir stable et enrichissant dans le monde du travail.
+        </p>
 
         <hr class="section-divider">
 
-        <img src="photocinema.jpeg" alt="Passion Cinéma" class="img-main album-img">
+        <h2>Les passions qui m’animent</h2>
+
+        <p>
+            Mes passions occupent une place importante dans mon équilibre personnel et ont largement contribué à forger ma manière de penser et de m’exprimer. Elles trouvent toutes, d’une façon ou d’une autre, leurs racines dans mon environnement familial et dans les expériences que j’ai pu développer au fil des années.
+        </p>
 
         <hr class="section-divider">
 
-        <p>Mes passions ont également été influencées par ma famille. Mon père et mon frère, tous deux grands cinéphiles, m’ont transmis leur amour du cinéma dès mon plus âge. J’ai développé une préférence pour les films d’horreur et d’épouvante. Mon frère m’a même aidée à créer mon propre blog de critiques. Cette passion a affiné mon sens critique et mon esprit d’analyse.</p>
+        <!-- CINEMA -->
+
+        <h3>Le cinéma et les films d’horreur</h3>
+
+        <img src="photocinema.jpeg" alt="Passion cinéma" class="img-main album-img">
+
+        <p>
+            Le cinéma a été ma première véritable ouverture culturelle. Issue d’une famille de cinéphiles, j’ai très tôt été plongée dans cet univers grâce à mon père et mon frère, qui m’ont transmis leur passion.
+        </p>
+
+        <p>
+            Au fil du temps, j’ai développé un goût particulier pour les films d’horreur et d’épouvante. Cette passion m’a permis d’aiguiser mon esprit critique, notamment à travers la création d’un blog sur lequel je rédige des analyses et des avis sur mes visionnages.
+        </p>
 
         <hr class="section-divider">
 
-        <div class="album-container">
-            <div class="album-grid">
-                <img src="photopatisserie2.jpeg" alt="Pâtisserie 2" class="album-img">
-                <img src="photopatisserie3.jpeg" alt="Pâtisserie 3" class="album-img">
-                <img src="tarte.jpeg" alt="Tarte faite maison" class="album-img">
-                <img src="photopatisserie4.jpeg" alt="Pâtisserie 4" class="album-img">
-                <img src="photopatisserie5.jpeg" alt="Pâtisserie 5" class="album-img">
-            </div>
+        <!-- PATISSERIE -->
+
+        <h3>La cuisine et la pâtisserie</h3>
+
+        <div class="album-grid">
+
+            <img src="photopatisserie2.jpeg" alt="Pâtisserie 1" class="album-img">
+
+            <img src="photopatisserie3.jpeg" alt="Pâtisserie 2" class="album-img">
+
+            <img src="tarte.jpeg" alt="Tarte maison" class="album-img">
+
+            <img src="photopatisserie4.jpeg" alt="Pâtisserie 4" class="album-img">
+
+            <img src="photopatisserie5.jpeg" alt="Pâtisserie 5" class="album-img">
+
         </div>
 
+        <p>
+            La cuisine, et plus particulièrement la pâtisserie, est une autre passion importante dans mon quotidien. Transmise par mon père, elle m’a appris la rigueur, la précision et la patience.
+        </p>
+
+        <p>
+            J’aime expérimenter de nouvelles recettes, progresser à chaque essai et partager mes réalisations avec mes proches. J’accorde également beaucoup d’importance aux retours que je reçois, qui me permettent de toujours m’améliorer.
+        </p>
+
         <hr class="section-divider">
 
-        <p>Mon père m’a également transmis son amour de la cuisine, et plus particulièrement de la pâtisserie. Toujours en quête de progression, j’aime tester de nouvelles recettes et je prends plaisir à les partager avec mes amis et ma famille. J’accueille volontiers leurs critiques pour m'améliorer. Cette passion m’a appris la rigueur et le perfectionnisme.</p>
+        <!-- DESSIN -->
 
-        <hr class="section-divider">
+        <h3>Le dessin</h3>
 
         <img src="photodessin.jpeg" alt="Mes dessins" class="img-main album-img">
 
+        <p>
+            Le dessin est une passion plus récente, mais tout aussi significative. Elle représente pour moi un véritable espace de progression personnelle.
+        </p>
+
+        <p>
+            N’ayant pas de facilité naturelle dans ce domaine, j’ai dû développer mon niveau par le travail et la régularité. Cette pratique m’a appris la persévérance et l’importance de l’investissement sur le long terme pour progresser.
+        </p>
+
+        <p>
+            C’est peut-être la passion qui me frustre le plus, mais elle m’entraîne également à réagir face aux imprévus, à garder mon calme dans certaines situations et à prendre du recul pour recommencer lorsque cela est nécessaire.
+        </p>
+
         <hr class="section-divider">
 
-        <p>Pour finir, ma troisième passion est le dessin. C’est la plus récente et celle qui me demande le plus d’assiduité. N’étant pas née avec un don particulier, c’est le travail et l’expérience qui m’ont permis de progresser. Cette passion m’a enseigné l’importance d’un travail régulier et appliqué.</p>
+        <!-- BALADE -->
+
+        <h3>Les balades et le bien-être</h3>
+
+        <div class="walk-gallery">
+
+            <img src="photobalade1.jpeg" alt="Balade 1" class="album-img">
+
+            <img src="photobalade2.jpeg" alt="Balade 2" class="album-img">
+
+        </div>
+
+        <p>
+            Enfin, en dehors de mes passions artistiques et manuelles, le sport n’a jamais été un domaine dans lequel je me suis particulièrement illustrée. Cependant, consciente de l’importance du bien-être physique et mental, je mets un point d’honneur à m’entretenir régulièrement.
+        </p>
+
+        <p>
+            Qu’importe mon emploi du temps, j’essaie toujours de garder un moment pour marcher, me balader ou simplement prendre l’air.
+        </p>
+
+        <p>
+            Au-delà de l’aspect physique, ces moments jouent un rôle essentiel dans mon équilibre quotidien. Ils me permettent de m’éloigner du cadre des études, de me recentrer sur moi-même et de prendre du recul sur mes préoccupations.
+        </p>
+
     </div>
 
 </body>
