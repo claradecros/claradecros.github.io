@@ -1,24 +1,27 @@
+# Nouveau design premium — Page « À propos de moi »
+
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de moi | Clara Decros</title>
 
-    <title>Mes Contacts | Clara Decros</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <style>
 
         :root{
             --bg:#f8f6f4;
+            --beige:#e8dfd8;
             --rose:#d4a3a3;
-            --rose-soft:#e7c8c8;
-            --rose-light:#f6ebeb;
+            --rose-soft:#ead1d1;
+            --rose-light:#f5e7e7;
             --text:#2f2f2f;
             --white:#ffffff;
+            --shadow:0 20px 45px rgba(0,0,0,0.07);
         }
 
         *{
@@ -27,16 +30,19 @@
             box-sizing:border-box;
         }
 
+        html{
+            scroll-behavior:smooth;
+        }
+
         body{
             font-family:'Poppins',sans-serif;
             background:linear-gradient(130deg,#f8f6f4,#f1ebe5,#f7f2ed);
             color:var(--text);
-            min-height:100vh;
             overflow-x:hidden;
             position:relative;
         }
 
-        /* FOND ANIMÉ */
+        /* FOND ANIMÉ PREMIUM */
 
         body::before{
             content:"";
@@ -44,19 +50,23 @@
             width:220%;
             height:220%;
             background:
-                radial-gradient(circle at 20% 20%, rgba(231,200,200,0.7) 0%, transparent 35%),
-                radial-gradient(circle at 80% 30%, rgba(212,163,163,0.5) 0%, transparent 35%),
-                radial-gradient(circle at 50% 80%, rgba(248,235,235,0.7) 0%, transparent 35%);
-            animation:bgMove 14s infinite alternate ease-in-out;
+                radial-gradient(circle at 20% 20%, rgba(231,200,200,0.65) 0%, transparent 35%),
+                radial-gradient(circle at 80% 30%, rgba(212,163,163,0.45) 0%, transparent 35%),
+                radial-gradient(circle at 50% 80%, rgba(232,223,216,0.65) 0%, transparent 35%),
+                radial-gradient(circle at 70% 70%, rgba(245,231,231,0.6) 0%, transparent 30%);
+            animation:backgroundMove 15s ease-in-out infinite alternate;
             z-index:-2;
         }
 
-        @keyframes bgMove{
+        @keyframes backgroundMove{
             0%{
                 transform:translate(0,0) scale(1);
             }
+            50%{
+                transform:translate(-4%,-6%) scale(1.05);
+            }
             100%{
-                transform:translate(-8%,-8%) scale(1.08);
+                transform:translate(-8%,-8%) scale(1.1);
             }
         }
 
@@ -64,26 +74,26 @@
 
         .sparkles{
             position:fixed;
-            inset:0;
+            width:100%;
+            height:100%;
             pointer-events:none;
             z-index:-1;
         }
 
         .sparkles span{
             position:absolute;
-            width:5px;
-            height:5px;
+            width:6px;
+            height:6px;
             border-radius:50%;
-            background:white;
-            opacity:0.5;
+            background:rgba(255,255,255,0.8);
             animation:twinkle 4s infinite ease-in-out;
         }
 
-        .sparkles span:nth-child(1){top:15%;left:25%;}
-        .sparkles span:nth-child(2){top:35%;left:75%;}
-        .sparkles span:nth-child(3){top:60%;left:15%;}
-        .sparkles span:nth-child(4){top:80%;left:65%;}
-        .sparkles span:nth-child(5){top:45%;left:50%;}
+        .sparkles span:nth-child(1){top:10%;left:20%;}
+        .sparkles span:nth-child(2){top:30%;left:75%;}
+        .sparkles span:nth-child(3){top:60%;left:10%;}
+        .sparkles span:nth-child(4){top:80%;left:60%;}
+        .sparkles span:nth-child(5){top:45%;left:40%;}
 
         @keyframes twinkle{
             0%,100%{
@@ -92,7 +102,7 @@
             }
             50%{
                 opacity:1;
-                transform:scale(1.8);
+                transform:scale(1.7);
             }
         }
 
@@ -105,10 +115,11 @@
             display:flex;
             justify-content:center;
             padding:16px 0;
-            backdrop-filter:blur(10px);
+            backdrop-filter:blur(12px);
             background:rgba(255,255,255,0.65);
             z-index:1000;
             box-shadow:0 4px 18px rgba(0,0,0,0.04);
+            border-bottom:1px solid rgba(255,255,255,0.5);
         }
 
         .nav-links{
@@ -144,6 +155,11 @@
             left:0;
             background:linear-gradient(90deg,var(--rose),var(--rose-soft));
             transition:0.3s ease;
+            border-radius:10px;
+        }
+
+        .nav-item:hover{
+            transform:translateY(-2px);
         }
 
         .nav-item:hover::after,
@@ -151,22 +167,34 @@
             width:100%;
         }
 
-        .nav-item:hover{
-            transform:translateY(-2px);
-        }
-
-        /* CONTAINER */
+        /* CONTENEUR */
 
         .container{
             width:min(92%,1050px);
             margin:130px auto 70px;
+            padding:60px;
+            background:rgba(255,255,255,0.35);
+            backdrop-filter:blur(15px);
+            border:1px solid rgba(255,255,255,0.5);
+            border-radius:35px;
+            box-shadow:var(--shadow);
+            position:relative;
+            overflow:hidden;
             animation:fadeUp 1s ease;
+        }
+
+        .container::before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:linear-gradient(140deg,rgba(255,255,255,0.15),transparent 40%);
+            pointer-events:none;
         }
 
         @keyframes fadeUp{
             from{
                 opacity:0;
-                transform:translateY(30px);
+                transform:translateY(40px);
             }
             to{
                 opacity:1;
@@ -174,239 +202,350 @@
             }
         }
 
-        /* CARTE */
-
-        .contact-card{
-            background:rgba(255,255,255,0.35);
-            backdrop-filter:blur(18px);
-            border-radius:38px;
-            padding:60px;
-            box-shadow:0 25px 50px rgba(0,0,0,0.06);
-            border:1px solid rgba(255,255,255,0.4);
-            position:relative;
-            overflow:hidden;
-        }
-
-        .contact-card::before{
-            content:"";
-            position:absolute;
-            top:-150px;
-            right:-150px;
-            width:300px;
-            height:300px;
-            background:radial-gradient(circle,rgba(212,163,163,0.18),transparent 70%);
-            border-radius:50%;
-        }
+        /* TITRES */
 
         h1{
             font-family:'Playfair Display',serif;
             font-size:4rem;
             text-align:center;
-            margin-bottom:10px;
+            margin-bottom:15px;
             line-height:1.1;
         }
 
         h1 span{
             color:var(--rose);
+            position:relative;
+        }
+
+        .subtitle{
+            text-align:center;
+            max-width:700px;
+            margin:0 auto 45px;
+            line-height:1.8;
+            color:#5e5e5e;
+            font-size:1rem;
         }
 
         .line{
-            width:90px;
+            width:120px;
             height:4px;
             background:linear-gradient(90deg,var(--rose),var(--rose-soft));
-            margin:18px auto 30px;
+            margin:0 auto 30px;
             border-radius:20px;
         }
 
-        .intro{
+        .section-title{
+            font-family:'Playfair Display',serif;
+            font-size:3rem;
             text-align:center;
-            max-width:650px;
-            margin:0 auto 50px;
-            line-height:1.8;
-            color:#5f5f5f;
+            margin-bottom:55px;
+            position:relative;
+            letter-spacing:1px;
         }
 
-        /* GRILLE */
-
-        .contact-options{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-            gap:28px;
-            margin-bottom:40px;
+        .section-title::after{
+            content:"✦";
+            display:block;
+            color:var(--rose);
+            margin-top:10px;
+            font-size:1rem;
         }
 
-        /* BOX */
+        .passion-title{
+            font-family:'Playfair Display',serif;
+            color:var(--rose);
+            text-align:left;
+            font-size:2.3rem;
+            margin-bottom:30px;
+            position:relative;
+            padding-left:20px;
+        }
 
-        .option-box{
-            background:rgba(255,255,255,0.3);
-            border:1px solid rgba(255,255,255,0.4);
-            border-radius:28px;
-            padding:35px 25px;
-            text-align:center;
+        .passion-title::before{
+            content:"";
+            position:absolute;
+            left:0;
+            top:8px;
+            width:6px;
+            height:75%;
+            border-radius:20px;
+            background:linear-gradient(to bottom,var(--rose),var(--rose-soft));
+        }
+
+        /* TEXTE */
+
+        p{
+            font-size:1.06rem;
+            line-height:2;
+            margin-bottom:25px;
+            text-align:justify;
+            color:#343434;
+        }
+
+        .intro-block{
+            background:rgba(255,255,255,0.35);
+            border:1px solid rgba(255,255,255,0.5);
+            padding:35px;
+            border-radius:25px;
+            margin-bottom:35px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.03);
+        }
+
+        /* SÉPARATEUR */
+
+        .section-divider{
+            border:0;
+            height:2px;
+            width:70%;
+            margin:60px auto;
+            background:linear-gradient(90deg,transparent,var(--rose-soft),transparent);
+        }
+
+        /* PHOTOS STYLE POLAROID */
+
+        .photo-card{
+            background:var(--white);
+            padding:12px;
+            border-radius:22px;
+            border:1px solid rgba(212,163,163,0.3);
+            box-shadow:0 10px 28px rgba(0,0,0,0.07);
             transition:0.45s cubic-bezier(.25,1,.5,1);
             position:relative;
             overflow:hidden;
         }
 
-        .option-box::before{
+        .photo-card::before{
             content:"";
             position:absolute;
             inset:0;
-            background:linear-gradient(140deg,rgba(255,255,255,0.25),transparent 45%);
+            background:linear-gradient(140deg,rgba(255,255,255,0.4),transparent 40%);
             pointer-events:none;
         }
 
-        .option-box:hover{
-            transform:translateY(-10px) scale(1.02);
-            box-shadow:0 18px 35px rgba(0,0,0,0.08);
+        .photo-card:hover{
+            transform:translateY(-8px) scale(1.02) rotate(0deg)!important;
+            box-shadow:0 18px 40px rgba(0,0,0,0.12);
         }
 
-        .icon-circle{
-            width:85px;
-            height:85px;
+        .main-photo{
+            width:100%;
+            max-width:560px;
+            margin:0 auto 35px;
+            display:block;
+        }
+
+        .main-photo:nth-child(odd){
+            transform:rotate(-2deg);
+        }
+
+        .main-photo:nth-child(even){
+            transform:rotate(2deg);
+        }
+
+        .main-photo img{
+            width:100%;
+            display:block;
+            border-radius:14px;
+        }
+
+        /* CARTES PASSIONS */
+
+        .passion-section{
+            margin-bottom:50px;
+            position:relative;
+        }
+
+        .passion-card{
+            background:linear-gradient(145deg,rgba(255,255,255,0.38),rgba(255,255,255,0.15));
+            border:1px solid rgba(255,255,255,0.45);
+            border-radius:35px;
+            padding:45px;
+            box-shadow:0 15px 35px rgba(0,0,0,0.06);
+            position:relative;
+            overflow:hidden;
+        }
+
+        .passion-card::before{
+            content:"";
+            position:absolute;
+            top:-120px;
+            right:-120px;
+            width:250px;
+            height:250px;
+            background:radial-gradient(circle,rgba(212,163,163,0.18),transparent 70%);
             border-radius:50%;
+        }
+
+        .passion-card::after{
+            content:"✦";
+            position:absolute;
+            bottom:18px;
+            right:28px;
+            color:rgba(212,163,163,0.4);
+            font-size:1.4rem;
+        }
+
+        /* GALERIE PÂTISSERIE */
+
+        .gallery{
             display:flex;
-            align-items:center;
+            flex-wrap:wrap;
             justify-content:center;
-            margin:0 auto 20px;
-            background:rgba(255,255,255,0.5);
-            box-shadow:0 10px 20px rgba(0,0,0,0.05);
+            gap:22px;
+            margin:35px 0;
         }
 
-        .icon-circle i{
-            font-size:2rem;
+        .gallery .photo-card{
+            width:185px;
+            height:185px;
         }
 
-        .option-box h3{
+        .gallery .photo-card:nth-child(odd){
+            transform:rotate(-4deg);
+        }
+
+        .gallery .photo-card:nth-child(even){
+            transform:rotate(4deg);
+        }
+
+        .gallery img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            border-radius:14px;
+        }
+
+        /* BALADE */
+
+        .walk-gallery{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:35px;
+            margin:40px 0;
+            align-items:center;
+        }
+
+        .walk-gallery .photo-card:first-child{
+            transform:rotate(-3deg);
+        }
+
+        .walk-gallery .photo-card:last-child{
+            transform:rotate(3deg);
+        }
+
+        .walk-gallery img{
+            width:100%;
+            height:420px;
+            object-fit:cover;
+            border-radius:16px;
+        }
+
+        /* PETITS DÉTAILS ESTHÉTIQUES */
+
+        .quote{
+            margin:45px auto;
+            max-width:800px;
+            text-align:center;
             font-family:'Playfair Display',serif;
             font-size:1.5rem;
-            margin-bottom:10px;
+            color:#7a5f5f;
+            line-height:1.8;
+            position:relative;
         }
 
-        .option-box p{
-            font-size:0.95rem;
-            color:#666;
-            margin-bottom:20px;
-            line-height:1.7;
-            word-break:break-word;
-        }
-
-        /* BOUTONS */
-
-        .btn-action{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            gap:10px;
-            width:100%;
-            padding:14px;
-            border-radius:14px;
-            text-decoration:none;
-            font-weight:600;
-            border:none;
-            cursor:pointer;
-            transition:0.35s ease;
-            background:var(--text);
-            color:white;
-            font-family:'Poppins',sans-serif;
-            margin:auto;
-        }
-
-        .btn-action:hover{
-            transform:translateY(-3px);
-            background:var(--rose);
-        }
-
-        .btn-gmail{
-            background:#ea4335;
-        }
-
-        .btn-gmail:hover{
-            background:#c5221f;
-        }
-
-        .btn-linkedin{
-            background:#0077b5;
-        }
-
-        .btn-linkedin:hover{
-            background:#005f91;
-        }
-
-        .btn-phone{
-            background:#34b7f1;
-        }
-
-        .btn-phone:hover{
-            background:#2198ce;
-        }
-
-        /* CV */
-
-        .cv-section{
-            margin-top:20px;
-            text-align:center;
-        }
-
-        .cv-btn-large{
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
-            gap:12px;
-            background:linear-gradient(
-                135deg,
-                var(--rose),
-                #c98d8d
-            );
-            color:white;
-            text-decoration:none;
-            padding:20px 35px;
-            border-radius:18px;
-            font-weight:600;
-            transition:0.4s ease;
-            font-size:1rem;
-            box-shadow:0 15px 30px rgba(212,163,163,0.25);
-        }
-
-        .cv-btn-large:hover{
-            transform:translateY(-5px) scale(1.03);
-            box-shadow:0 20px 40px rgba(212,163,163,0.35);
-        }
-
-        /* MESSAGE COPIE */
-
-        .toast{
-            position:fixed;
-            bottom:30px;
-            right:30px;
-            background:rgba(47,47,47,0.92);
-            color:white;
-            padding:15px 22px;
-            border-radius:14px;
-            opacity:0;
-            visibility:hidden;
-            transform:translateY(20px);
-            transition:0.4s ease;
-            z-index:5000;
-        }
-
-        .toast.show{
-            opacity:1;
-            visibility:visible;
-            transform:translateY(0);
-        }
-
-        /* FOOTER */
-
-        .footer-note{
-            margin-top:45px;
-            text-align:center;
-            color:#777;
-            font-size:0.9rem;
-            line-height:1.7;
+        .quote::before,
+        .quote::after{
+            content:'✧';
+            color:var(--rose);
+            margin:0 10px;
         }
 
         /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .container{
+                padding:35px 25px;
+            }
+
+            h1{
+                font-size:2.8rem;
+            }
+
+            .section-title{
+                font-size:2rem;
+            }
+
+            .passion-title{
+                font-size:1.6rem;
+            }
+
+            .gallery .photo-card{
+                width:145px;
+                height:145px;
+            }
+
+        }
+
+        /* LIGHTBOX */
+
+        .lightbox{
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,0.82);
+            backdrop-filter:blur(10px);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            opacity:0;
+            visibility:hidden;
+            transition:0.4s ease;
+            z-index:5000;
+            padding:30px;
+        }
+
+        .lightbox.active{
+            opacity:1;
+            visibility:visible;
+        }
+
+        .lightbox img{
+            max-width:90%;
+            max-height:85vh;
+            border-radius:22px;
+            box-shadow:0 20px 50px rgba(0,0,0,0.4);
+            animation:zoomIn 0.4s ease;
+        }
+
+        @keyframes zoomIn{
+            from{
+                transform:scale(0.8);
+                opacity:0;
+            }
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+
+        .close-lightbox{
+            position:absolute;
+            top:30px;
+            right:40px;
+            font-size:2rem;
+            color:white;
+            cursor:pointer;
+            transition:0.3s ease;
+        }
+
+        .close-lightbox:hover{
+            transform:rotate(90deg) scale(1.1);
+            color:var(--rose-soft);
+        }
+
+        .photo-card img{
+            cursor:pointer;
+        }
 
         @media(max-width:768px){
 
@@ -419,22 +558,27 @@
             }
 
             h1{
-                font-size:2.7rem;
+                font-size:2.4rem;
             }
 
-            .contact-card{
-                padding:35px 22px;
+            .container{
+                margin-top:105px;
+            }
+
+            .walk-gallery img{
+                height:320px;
+            }
+
+            p{
+                text-align:left;
             }
 
         }
 
     </style>
-
 </head>
 
 <body>
-
-    <!-- ÉTOILES -->
 
     <div class="sparkles">
         <span></span>
@@ -447,7 +591,6 @@
     <!-- NAVIGATION -->
 
     <nav class="nav">
-
         <div class="nav-links">
 
             <button class="nav-item" onclick="location.href='index.html'">
@@ -455,7 +598,7 @@
                 <span>Accueil</span>
             </button>
 
-            <button class="nav-item" onclick="location.href='infos.html'">
+            <button class="nav-item active" onclick="location.href='infos.html'">
                 <i class="fas fa-user"></i>
                 <span>Profil</span>
             </button>
@@ -470,184 +613,249 @@
                 <span>Bilan</span>
             </button>
 
-            <button class="nav-item active" onclick="location.href='contact.html'">
+            <button class="nav-item" onclick="location.href='contact.html'">
                 <i class="fas fa-phone"></i>
                 <span>Contact</span>
             </button>
 
         </div>
-
     </nav>
 
     <!-- CONTENU -->
 
     <div class="container">
 
-        <div class="contact-card">
+        <h1>L’étudiante que je <span>suis</span></h1>
 
-            <h1>Contactez-<span>moi</span></h1>
+        <div class="line"></div>
 
-            <div class="line"></div>
+        <p class="subtitle">
+            Entre ambition, créativité et persévérance, cette page retrace le parcours qui m’a construite et les passions qui façonnent aujourd’hui ma personnalité.
+        </p>
 
-            <p class="intro">
-                Merci d’avoir pris le temps de découvrir mon univers.
-                Que ce soit pour une opportunité, un échange ou simplement
-                pour discuter, je serai ravie de vous répondre.
+        <div class="intro-block">
+
+            <p>
+                Actuellement en deuxième année de BUT Science des données, je souhaite à travers cette présentation revenir sur le parcours qui m’a mené jusqu’à ces études, les choix qui ont marqué mon évolution, mais aussi les passions qui m’animent et qui participent aujourd’hui à construire la personne que je suis.
             </p>
 
-            <!-- CONTACTS -->
+            <p>
+                Depuis mon plus jeune âge, j’ai toujours eu une grande sensibilité pour les matières littéraires et artistiques. Écrire, imaginer, analyser et laisser libre cours à ma créativité ont longtemps été les domaines dans lesquels je me sentais le plus à l’aise.
+            </p>
 
-            <div class="contact-options">
+            <p>
+                Cependant, en grandissant, j’ai compris que les matières scientifiques occuperaient une place importante tout au long de mon parcours scolaire. J’ai donc dû apprendre à m’adapter et à apprivoiser des disciplines qui ne me venaient pas naturellement.
+            </p>
 
-                <!-- EMAIL -->
+            <p>
+                Même lorsque certaines notions me semblaient difficiles, je n’ai jamais abandonné. Ma persévérance, ma capacité de travail et ma volonté constante de progresser ont toujours été mes principales forces pour surmonter les obstacles rencontrés au cours de ma scolarité.
+            </p>
 
-                <div class="option-box">
+            <p>
+                Après avoir lu plusieurs livres retraçant les expériences d’un célèbre médecin légiste français, je me suis découvert une passion pour la médecine, et plus particulièrement pour ce métier.
+            </p>
 
-                    <div class="icon-circle">
-                        <i class="fas fa-envelope" style="color: var(--rose);"></i>
-                    </div>
+            <p>
+                Pour y parvenir, j’ai choisi des spécialités à l’encontre de mes facilités, pris deux options supplémentaires et réalisé des stages pendant mes vacances afin de préparer mon entrée dans ce domaine.
+            </p>
 
-                    <h3>Email</h3>
+            <p>
+                À la veille de la fermeture des vœux Parcoursup, j’ai ajouté le BUT Science des données de l’Université de Poitiers sur les conseils de mes parents. Même si j’ai finalement été acceptée en médecine, j’ai pris le temps de réfléchir honnêtement à ce qui me correspondait réellement.
+            </p>
 
-                    <p>
-                        claradecros@gmail.com
-                    </p>
+            <p>
+                Le BUT Science des données représentait pour moi une formation moderne, polyvalente et tournée vers l’avenir. En me renseignant davantage, j’ai compris qu’elle ouvrait de nombreuses portes professionnelles, notamment dans un monde où l’intelligence artificielle transforme progressivement les métiers.
+            </p>
 
-                    <button class="btn-action" onclick="copyEmail()">
-                        <i class="fas fa-copy"></i>
-                        Copier l’adresse
-                    </button>
-
-                </div>
-
-                <!-- LINKEDIN -->
-
-                <div class="option-box">
-
-                    <div class="icon-circle">
-                        <i class="fab fa-linkedin" style="color:#0077b5;"></i>
-                    </div>
-
-                    <h3>LinkedIn</h3>
-
-                    <p>
-                        Clara Decros
-                    </p>
-
-                    <a href="https://www.linkedin.com/in/clara-decros-345502342"
-                       target="_blank"
-                       class="btn-action btn-linkedin">
-
-                        <i class="fab fa-linkedin"></i>
-                        Voir le profil
-
-                    </a>
-
-                </div>
-
-                <!-- GMAIL -->
-
-                <div class="option-box">
-
-                    <div class="icon-circle">
-                        <i class="fas fa-at" style="color:#ea4335;"></i>
-                    </div>
-
-                    <h3>Gmail</h3>
-
-                    <p>
-                        Ouvrir directement dans le navigateur
-                    </p>
-
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=claradecros@gmail.com"
-                       target="_blank"
-                       class="btn-action btn-gmail">
-
-                        <i class="fas fa-paper-plane"></i>
-                        Écrire un mail
-
-                    </a>
-
-                </div>
-
-                <!-- TÉLÉPHONE -->
-
-                <div class="option-box">
-
-                    <div class="icon-circle">
-                        <i class="fas fa-phone" style="color:#34b7f1;"></i>
-                    </div>
-
-                    <h3>Téléphone</h3>
-
-                    <p>
-                        06 19 20 01 72
-                    </p>
-
-                    <a href="tel:+33619200172"
-                       class="btn-action btn-phone">
-
-                        <i class="fas fa-phone"></i>
-                        Appeler
-
-                    </a>
-
-                </div>
-
-            </div>
-
-            <!-- CV -->
-
-            <div class="cv-section">
-
-                <a href="Curriculum vitae DECROS Clara.pdf"
-                   target="_blank"
-                   download
-                   class="cv-btn-large">
-
-                    <i class="fas fa-file-pdf"></i>
-                    Télécharger mon CV
-
-                </a>
-
-            </div>
-
-            <p class="footer-note">
-                Disponible pour échanger concernant une alternance,
-                un stage ou toute autre opportunité professionnelle.
+            <p>
+                Plus les années passent, plus je prends conscience d’avoir trouvé une voie qui me correspond réellement et qui, je l’espère, me préparera à un avenir stable et enrichissant dans le monde du travail.
             </p>
 
         </div>
 
+        
+
+        <hr class="section-divider">
+
+        <h2 class="section-title">Les passions qui m’animent</h2>
+
+        <!-- CINÉMA -->
+
+        <section class="passion-section">
+
+            <div class="passion-card">
+
+                <h3 class="passion-title">Le cinéma et les films d’horreur</h3>
+
+                <div class="main-photo photo-card">
+                    <img src="photocinema.jpeg" alt="Passion cinéma">
+                </div>
+
+                <p>
+                    Le cinéma a été ma première véritable ouverture culturelle. Issue d’une famille de cinéphiles, j’ai très tôt été plongée dans cet univers grâce à mon père et mon frère, qui m’ont transmis leur passion.
+                </p>
+
+                <p>
+                    Au fil du temps, j’ai développé un goût particulier pour les films d’horreur et d’épouvante. Cette passion m’a permis d’aiguiser mon esprit critique, notamment à travers la création d’un blog sur lequel je rédige des analyses et des avis sur mes visionnages.
+                </p>
+
+            </div>
+
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- PÂTISSERIE -->
+
+        <section class="passion-section">
+
+            <div class="passion-card">
+
+                <h3 class="passion-title">La cuisine et la pâtisserie</h3>
+
+                <div class="gallery">
+
+                    <div class="photo-card">
+                        <img src="photopatisserie2.jpeg" alt="Pâtisserie 1">
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="photopatisserie3.jpeg" alt="Pâtisserie 2">
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="tarte.jpeg" alt="Tarte maison">
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="photopatisserie4.jpeg" alt="Pâtisserie 4">
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="photopatisserie5.jpeg" alt="Pâtisserie 5">
+                    </div>
+
+                </div>
+
+                <p>
+                    La cuisine, et plus particulièrement la pâtisserie, est une autre passion importante dans mon quotidien. Transmise par mon père, elle m’a appris la rigueur, la précision et la patience.
+                </p>
+
+                <p>
+                    J’aime expérimenter de nouvelles recettes, progresser à chaque essai et partager mes réalisations avec mes proches. J’accorde également beaucoup d’importance aux retours que je reçois, qui me permettent de toujours m’améliorer.
+                </p>
+
+            </div>
+
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- DESSIN -->
+
+        <section class="passion-section">
+
+            <div class="passion-card">
+
+                <h3 class="passion-title">Le dessin</h3>
+
+                <div class="main-photo photo-card">
+                    <img src="photodessin.jpeg" alt="Mes dessins">
+                </div>
+
+                <p>
+                    Le dessin est une passion plus récente, mais tout aussi significative. Elle représente pour moi un véritable espace de progression personnelle.
+                </p>
+
+                <p>
+                    N’ayant pas de facilité naturelle dans ce domaine, c’est par le travail et la régularité que j’ai progressivement développé mon niveau. Cette pratique m’a appris la persévérance et l’importance de l’investissement sur le long terme.
+                </p>
+
+                <p>
+                    C’est peut-être la passion qui me frustre le plus, mais elle m’entraîne aussi à réagir face aux imprévus, à garder mon calme dans certaines situations et à prendre du recul pour recommencer lorsque cela est nécessaire.
+                </p>
+
+            </div>
+
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- BALADE -->
+
+        <section class="passion-section">
+
+            <div class="passion-card">
+
+                <h3 class="passion-title">Les balades et le bien-être</h3>
+
+                <div class="walk-gallery">
+
+                    <div class="photo-card">
+                        <img src="photobalade1.jpeg" alt="Balade nature">
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="photobalade2.jpeg" alt="Moment détente">
+                    </div>
+
+                </div>
+
+                <p>
+                    En dehors de mes passions artistiques et manuelles, le sport n’a jamais été un domaine dans lequel je me suis particulièrement illustrée. Cependant, consciente de l’importance du bien-être physique et mental, je mets un point d’honneur à m’entretenir régulièrement.
+                </p>
+
+                <p>
+                    Qu’importe mon emploi du temps, j’essaie toujours de garder un moment pour marcher, me balader ou simplement prendre l’air.
+                </p>
+
+                <p>
+                    Au-delà de l’aspect physique, ces moments jouent un rôle essentiel dans mon équilibre quotidien. Ils me permettent de m’éloigner du cadre des études, de me recentrer sur moi-même et de prendre du recul sur mes préoccupations.
+                </p>
+
+            </div>
+
+        </section>
+
     </div>
 
-    <!-- TOAST -->
+    <!-- LIGHTBOX -->
 
-    <div class="toast" id="toast">
-        Adresse email copiée ✨
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox" id="closeLightbox">
+            <i class="fas fa-times"></i>
+        </span>
+
+        <img src="" alt="Image agrandie" id="lightboxImg">
     </div>
-
-    <!-- SCRIPT -->
 
     <script>
 
-        function copyEmail(){
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeLightbox = document.getElementById('closeLightbox');
 
-            const email = "claradecros@gmail.com";
+        const images = document.querySelectorAll('.photo-card img');
 
-            navigator.clipboard.writeText(email);
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = img.src;
+            });
+        });
 
-            const toast = document.getElementById("toast");
+        closeLightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
 
-            toast.classList.add("show");
-
-            setTimeout(() => {
-                toast.classList.remove("show");
-            }, 2500);
-
-        }
+        lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox){
+                lightbox.classList.remove('active');
+            }
+        });
 
     </script>
 
 </body>
 </html>
+```
