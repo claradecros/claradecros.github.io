@@ -13,7 +13,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
    (function(){
-      emailjs.init("TON_PUBLIC_KEY"); // 👈 À REMPLACER
+      emailjs.init("TON_PUBLIC_KEY"); 
    })();
 </script>
 
@@ -60,7 +60,7 @@ body::before{
     100%{ transform:translate(-8%,-8%) scale(1.08); }
 }
 
-/* NAV */
+/* NAVIGATION */
 
 .nav{
     position:fixed;
@@ -72,6 +72,45 @@ body::before{
     backdrop-filter:blur(10px);
     background:rgba(255,255,255,0.7);
     z-index:1000;
+    box-shadow:0 4px 18px rgba(0,0,0,0.04);
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-item{
+    border:none;
+    background:none;
+    color:var(--text);
+    font-size:14px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    position:relative;
+    font-weight:500;
+}
+
+.nav-item i{
+    color:var(--rose);
+}
+
+.nav-item::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    bottom:-6px;
+    left:0;
+    background:linear-gradient(90deg,var(--rose),var(--rose-soft));
+    transition:0.3s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after{
+    width:100%;
 }
 
 /* CONTAINER */
@@ -96,9 +135,78 @@ h1{
     text-align:center;
 }
 
-h1 span{ color:var(--rose); }
+h1 span{
+    color:var(--rose);
+}
+
+.line{
+    width:90px;
+    height:4px;
+    background:linear-gradient(90deg,var(--rose),var(--rose-soft));
+    margin:18px auto 30px;
+}
+
+/* INTRO */
+
+.intro{
+    text-align:center;
+    max-width:650px;
+    margin:0 auto 50px;
+    color:#666;
+}
+
+/* GRID */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-bottom:50px;
+}
+
+/* BOX */
+
+.contact-box{
+    background:rgba(255,255,255,0.3);
+    border-radius:28px;
+    padding:35px 25px;
+    text-align:center;
+}
+
+.icon-circle{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+}
+
+/* BTN */
+
+.btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    color:white;
+    background:#2f2f2f;
+}
 
 /* FORM */
+
+.form-title{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    font-size:2rem;
+    margin-bottom:25px;
+}
 
 form{
     max-width:550px;
@@ -108,7 +216,8 @@ form{
     gap:16px;
 }
 
-input, textarea{
+input,
+textarea{
     padding:16px;
     border-radius:16px;
     border:1px solid rgba(0,0,0,0.08);
@@ -117,33 +226,21 @@ input, textarea{
     background:rgba(255,255,255,0.75);
 }
 
-/* PLACEHOLDER STYLE */
+/* 👉 placeholder amélioré */
 textarea::placeholder{
     color:#b8b8b8;
     font-style:italic;
 }
 
-/* BTN */
-
-.btn{
-    padding:14px;
-    border:none;
-    border-radius:14px;
-    cursor:pointer;
-    background:#2f2f2f;
-    color:white;
-    font-weight:600;
-}
-
-.btn:hover{
-    background:var(--rose);
-}
-
 /* CV */
 
+.cv-container{
+    text-align:center;
+    margin-top:40px;
+}
+
 .cv-btn{
-    display:inline-block;
-    margin-top:30px;
+    display:inline-flex;
     padding:18px 32px;
     border-radius:18px;
     background:linear-gradient(135deg,var(--rose),#c98d8d);
@@ -174,71 +271,116 @@ textarea::placeholder{
 
 <body>
 
-<div class="container">
+<!-- NAV (inchangée) -->
 
-    <div class="contact-card">
+<nav class="nav">
+<div class="nav-links">
 
-        <h1>Contactez-<span>moi</span></h1>
-
-        <form onsubmit="sendMail(event)">
-
-            <input id="email" type="email" placeholder="Votre email" required>
-
-            <textarea
-                id="message"
-                rows="6"
-                placeholder="Bonjour Madame Decros,
-
-Je vous contacte car..."
-                required
-            ></textarea>
-
-            <button class="btn" type="submit">
-                <i class="fas fa-paper-plane"></i> Envoyer
-            </button>
-
-        </form>
-
-        <div style="text-align:center;">
-            <a class="cv-btn" href="Curriculum vitae DECROS Clara.pdf" download>
-                Télécharger mon CV
-            </a>
-        </div>
-
-    </div>
+<button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i></button>
+<button class="nav-item" onclick="location.href='infos.html'"><i class="fas fa-user"></i></button>
+<button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i></button>
+<button class="nav-item" onclick="location.href='bilan.html'"><i class="fas fa-book"></i></button>
+<button class="nav-item active"><i class="fas fa-phone"></i></button>
 
 </div>
+</nav>
+
+<div class="container">
+
+<div class="contact-card">
+
+<h1>Contactez-<span>moi</span></h1>
+
+<div class="line"></div>
+
+<p class="intro">
+Merci d’avoir pris le temps de découvrir mon univers.
+</p>
+
+<!-- CONTACT -->
+
+<div class="contact-grid">
+
+<!-- EMAIL -->
+<div class="contact-box">
+
+<div class="icon-circle">
+<i class="fas fa-envelope" style="color:var(--rose);"></i>
+</div>
+
+<p>claradecros@gmail.com</p>
+
+<button class="btn" onclick="copyMail()">Copier</button>
+
+</div>
+
+</div>
+
+<!-- FORM -->
+
+<h2 class="form-title">Envoyer un message</h2>
+
+<form onsubmit="sendMail(event)">
+
+<input id="email" type="email" placeholder="Votre email" required>
+
+<textarea
+id="message"
+rows="6"
+placeholder="Bonjour Madame Decros...
+
+Je vous contacte car..."
+required
+></textarea>
+
+<button class="btn" type="submit">
+Envoyer
+</button>
+
+</form>
+
+<!-- CV -->
+
+<div class="cv-container">
+<a class="cv-btn" href="Curriculum vitae DECROS Clara.pdf" download>
+Télécharger mon CV
+</a>
+</div>
+
+</div>
+</div>
+
+<!-- TOAST -->
 
 <div class="toast" id="toast"></div>
 
 <script>
 
+function copyMail(){
+navigator.clipboard.writeText("claradecros@gmail.com");
+showToast("Email copié ✨");
+}
+
 function sendMail(event){
-    event.preventDefault();
+event.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+const email = document.getElementById("email").value;
+const message = document.getElementById("message").value;
 
-    emailjs.send("TON_SERVICE_ID", "TON_TEMPLATE_ID", {
-        from_email: email,
-        message: message
-    })
-    .then(() => {
-        showToast("Message envoyé ✨");
-    })
-    .catch(() => {
-        showToast("Erreur d'envoi ❌");
-    });
+emailjs.send("TON_SERVICE_ID","TON_TEMPLATE_ID",{
+from_email: email,
+message: message
+})
+.then(() => showToast("Message envoyé ✨"))
+.catch(() => showToast("Erreur ❌"));
 }
 
 function showToast(text){
-    const toast = document.getElementById("toast");
-    toast.textContent = text;
-    toast.classList.add("show");
+const toast = document.getElementById("toast");
+toast.textContent = text;
+toast.classList.add("show");
 
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2500);
+setTimeout(()=>toast.classList.remove("show"),2500);
 }
 
 </script>
