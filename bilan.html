@@ -3,204 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilan sur l'année | Clara Decros</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <title>Bilan | Clara Decros</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <style>
-        :root {
-            --bg: #f8f6f4;
-            --beige: #e8dfd8;
-            --rose: #d4a3a3;
-            --rose-soft: #e7c8c8;
-            --text: #2f2f2f;
-            --white: #ffffff;
+
+        :root{
+            --bg:#f8f6f4;
+            --beige:#e8dfd8;
+            --rose:#d4a3a3;
+            --rose-soft:#e7c8c8;
+            --text:#2f2f2f;
+            --white:#ffffff;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(120deg, #f8f6f4, #f1ebe5);
-            color: var(--text);
-            overflow-x: hidden;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
 
-        /* Arrière-plan animé identique à l'index */
-        body::before {
-            content: "";
-            position: fixed;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 30%, #e7c8c8 0%, transparent 40%),
-                        radial-gradient(circle at 70% 60%, #d4a3a3 0%, transparent 40%),
-                        radial-gradient(circle at 50% 80%, #e8dfd8 0%, transparent 40%);
-            animation: moveBg 12s infinite alternate ease-in-out;
-            z-index: -1;
+        body{
+            font-family:'Poppins', sans-serif;
+            background: linear-gradient(135deg,#f8f6f4,#f1ebe5);
+            color:var(--text);
+            overflow-x:hidden;
         }
 
-        @keyframes moveBg {
-            0% {transform: translate(0,0);}
-            100% {transform: translate(-10%, -10%);}
+        body::before{
+            content:"";
+            position:fixed;
+            width:200%;
+            height:200%;
+            background:
+            radial-gradient(circle at 20% 30%, rgba(212,163,163,0.35), transparent 30%),
+            radial-gradient(circle at 80% 20%, rgba(231,200,200,0.4), transparent 35%),
+            radial-gradient(circle at 60% 70%, rgba(232,223,216,0.6), transparent 35%);
+            animation:bgMove 14s ease-in-out infinite alternate;
+            z-index:-1;
         }
 
-        /* Navigation identique à l'index */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            backdrop-filter: blur(8px);
-            background: rgba(255,255,255,0.7);
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        @keyframes bgMove{
+            from{transform:translate(0,0);}
+            to{transform:translate(-8%,-8%);}
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
+        .nav{
+            position:fixed;
+            top:0;
+            width:100%;
+            display:flex;
+            justify-content:center;
+            padding:15px 0;
+            backdrop-filter:blur(12px);
+            background:rgba(255,255,255,0.65);
+            z-index:100;
+            border-bottom:1px solid rgba(255,255,255,0.3);
         }
 
-        .nav-item {
-            border: none;
-            background: none;
-            color: var(--text);
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            position: relative;
-            padding: 5px 0;
+        .nav-links{
+            display:flex;
+            gap:30px;
         }
 
-        .nav-item i {
-            color: var(--rose);
+        .nav-item{
+            border:none;
+            background:none;
+            color:var(--text);
+            font-size:14px;
+            cursor:pointer;
+            display:flex;
+            align-items:center;
+            gap:8px;
+            position:relative;
+            padding:5px 0;
         }
 
-        .nav-item::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(90deg, var(--rose), var(--rose-soft));
-            transition: 0.3s;
+        .nav-item i{
+            color:var(--rose);
         }
 
-        .nav-item:hover::after, .nav-item.active::after {
-            width: 100%;
+        .nav-item::after{
+            content:"";
+            position:absolute;
+            width:0;
+            height:2px;
+            bottom:-5px;
+            left:0;
+            background:linear-gradient(90deg,var(--rose),var(--rose-soft));
+            transition:0.3s;
         }
 
-        /* Contenu principal */
-        .container {
-            max-width: 1000px;
-            margin: 120px auto 60px;
-            padding: 0 20px;
-            animation: fadeUp 1s ease;
+        .nav-item:hover::after,
+        .nav-item.active::after{
+            width:100%;
         }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 10px;
+        .hero{
+            padding-top:160px;
+            text-align:center;
+            padding-bottom:70px;
         }
 
-        h1 span {
-            color: var(--rose);
+        .hero h1{
+            font-family:'Playfair Display', serif;
+            font-size:4rem;
         }
 
-        .line {
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--rose), var(--rose-soft));
-            margin: 0 auto 50px;
-            border-radius: 2px;
+        .hero h1 span{
+            color:var(--rose);
         }
 
-        /* Style des blocs de texte (Bilan) */
-        .bilan-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            border-left: 5px solid var(--rose);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, background 0.3s ease;
+        .line{
+            width:120px;
+            height:4px;
+            margin:30px auto;
+            background:linear-gradient(90deg,var(--rose),var(--rose-soft));
+            border-radius:10px;
         }
 
-        .bilan-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.8);
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+            padding-bottom:80px;
         }
 
-        .bilan-card p {
-            line-height: 1.8;
-            font-size: 1.05rem;
-            margin: 0;
-            text-align: justify;
+        .timeline{
+            position:relative;
+            margin-top:30px;
         }
 
-        @keyframes fadeUp {
-            from {opacity:0; transform: translateY(30px);}
-            to {opacity:1; transform: translateY(0);}
+        .timeline::before{
+            content:"";
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            width:3px;
+            height:100%;
+            background:linear-gradient(var(--rose),transparent);
         }
 
-        @media(max-width:768px){
-            h1 { font-size: 2.5rem; }
-            .nav-links { gap: 10px; }
-            .nav-item span { display: none; }
+        .card{
+            width:46%;
+            padding:30px;
+            margin-bottom:50px;
+            border-radius:28px;
+            background:rgba(255,255,255,0.55);
+            backdrop-filter:blur(14px);
+            box-shadow:0 10px 40px rgba(0,0,0,0.06);
         }
+
+        .card:hover{
+            transform:translateY(-8px);
+        }
+
+        .left{left:0;}
+        .right{left:54%;}
+
+        .card{
+            position:relative;
+        }
+
+        .card::before{
+            content:"";
+            position:absolute;
+            top:35px;
+            width:18px;
+            height:18px;
+            border-radius:50%;
+            background:var(--rose);
+        }
+
+        .left::before{right:-49px;}
+        .right::before{left:-49px;}
+
+        .card h2{
+            color:var(--rose);
+            margin-bottom:15px;
+        }
+
+        .card p{
+            line-height:1.8;
+            text-align:justify;
+        }
+
+        @media(max-width:900px){
+            .timeline::before{left:20px;}
+            .card{
+                width:100%;
+                left:0 !important;
+                padding-left:60px;
+            }
+            .card::before{left:11px !important;}
+            .hero h1{font-size:2.8rem;}
+        }
+
     </style>
 </head>
+
 <body>
 
-    <nav class="nav">
-        <div class="nav-links">
-            <button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i><span>Accueil</span></button>
-            <button class="nav-item" onclick="location.href='infos.html'"><i class="fas fa-user"></i><span>Profil</span></button>
-            <button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i><span>Projets</span></button>
-            <button class="nav-item active" onclick="location.href='bilan.html'"><i class="fas fa-book"></i><span>Bilan</span></button>
-            <button class="nav-item" onclick="location.href='contact.html'"><i class="fas fa-phone"></i><span>Contact</span></button>
-        </div>
-    </nav>
-
-    <div class="container">
-        <h1>Mon <span>Bilan annuel</span></h1>
-        <div class="line"></div>
-
-        <div class="bilan-card">
-            <p>Cette première année universitaire a conforté mon choix de parcours. Bien que ce ne fût pas mon premier choix, j’ai choisi cette formation par envie et curiosité, et non par dépit. À l’heure actuelle, je ne ressens aucun regret : cette formation offre une large palette de débouchés et de nombreuses matières m’intéressent, en lien avec les domaines dans lesquels je souhaiterais m’orienter plus tard.</p>
-        </div>
-
-        <div class="bilan-card">
-            <p>Cependant, il est important d’admettre aussi les aspects plus négatifs de mon parcours. Comme je le craignais, les matières informatiques représentent une difficulté pour moi. Mais je refuse de céder à la facilité. Contrairement aux mathématiques et à la communication, qui me sont plus familières, l’informatique est un domaine totalement nouveau. Je ne dois pas le négliger, mais plutôt apprendre à le gérer pour les semestres à venir.</p>
-        </div>
-
-        <div class="bilan-card">
-            <p>Je pense que mon erreur principale a été de baisser les bras dès le début, ce qui est contraire à ma nature, et de me laisser submerger par tous ces langages qui me dépassaient. Une approche plus rigoureuse et une meilleure ouverture à l’apprentissage me permettraient de progresser.</p>
-        </div>
-
-        <div class="bilan-card">
-            <p>Ma méthode de travail a évolué depuis le lycée : la plupart des matières m’intéressent réellement, ce qui me pousse à prendre de l’avance. En termes d’organisation, je me suis aussi améliorée : j’établis régulièrement un emploi du temps de révision. J’accepte cette formation avec ses défis, que je perçois non comme des obstacles, mais comme des opportunités de progression.</p>
-        </div>
-
-        <div class="bilan-card">
-            <p>L’un des plus grands atouts de cette formation est la multiplicité des projets. Cette approche concrète m’aide particulièrement, car elle me permet d’évaluer mon niveau et de prendre conscience de mes compétences réelles. Ces projets me rapprochent des missions professionnelles et me familiarisent avec le travail en groupe et l'organisation collective.</p>
-        </div>
-
-        <div class="bilan-card">
-            <p>Pour l’année prochaine, je souhaite m’orienter vers le parcours <strong>EMS (Exploration et Modélisation Statistique)</strong>. Ce parcours combine statistiques et mathématiques, ce qui correspond davantage à mes points forts et à mes aspirations professionnelles, comparé au parcours VCODE plus axé sur la conception de bases de données.</p>
-        </div>
-
-        <div class="bilan-card">
-            <p>Pour les deux années restantes, mon objectif est de renforcer mes points forts tout en transformant mes difficultés en atouts. Je vise également à réaliser une alternance ou un stage, afin d’acquérir une expérience concrète et d’échanger avec des professionnels du secteur pour affiner mon projet futur.</p>
-        </div>
+<nav class="nav">
+    <div class="nav-links">
+        <button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i><span>Accueil</span></button>
+        <button class="nav-item" onclick="location.href='infos.html'"><i class="fas fa-user"></i><span>Profil</span></button>
+        <button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i><span>Projets</span></button>
+        <button class="nav-item active" onclick="location.href='bilan.html'"><i class="fas fa-book"></i><span>Bilan</span></button>
+        <button class="nav-item" onclick="location.href='contact.html'"><i class="fas fa-phone"></i><span>Contact</span></button>
     </div>
+</nav>
+
+<section class="hero">
+    <h1>Bilan de mes <span>deux années</span><br>en BUT SD</h1>
+    <div class="line"></div>
+</section>
+
+<div class="container">
+
+    <div class="timeline">
+
+        <div class="card left">
+            <h2>Première année</h2>
+            <p>
+                Cette première année universitaire a conforté mon choix de parcours...
+            </p>
+        </div>
+
+        <div class="card right">
+            <h2>Difficultés</h2>
+            <p>
+                Cependant, les matières informatiques ont représenté une difficulté...
+            </p>
+        </div>
+
+        <div class="card left">
+            <h2>Organisation</h2>
+            <p>
+                Ma méthode de travail a évolué depuis le lycée...
+            </p>
+        </div>
+
+        <div class="card right">
+            <h2>Projets</h2>
+            <p>
+                L’un des plus grands atouts de cette formation...
+            </p>
+        </div>
+
+        <div class="card left">
+            <h2>Parcours EMS</h2>
+            <p>
+                J’ai choisi le parcours EMS...
+            </p>
+        </div>
+
+        <div class="card right">
+            <h2>Deuxième année</h2>
+            <p>
+                À l’issue de cette deuxième année...
+            </p>
+        </div>
+
+        <div class="card left">
+            <h2>Projet professionnel</h2>
+            <p>
+                Je souhaite devenir chargé d’études statistiques...
+            </p>
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
-
