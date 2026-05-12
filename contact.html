@@ -9,14 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-<!-- AJOUT EMAILJS (UNIQUEMENT CECI) -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("TON_PUBLIC_KEY");
-  })();
-</script>
-
 <style>
 
 :root{
@@ -56,8 +48,13 @@ body::before{
 }
 
 @keyframes bgMove{
-    0%{ transform:translate(0,0) scale(1); }
-    100%{ transform:translate(-8%,-8%) scale(1.08); }
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+
+    100%{
+        transform:translate(-8%,-8%) scale(1.08);
+    }
 }
 
 /* NAVIGATION */
@@ -94,7 +91,9 @@ body::before{
     font-weight:500;
 }
 
-.nav-item i{ color:var(--rose); }
+.nav-item i{
+    color:var(--rose);
+}
 
 .nav-item::after{
     content:"";
@@ -108,7 +107,9 @@ body::before{
 }
 
 .nav-item:hover::after,
-.nav-item.active::after{ width:100%; }
+.nav-item.active::after{
+    width:100%;
+}
 
 /* CONTAINER */
 
@@ -119,8 +120,15 @@ body::before{
 }
 
 @keyframes fadeUp{
-    from{ opacity:0; transform:translateY(30px); }
-    to{ opacity:1; transform:translateY(0); }
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 /* CARTE */
@@ -136,6 +144,17 @@ body::before{
     overflow:hidden;
 }
 
+.contact-card::before{
+    content:"";
+    position:absolute;
+    top:-150px;
+    right:-150px;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle,rgba(212,163,163,0.18),transparent 70%);
+    border-radius:50%;
+}
+
 /* TITRES */
 
 h1{
@@ -145,7 +164,9 @@ h1{
     margin-bottom:10px;
 }
 
-h1 span{ color:var(--rose); }
+h1 span{
+    color:var(--rose);
+}
 
 .line{
     width:90px;
@@ -163,7 +184,7 @@ h1 span{ color:var(--rose); }
     color:#666;
 }
 
-/* CONTACT */
+/* GRID CONTACT */
 
 .contact-grid{
     display:grid;
@@ -172,11 +193,20 @@ h1 span{ color:var(--rose); }
     margin-bottom:50px;
 }
 
+/* BOX */
+
 .contact-box{
     background:rgba(255,255,255,0.3);
+    border:1px solid rgba(255,255,255,0.4);
     border-radius:28px;
     padding:35px 25px;
     text-align:center;
+    transition:0.4s ease;
+}
+
+.contact-box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.08);
 }
 
 .icon-circle{
@@ -189,6 +219,23 @@ h1 span{ color:var(--rose); }
     justify-content:center;
     margin:0 auto 20px;
 }
+
+.icon-circle i{
+    font-size:2rem;
+}
+
+.contact-box h3{
+    font-family:'Playfair Display',serif;
+    font-size:1.5rem;
+    margin-bottom:10px;
+}
+
+.contact-box p{
+    color:#666;
+    margin-bottom:20px;
+}
+
+/* BOUTONS */
 
 .btn{
     display:flex;
@@ -203,9 +250,40 @@ h1 span{ color:var(--rose); }
     text-decoration:none;
     color:white;
     background:#2f2f2f;
+    transition:0.35s ease;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
 }
 
-/* FORM */
+.btn:hover{
+    transform:translateY(-3px);
+    background:var(--rose);
+}
+
+.linkedin{
+    background:#0077b5;
+}
+
+.linkedin:hover{
+    background:#005f91;
+}
+
+.phone{
+    background:#34b7f1;
+}
+
+.phone:hover{
+    background:#2198ce;
+}
+
+/* FORMULAIRE */
+
+.form-title{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    font-size:2rem;
+    margin-bottom:25px;
+}
 
 form{
     max-width:550px;
@@ -215,15 +293,45 @@ form{
     gap:16px;
 }
 
-input,textarea{
+input,
+textarea{
     padding:16px;
     border-radius:16px;
     border:1px solid rgba(0,0,0,0.08);
+    outline:none;
+    font-family:'Poppins',sans-serif;
+    background:rgba(255,255,255,0.75);
 }
 
-/* PLACEHOLDER MODIFIÉ */
-textarea::placeholder{
-    color:#b5b5b5;
+textarea{
+    resize:none;
+}
+
+/* BOUTON CV */
+
+.cv-container{
+    text-align:center;
+    margin-top:40px;
+}
+
+.cv-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    padding:18px 32px;
+    border-radius:18px;
+    background:linear-gradient(135deg,var(--rose),#c98d8d);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.35s ease;
+    box-shadow:0 15px 30px rgba(212,163,163,0.25);
+}
+
+.cv-btn:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 20px 40px rgba(212,163,163,0.35);
 }
 
 /* TOAST */
@@ -238,11 +346,36 @@ textarea::placeholder{
     border-radius:14px;
     opacity:0;
     visibility:hidden;
+    transform:translateY(20px);
+    transition:0.35s ease;
 }
 
 .toast.show{
     opacity:1;
     visibility:visible;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .nav-links{
+        gap:15px;
+    }
+
+    .nav-item span{
+        display:none;
+    }
+
+    h1{
+        font-size:2.8rem;
+    }
+
+    .contact-card{
+        padding:35px 22px;
+    }
+
 }
 
 </style>
@@ -250,82 +383,234 @@ textarea::placeholder{
 
 <body>
 
-<!-- NAVIGATION IDENTIQUE -->
+<!-- NAVIGATION -->
+
 <nav class="nav">
-<div class="nav-links">
-<button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i><span>Accueil</span></button>
-<button class="nav-item" onclick="location.href='infos.html'"><i class="fas fa-user"></i><span>Profil</span></button>
-<button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i><span>Projets</span></button>
-<button class="nav-item" onclick="location.href='bilan.html'"><i class="fas fa-book"></i><span>Bilan</span></button>
-<button class="nav-item active"><i class="fas fa-phone"></i><span>Contact</span></button>
-</div>
+
+    <div class="nav-links">
+
+        <button class="nav-item" onclick="location.href='index.html'">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </button>
+
+        <button class="nav-item" onclick="location.href='infos.html'">
+            <i class="fas fa-user"></i>
+            <span>Profil</span>
+        </button>
+
+        <button class="nav-item" onclick="location.href='projets.html'">
+            <i class="fas fa-chart-bar"></i>
+            <span>Projets</span>
+        </button>
+
+        <button class="nav-item" onclick="location.href='bilan.html'">
+            <i class="fas fa-book"></i>
+            <span>Bilan</span>
+        </button>
+
+        <button class="nav-item active">
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+        </button>
+
+    </div>
+
 </nav>
 
-<!-- CONTENU IDENTIQUE -->
+<!-- CONTENU -->
+
 <div class="container">
-<div class="contact-card">
 
-<h1>Contactez-<span>moi</span></h1>
-<div class="line"></div>
+    <div class="contact-card">
 
-<p class="intro">
-Merci d’avoir pris le temps de découvrir mon univers.
-</p>
+        <h1>Contactez-<span>moi</span></h1>
 
-<form onsubmit="sendMail(event)">
+        <div class="line"></div>
 
-<input id="email" type="email" placeholder="Votre email" required>
+        <p class="intro">
+            Merci d’avoir pris le temps de découvrir mon univers.
+            Que ce soit pour une alternance, un projet ou un échange,
+            je serai ravie de vous répondre.
+        </p>
 
-<textarea
-id="message"
-rows="6"
-placeholder="Bonjour Madame Decros...
+        <!-- CONTACTS -->
 
-Je vous contacte car..."
-required></textarea>
+        <div class="contact-grid">
 
-<button class="btn" type="submit">
-<i class="fas fa-paper-plane"></i>
-Envoyer
-</button>
+            <!-- EMAIL -->
 
-</form>
+            <div class="contact-box">
+
+                <div class="icon-circle">
+                    <i class="fas fa-envelope" style="color:var(--rose);"></i>
+                </div>
+
+                <h3>Email</h3>
+
+                <p>
+                    claradecros@gmail.com
+                </p>
+
+                <button class="btn" onclick="copyMail()">
+                    <i class="fas fa-copy"></i>
+                    Copier
+                </button>
+
+            </div>
+
+            <!-- LINKEDIN -->
+
+            <div class="contact-box">
+
+                <div class="icon-circle">
+                    <i class="fab fa-linkedin" style="color:#0077b5;"></i>
+                </div>
+
+                <h3>LinkedIn</h3>
+
+                <p>
+                    Clara Decros
+                </p>
+
+                <a href="https://www.linkedin.com/in/clara-decros-345502342"
+                   target="_blank"
+                   class="btn linkedin">
+
+                    <i class="fab fa-linkedin"></i>
+                    Ouvrir
+
+                </a>
+
+            </div>
+
+            <!-- TELEPHONE -->
+
+            <div class="contact-box">
+
+                <div class="icon-circle">
+                    <i class="fas fa-phone" style="color:#34b7f1;"></i>
+                </div>
+
+                <h3>Téléphone</h3>
+
+                <p>
+                    06 19 20 01 72
+                </p>
+
+                <a href="tel:+33619200172"
+                   class="btn phone">
+
+                    <i class="fas fa-phone"></i>
+                    Appeler
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- FORMULAIRE -->
+
+        <h2 class="form-title">
+            Envoyer un message
+        </h2>
+
+        <form onsubmit="sendMail(event)">
+
+            <input
+                id="email"
+                type="email"
+                placeholder="Votre email"
+                required
+            >
+
+            <textarea
+                id="message"
+                rows="6"
+                placeholder="Votre message"
+                required
+            ></textarea>
+
+            <button class="btn" type="submit">
+
+                <i class="fas fa-paper-plane"></i>
+
+                Envoyer
+
+            </button>
+
+        </form>
+
+        <!-- CV -->
+
+        <div class="cv-container">
+
+            <a href="Curriculum vitae DECROS Clara.pdf"
+               download
+               target="_blank"
+               class="cv-btn">
+
+                <i class="fas fa-file-pdf"></i>
+
+                Télécharger mon CV
+
+            </a>
+
+        </div>
+
+    </div>
 
 </div>
-</div>
+
+<!-- TOAST -->
 
 <div class="toast" id="toast"></div>
 
-<!-- JS MODIFIÉ UNIQUEMENT ICI -->
+<!-- SCRIPT -->
+
 <script>
+
+function copyMail(){
+
+    navigator.clipboard.writeText("claradecros@gmail.com");
+
+    showToast("Adresse email copiée ✨");
+
+}
 
 function sendMail(event){
 
     event.preventDefault();
 
     const email = document.getElementById("email").value;
+
     const message = document.getElementById("message").value;
 
-    emailjs.send("TON_SERVICE_ID", "TON_TEMPLATE_ID", {
-        from_email: email,
-        message: message
-    })
-    .then(() => {
-        showToast("Message envoyé ✨");
-    })
-    .catch(() => {
-        showToast("Erreur d'envoi ❌");
-    });
+    window.location.href =
+    `mailto:claradecros@gmail.com?subject=Message Portfolio (${email})&body=${encodeURIComponent(message + "\n\nEnvoyé par : " + email)}`;
+
+    showToast("Ouverture de Gmail ✨");
+
 }
 
 function showToast(text){
+
     const toast = document.getElementById("toast");
+
     toast.textContent = text;
+
     toast.classList.add("show");
-    setTimeout(()=>toast.classList.remove("show"),2500);
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    },2500);
+
 }
 
 </script>
 
 </body>
-</html>
+</html> tout est parfait la presenation est top juste le message dans mail ca envoie pas genre je veux que ca envoie directement et genre dans la case il y a ecrit en gris claire "Bonjour Madame Decros..." en mode inspiration t'a capté
