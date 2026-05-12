@@ -5,112 +5,129 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bilan | Clara Decros</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
 <style>
 
-:root {
-    --bg: #f8f6f4;
-    --rose: #d4a3a3;
-    --rose-soft: #e7c8c8;
-    --text: #2f2f2f;
+:root{
+    --rose:#d4a3a3;
+    --rose-soft:#e7c8c8;
+    --text:#2f2f2f;
 }
 
 /* GLOBAL */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(120deg, #f8f6f4, #f1ebe5);
-    color: var(--text);
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(120deg,#f8f6f4,#f1ebe5);
+    color:var(--text);
 }
 
-/* NAV */
-.nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 15px 0;
-    backdrop-filter: blur(8px);
-    background: rgba(255,255,255,0.7);
-    z-index: 100;
+/* NAV (BANDEAU OK) */
+.nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:15px 0;
+    backdrop-filter:blur(8px);
+    background:rgba(255,255,255,0.7);
+    z-index:100;
 }
 
-.nav-links {
-    display: flex;
-    gap: 30px;
+.nav-links{
+    display:flex;
+    gap:30px;
 }
 
-.nav-item {
-    border: none;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    gap: 8px;
-    align-items: center;
+.nav-item{
+    border:none;
+    background:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 /* HERO */
-.hero {
-    padding-top: 140px;
-    text-align: center;
+.hero{
+    padding-top:140px;
+    text-align:center;
 }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:3rem;
 }
 
-.hero span {
-    color: var(--rose);
+.hero span{
+    color:var(--rose);
 }
 
-.line {
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--rose), var(--rose-soft));
-    margin: 20px auto;
-    border-radius: 2px;
+.line{
+    width:100px;
+    height:4px;
+    margin:20px auto;
+    background:linear-gradient(90deg,var(--rose),var(--rose-soft));
+    border-radius:2px;
 }
 
-/* BUTTON */
-.download-btn {
-    margin-top: 20px;
-    padding: 10px 35px;
-    border: 1px solid var(--rose);
-    background: transparent;
-    border-radius: 50px;
-    cursor: pointer;
+/* BOUTON */
+.download-btn{
+    margin-top:15px;
+    padding:10px 35px;
+    border:1px solid var(--rose);
+    background:transparent;
+    border-radius:50px;
+    cursor:pointer;
 }
 
-/* CONTAINER */
-.container {
-    max-width: 1000px;
-    margin: 120px auto;
-    padding: 0 20px;
+/* FRISE */
+.container{
+    width:90%;
+    max-width:900px;
+    margin:60px auto 100px;
 }
 
-/* CARDS */
-.bilan-card {
-    background: rgba(255,255,255,0.6);
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    border-left: 5px solid var(--rose);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+.timeline{
+    position:relative;
+    padding-left:40px;
+    border-left:3px solid var(--rose);
 }
 
-.bilan-card p {
-    line-height: 1.8;
-    text-align: justify;
+/* BLOCS */
+.card{
+    background:rgba(255,255,255,0.6);
+    margin-bottom:30px;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    position:relative;
 }
 
-/* ANIMATION */
-@keyframes fadeUp {
-    from {opacity:0; transform: translateY(30px);}
-    to {opacity:1; transform: translateY(0);}
+/* POINT FRISE */
+.card::before{
+    content:"";
+    position:absolute;
+    left:-12px;
+    top:25px;
+    width:15px;
+    height:15px;
+    background:var(--rose);
+    border-radius:50%;
+}
+
+.card h2{
+    color:var(--rose);
+    margin-bottom:10px;
+}
+
+.card p{
+    line-height:1.8;
+    text-align:justify;
+    white-space:pre-line;
 }
 
 </style>
@@ -118,6 +135,7 @@ body {
 
 <body>
 
+<!-- NAV -->
 <nav class="nav">
     <div class="nav-links">
         <button class="nav-item"><i class="fas fa-home"></i>Accueil</button>
@@ -128,43 +146,78 @@ body {
     </div>
 </nav>
 
-<div class="container">
+<!-- HERO -->
+<div class="hero">
 
-<h1 style="text-align:center;font-family:'Playfair Display';font-size:3rem;">
-Mon <span style="color:#d4a3a3;">Bilan annuel</span>
-</h1>
+<h1>Bilan de mes <span>deux années</span><br>en BUT SD</h1>
+
+<button class="download-btn" onclick="downloadBilan()">
+Télécharger mon bilan
+</button>
 
 <div class="line"></div>
 
-<div class="bilan-card">
-<p>Cette première année universitaire a conforté mon choix de parcours...</p>
 </div>
 
-<div class="bilan-card">
-<p>Cependant, il est important d’admettre aussi les aspects plus négatifs...</p>
+<!-- FRISE -->
+<div class="container">
+
+<div class="timeline">
+
+<div class="card">
+<h2>Bilan général</h2>
+<p>BILAN DE CES DEUX PREMIÈRES ANNÉES EN BUT SD
+Cette première année universitaire a conforté mon choix de parcours. Bien que ce ne fût pas mon premier choix, j’ai choisi cette formation par envie et curiosité, et non par dépit. À l’heure actuelle, je ne ressens aucun regret : cette formation offre une large palette de débouchés et de nombreuses matières m’intéressent, en lien avec les domaines dans lesquels je souhaiterais m’orienter plus tard.</p>
 </div>
 
-<div class="bilan-card">
-<p>Je pense que mon erreur principale a été de baisser les bras...</p>
+<div class="card">
+<h2>Difficultés</h2>
+<p>Cependant, il est important d’admettre aussi les aspects plus négatifs de mon parcours. Comme je le craignais, les matières informatiques représentent une difficulté pour moi. Mais je refuse de céder à la facilité. Contrairement aux mathématiques et à la communication, qui me sont plus familières, l’informatique est un domaine totalement nouveau.</p>
 </div>
 
-<div class="bilan-card">
-<p>Ma méthode de travail a évolué depuis le lycée...</p>
+<div class="card">
+<h2>Réflexion</h2>
+<p>Je pense que mon erreur principale a été de baisser les bras dès le début, ce qui est contraire à ma nature, et de me laisser submerger par tous ces langages qui me dépassaient. Une approche plus rigoureuse et une meilleure ouverture à l’apprentissage me permettraient de progresser.</p>
 </div>
 
-<div class="bilan-card">
-<p>L’un des plus grands atouts de cette formation...</p>
+<div class="card">
+<h2>Méthode</h2>
+<p>Ma méthode de travail a évolué depuis le lycée : la plupart des matières m’intéressent réellement, ce qui me pousse à prendre de l’avance. En termes d’organisation, je me suis aussi améliorée.</p>
 </div>
 
-<div class="bilan-card">
-<p>Pour l’année prochaine, je souhaite m’orienter vers le parcours EMS...</p>
+<div class="card">
+<h2>Projets</h2>
+<p>L’un des plus grands atouts de cette formation est la multiplicité des projets. Cette approche concrète m’aide particulièrement.</p>
 </div>
 
-<div class="bilan-card">
-<p>A l’issue de cette deuxième année j’ai réellement solidifié mes appuis...</p>
+<div class="card">
+<h2>EMS</h2>
+<p>Pour l’année prochaine, je souhaite m’orienter vers le parcours EMS (Exploration et Modélisation Statistique).</p>
+</div>
+
+<div class="card">
+<h2>Deuxième année</h2>
+<p>A l’issue de cette deuxième année j’ai réellement solidifié mes appuis et passé outre mes difficultés. J’ai obtenu des résultats satisfaisants en informatique et me suis davantage investie en statistiques et mathématiques. Je souhaite devenir chargée d’étude statistique et poursuivre en master MIASHS.</p>
 </div>
 
 </div>
+
+</div>
+
+<script>
+function downloadBilan(){
+    const text = "Bilan des deux premières années en BUT SD Clara DECROS";
+    const blob = new Blob([text], {type:"text/plain"});
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Bilan des deux premières années en BUT SD Clara DECROS.txt";
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+</script>
 
 </body>
 </html>
