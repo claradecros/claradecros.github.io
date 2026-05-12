@@ -55,7 +55,6 @@ body{
     display:flex;
     gap:8px;
     align-items:center;
-    position:relative;
     font-size:14px;
 }
 
@@ -86,7 +85,27 @@ body{
     border-radius:10px;
 }
 
-/* TIMELINE */
+/* BOUTON DOWNLOAD */
+.download-btn{
+    margin-top:20px;
+    padding:10px 40px;
+    border:1px solid var(--rose);
+    background:transparent;
+    color:var(--text);
+    font-size:13px;
+    letter-spacing:1px;
+    border-radius:50px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:var(--rose);
+    color:white;
+    transform:translateY(-2px);
+}
+
+/* CONTAINER */
 .container{
     width:90%;
     max-width:1200px;
@@ -94,6 +113,7 @@ body{
     padding-bottom:80px;
 }
 
+/* TIMELINE */
 .timeline{
     position:relative;
 }
@@ -138,7 +158,6 @@ body{
 .card h2{
     color:var(--rose);
     margin-bottom:10px;
-    font-size:1.2rem;
 }
 
 .card p{
@@ -175,8 +194,16 @@ body{
 </nav>
 
 <section class="hero">
+
     <h1>Bilan de mes <span>deux années</span><br>en BUT SD</h1>
+
+    <!-- BOUTON DOWNLOAD -->
+    <button class="download-btn" onclick="downloadBilan()">
+        Télécharger mon bilan
+    </button>
+
     <div class="line"></div>
+
 </section>
 
 <div class="container">
@@ -191,37 +218,56 @@ Cette première année universitaire a conforté mon choix de parcours. Bien que
 
     <div class="card right">
         <h2>Difficultés</h2>
-        <p>Cependant, il est important d’admettre aussi les aspects plus négatifs de mon parcours. Comme je le craignais, les matières informatiques représentent une difficulté pour moi. Mais je refuse de céder à la facilité. Contrairement aux mathématiques et à la communication, qui me sont plus familières, l’informatique est un domaine totalement nouveau. Je ne dois pas le négliger, mais plutôt apprendre à le gérer pour les semestres à venir.</p>
+        <p>Cependant, il est important d’admettre aussi les aspects plus négatifs de mon parcours. Comme je le craignais, les matières informatiques représentent une difficulté pour moi. Mais je refuse de céder à la facilité. Contrairement aux mathématiques et à la communication, qui me sont plus familières, l’informatique est un domaine totalement nouveau.</p>
     </div>
 
     <div class="card left">
-        <h2>Réflexion personnelle</h2>
-        <p>Je pense que mon erreur principale a été de baisser les bras dès le début, ce qui est contraire à ma nature, et de me laisser submerger par tous ces langages qui me dépassaient. Une approche plus rigoureuse et une meilleure ouverture à l’apprentissage me permettraient de progresser.</p>
+        <h2>Réflexion</h2>
+        <p>Je pense que mon erreur principale a été de baisser les bras dès le début...</p>
     </div>
 
     <div class="card right">
-        <h2>Méthode de travail</h2>
-        <p>Ma méthode de travail a évolué depuis le lycée : la plupart des matières m’intéressent réellement, ce qui me pousse à prendre de l’avance. En termes d’organisation, je me suis aussi améliorée : j’établis régulièrement un emploi du temps de révision. J’accepte cette formation avec ses défis, que je perçois non comme des obstacles, mais comme des opportunités de progression.</p>
+        <h2>Méthode</h2>
+        <p>Ma méthode de travail a évolué depuis le lycée...</p>
     </div>
 
     <div class="card left">
         <h2>Projets</h2>
-        <p>L’un des plus grands atouts de cette formation est la multiplicité des projets. Cette approche concrète m’aide particulièrement, car elle me permet d’évaluer mon niveau et de prendre conscience de mes compétences réelles. Ces projets me rapprochent des missions professionnelles et me familiarisent avec le travail en groupe et l'organisation collective.</p>
+        <p>L’un des plus grands atouts de cette formation...</p>
     </div>
 
     <div class="card right">
-        <h2>Orientation EMS</h2>
-        <p>Pour l’année prochaine, je souhaite m’orienter vers le parcours EMS (Exploration et Modélisation Statistique). Ce parcours combine statistiques et mathématiques, ce qui correspond davantage à mes points forts et à mes aspirations professionnelles, comparé au parcours VCODE plus axé sur la conception de bases de données.</p>
+        <h2>EMS</h2>
+        <p>Pour l’année prochaine, je souhaite m’orienter vers le parcours EMS...</p>
     </div>
 
     <div class="card left">
         <h2>Deuxième année</h2>
-        <p>A l’issue de cette deuxième année j’ai réellement solidifié mes appuis et passer outre mes difficultés, j’ai réussi à obtenir des résultats très satisfaisant dans les matières informatiques et à m’investir davantage dans les matières mathématiques et statistics propres à mon parcours. Je me sens plus mature et plus investie dans mes études vu que ce parcours me focus sur des matières et projets que j’apprécie et en concordance avec le métier que je souhaiterais faire plus tard. De ce que j’ai pu me renseigner je souhaiterais m’orienter vers le métier de chargé d’étude statistique ,analyser et interpreter des données et la conception d’indicateurs est ce qui me plait le plus a l’heure actuelle.Pour réaliser ce métier je souhaiterais a l’issue de mon BUT poursuivre si possible en master MIASHS (Master Mathématiques et informatique appliquées aux sciences humaines et sociales )</p>
+        <p>A l’issue de cette deuxième année j’ai réellement solidifié mes appuis...</p>
     </div>
 
 </div>
 
 </div>
+
+<script>
+function downloadBilan() {
+    const content = "Bilan des deux premières années en BUT SD Clara DECROS";
+
+    const blob = new Blob([content], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Bilan_BUT_SD_Clara_DECROS.txt";
+
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
 
 </body>
 </html>
