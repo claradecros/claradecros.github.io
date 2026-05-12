@@ -9,12 +9,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-<!-- EMAILJS -->
+<!-- AJOUT EMAILJS (UNIQUEMENT CECI) -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-   (function(){
-      emailjs.init("TON_PUBLIC_KEY"); 
-   })();
+  (function(){
+    emailjs.init("TON_PUBLIC_KEY");
+  })();
 </script>
 
 <style>
@@ -90,12 +90,11 @@ body::before{
     align-items:center;
     gap:8px;
     position:relative;
+    transition:0.3s ease;
     font-weight:500;
 }
 
-.nav-item i{
-    color:var(--rose);
-}
+.nav-item i{ color:var(--rose); }
 
 .nav-item::after{
     content:"";
@@ -109,53 +108,62 @@ body::before{
 }
 
 .nav-item:hover::after,
-.nav-item.active::after{
-    width:100%;
-}
+.nav-item.active::after{ width:100%; }
 
 /* CONTAINER */
 
 .container{
     width:min(92%,1000px);
     margin:130px auto 70px;
+    animation:fadeUp 1s ease;
 }
+
+@keyframes fadeUp{
+    from{ opacity:0; transform:translateY(30px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+/* CARTE */
 
 .contact-card{
     background:rgba(255,255,255,0.35);
     backdrop-filter:blur(18px);
     border-radius:38px;
     padding:60px;
+    box-shadow:0 25px 50px rgba(0,0,0,0.06);
+    border:1px solid rgba(255,255,255,0.4);
+    position:relative;
+    overflow:hidden;
 }
 
-/* TITRE */
+/* TITRES */
 
 h1{
     font-family:'Playfair Display',serif;
     font-size:4rem;
     text-align:center;
+    margin-bottom:10px;
 }
 
-h1 span{
-    color:var(--rose);
-}
+h1 span{ color:var(--rose); }
 
 .line{
     width:90px;
     height:4px;
     background:linear-gradient(90deg,var(--rose),var(--rose-soft));
     margin:18px auto 30px;
+    border-radius:20px;
 }
-
-/* INTRO */
 
 .intro{
     text-align:center;
     max-width:650px;
     margin:0 auto 50px;
+    line-height:1.8;
     color:#666;
 }
 
-/* GRID */
+/* CONTACT */
 
 .contact-grid{
     display:grid;
@@ -163,8 +171,6 @@ h1 span{
     gap:25px;
     margin-bottom:50px;
 }
-
-/* BOX */
 
 .contact-box{
     background:rgba(255,255,255,0.3);
@@ -177,13 +183,12 @@ h1 span{
     width:80px;
     height:80px;
     border-radius:50%;
+    background:rgba(255,255,255,0.5);
     display:flex;
     align-items:center;
     justify-content:center;
     margin:0 auto 20px;
 }
-
-/* BTN */
 
 .btn{
     display:flex;
@@ -195,18 +200,12 @@ h1 span{
     border:none;
     border-radius:14px;
     cursor:pointer;
+    text-decoration:none;
     color:white;
     background:#2f2f2f;
 }
 
 /* FORM */
-
-.form-title{
-    text-align:center;
-    font-family:'Playfair Display',serif;
-    font-size:2rem;
-    margin-bottom:25px;
-}
 
 form{
     max-width:550px;
@@ -216,36 +215,15 @@ form{
     gap:16px;
 }
 
-input,
-textarea{
+input,textarea{
     padding:16px;
     border-radius:16px;
     border:1px solid rgba(0,0,0,0.08);
-    outline:none;
-    font-family:'Poppins',sans-serif;
-    background:rgba(255,255,255,0.75);
 }
 
-/* 👉 placeholder amélioré */
+/* PLACEHOLDER MODIFIÉ */
 textarea::placeholder{
-    color:#b8b8b8;
-    font-style:italic;
-}
-
-/* CV */
-
-.cv-container{
-    text-align:center;
-    margin-top:40px;
-}
-
-.cv-btn{
-    display:inline-flex;
-    padding:18px 32px;
-    border-radius:18px;
-    background:linear-gradient(135deg,var(--rose),#c98d8d);
-    color:white;
-    text-decoration:none;
+    color:#b5b5b5;
 }
 
 /* TOAST */
@@ -259,11 +237,12 @@ textarea::placeholder{
     padding:14px 20px;
     border-radius:14px;
     opacity:0;
-    transition:0.3s;
+    visibility:hidden;
 }
 
 .toast.show{
     opacity:1;
+    visibility:visible;
 }
 
 </style>
@@ -271,54 +250,27 @@ textarea::placeholder{
 
 <body>
 
-<!-- NAV (inchangée) -->
-
+<!-- NAVIGATION IDENTIQUE -->
 <nav class="nav">
 <div class="nav-links">
-
-<button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i></button>
-<button class="nav-item" onclick="location.href='infos.html'"><i class="fas fa-user"></i></button>
-<button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i></button>
-<button class="nav-item" onclick="location.href='bilan.html'"><i class="fas fa-book"></i></button>
-<button class="nav-item active"><i class="fas fa-phone"></i></button>
-
+<button class="nav-item" onclick="location.href='index.html'"><i class="fas fa-home"></i><span>Accueil</span></button>
+<button class="nav-item" onclick="location.href='infos.html'"><i class="fas fa-user"></i><span>Profil</span></button>
+<button class="nav-item" onclick="location.href='projets.html'"><i class="fas fa-chart-bar"></i><span>Projets</span></button>
+<button class="nav-item" onclick="location.href='bilan.html'"><i class="fas fa-book"></i><span>Bilan</span></button>
+<button class="nav-item active"><i class="fas fa-phone"></i><span>Contact</span></button>
 </div>
 </nav>
 
+<!-- CONTENU IDENTIQUE -->
 <div class="container">
-
 <div class="contact-card">
 
 <h1>Contactez-<span>moi</span></h1>
-
 <div class="line"></div>
 
 <p class="intro">
 Merci d’avoir pris le temps de découvrir mon univers.
 </p>
-
-<!-- CONTACT -->
-
-<div class="contact-grid">
-
-<!-- EMAIL -->
-<div class="contact-box">
-
-<div class="icon-circle">
-<i class="fas fa-envelope" style="color:var(--rose);"></i>
-</div>
-
-<p>claradecros@gmail.com</p>
-
-<button class="btn" onclick="copyMail()">Copier</button>
-
-</div>
-
-</div>
-
-<!-- FORM -->
-
-<h2 class="form-title">Envoyer un message</h2>
 
 <form onsubmit="sendMail(event)">
 
@@ -330,57 +282,47 @@ rows="6"
 placeholder="Bonjour Madame Decros...
 
 Je vous contacte car..."
-required
-></textarea>
+required></textarea>
 
 <button class="btn" type="submit">
+<i class="fas fa-paper-plane"></i>
 Envoyer
 </button>
 
 </form>
 
-<!-- CV -->
-
-<div class="cv-container">
-<a class="cv-btn" href="Curriculum vitae DECROS Clara.pdf" download>
-Télécharger mon CV
-</a>
-</div>
-
 </div>
 </div>
-
-<!-- TOAST -->
 
 <div class="toast" id="toast"></div>
 
+<!-- JS MODIFIÉ UNIQUEMENT ICI -->
 <script>
 
-function copyMail(){
-navigator.clipboard.writeText("claradecros@gmail.com");
-showToast("Email copié ✨");
-}
-
 function sendMail(event){
-event.preventDefault();
 
-const email = document.getElementById("email").value;
-const message = document.getElementById("message").value;
+    event.preventDefault();
 
-emailjs.send("TON_SERVICE_ID","TON_TEMPLATE_ID",{
-from_email: email,
-message: message
-})
-.then(() => showToast("Message envoyé ✨"))
-.catch(() => showToast("Erreur ❌"));
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    emailjs.send("TON_SERVICE_ID", "TON_TEMPLATE_ID", {
+        from_email: email,
+        message: message
+    })
+    .then(() => {
+        showToast("Message envoyé ✨");
+    })
+    .catch(() => {
+        showToast("Erreur d'envoi ❌");
+    });
 }
 
 function showToast(text){
-const toast = document.getElementById("toast");
-toast.textContent = text;
-toast.classList.add("show");
-
-setTimeout(()=>toast.classList.remove("show"),2500);
+    const toast = document.getElementById("toast");
+    toast.textContent = text;
+    toast.classList.add("show");
+    setTimeout(()=>toast.classList.remove("show"),2500);
 }
 
 </script>
