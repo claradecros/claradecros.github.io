@@ -1,222 +1,208 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilan | Clara Decros</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilan | Clara Decros</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-    <style>
-        :root {
-            --rose: #d4a3a3;
-            --rose-soft: #e7c8c8;
-            --text: #2f2f2f;
-        }
+<style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+:root{
+    --rose:#d4a3a3;
+    --rose-soft:#e7c8c8;
+    --text:#2f2f2f;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f8f6f4, #f1ebe5);
-            color: var(--text);
-            line-height: 1.6;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* NAV */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.7);
-            z-index: 100;
-        }
+body{
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#f8f6f4,#f1ebe5);
+    color:var(--text);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
+/* NAV */
+.nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:15px 0;
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.7);
+    z-index:100;
+}
 
-        .nav-item {
-            border: none;
-            background: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-family: 'Poppins', sans-serif;
-            color: var(--text);
-            transition: 0.3s;
-        }
+.nav-links{
+    display:flex;
+    gap:30px;
+}
 
-        .nav-item i {
-            color: var(--rose);
-        }
+.nav-item{
+    border:none;
+    background:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+}
 
-        .nav-item:hover {
-            color: var(--rose);
-        }
+.nav-item i{
+    color:var(--rose);
+}
 
-        /* HERO */
-        .hero {
-            padding: 140px 20px 40px;
-            text-align: center;
-        }
+/* HERO */
+.hero{
+    padding-top:140px;
+    text-align:center;
+}
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            line-height: 1.2;
-        }
+.hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:3.5rem;
+}
 
-        .hero span {
-            color: var(--rose);
-        }
+.hero span{
+    color:var(--rose);
+}
 
-        .line {
-            width: 120px;
-            height: 4px;
-            margin: 25px auto;
-            background: linear-gradient(90deg, var(--rose), var(--rose-soft));
-            border-radius: 10px;
-        }
+.line{
+    width:120px;
+    height:4px;
+    margin:25px auto;
+    background:linear-gradient(90deg,var(--rose),var(--rose-soft));
+    border-radius:10px;
+}
 
-        /* BUTTON */
-        .download-btn {
-            margin-top: 20px;
-            padding: 12px 40px;
-            border: 1px solid var(--rose);
-            background: transparent;
-            color: var(--text);
-            font-size: 13px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-        }
+/* BUTTON */
+.download-btn{
+    margin-top:20px;
+    padding:10px 40px;
+    border:1px solid var(--rose);
+    background:transparent;
+    color:var(--text);
+    font-size:13px;
+    border-radius:50px;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-        .download-btn:hover {
-            background: var(--rose);
-            color: white;
-            box-shadow: 0 5px 15px rgba(212, 163, 163, 0.4);
-        }
+.download-btn:hover{
+    background:var(--rose);
+    color:white;
+}
 
-        /* CONTAINER */
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            padding-bottom: 80px;
-        }
+/* CONTAINER */
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding-bottom:80px;
+}
 
-        /* TIMELINE */
-        .timeline {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+/* TIMELINE PROPRE */
+.timeline{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--rose), var(--rose-soft), transparent);
-        }
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:3px;
+    height:100%;
+    background:linear-gradient(var(--rose),transparent);
+}
 
-        /* CARDS */
-        .card {
-            width: 45%;
-            padding: 35px;
-            margin: 20px 0;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
+/* CARDS */
+.card{
+    width:45%;
+    padding:30px;
+    margin:25px 0;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(10px);
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+    position:relative;
+    height:auto;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+/* LEFT / RIGHT */
+.left{
+    align-self:flex-start;
+    margin-left:2%;
+}
 
-        /* LEFT / RIGHT ALIGNMENT */
-        .left {
-            align-self: flex-start;
-        }
+.right{
+    align-self:flex-end;
+    margin-right:2%;
+}
 
-        .right {
-            align-self: flex-end;
-        }
+/* POINTS */
+.card::before{
+    content:"";
+    position:absolute;
+    top:25px;
+    width:15px;
+    height:15px;
+    background:var(--rose);
+    border-radius:50%;
+}
 
-        /* TIMELINE DOTS */
-        .card::after {
-            content: "";
-            position: absolute;
-            top: 35px;
-            width: 16px;
-            height: 16px;
-            background: white;
-            border: 3px solid var(--rose);
-            border-radius: 50%;
-            z-index: 5;
-        }
+.left::before{right:-40px;}
+.right::before{left:-40px;}
 
-        .left::after { right: -11.5%; }
-        .right::after { left: -11.5%; }
+/* TEXT */
+.card h2{
+    color:var(--rose);
+    margin-bottom:10px;
+}
 
-        /* TEXT STYLES */
-        .card h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--rose);
-            margin-bottom: 15px;
-            font-size: 1.6rem;
-        }
+.card p{
+    line-height:1.9;
+    text-align:justify;
+    white-space:normal;
+}
 
-        .card p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            text-align: justify;
-            color: #4a4a4a;
-        }
+/* MOBILE */
+@media(max-width:900px){
+    .card{
+        width:90%;
+        align-self:center !important;
+    }
 
-        /* MOBILE OPTIMIZATION */
-        @media (max-width: 900px) {
-            .card {
-                width: 85%;
-                align-self: flex-end !important;
-                margin-left: 15%;
-            }
+    .timeline::before{
+        left:20px;
+        transform:none;
+    }
 
-            .timeline::before {
-                left: 30px;
-                transform: none;
-            }
+    .left,.right{
+        margin:0;
+    }
 
-            .left::after, .right::after {
-                left: -42px !important;
-            }
+    .card::before{
+        left:10px !important;
+    }
 
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+    .hero h1{
+        font-size:2.5rem;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -232,80 +218,81 @@
 </nav>
 
 <section class="hero">
+
     <h1>Bilan de mes <span>deux années</span><br>en BUT SD</h1>
+
     <button class="download-btn" onclick="downloadPDF()">
-        <i class="fas fa-file-pdf"></i> Télécharger mon bilan
+        Télécharger mon bilan
     </button>
+
     <div class="line"></div>
+
 </section>
 
 <div class="container">
-    <div class="timeline">
 
-        <!-- BILAN GÉNÉRAL -->
-        <div class="card left">
-            <h2>Bilan général</h2>
-            <p>Cette première année universitaire a conforté mon choix de parcours. Bien que ce ne fût pas mon premier choix, j’ai choisi cette formation par envie et curiosité, et non par dépit. À l’heure actuelle, je ne ressens aucun regret : cette formation offre une large palette de débouchés et de nombreuses matières m’intéressent, en lien avec les domaines dans lesquels je souhaiterais m’orienter plus tard.</p>
-        </div>
+<div class="timeline">
 
-        <!-- DIFFICULTÉS -->
-        <div class="card right">
-            <h2>Difficultés</h2>
-            <p>Cependant, il est important d’admettre aussi les aspects plus négatifs de mon parcours. Comme je le craignais, les matières informatiques représentent une difficulté pour moi. Mais je refuse de céder à la facilité. Contrairement aux mathématiques et à la communication, qui me sont plus familières, l’informatique est un domaine totalement nouveau. Je ne dois pas le négliger, mais plutôt apprendre à le gérer pour les semestres à venir.</p>
-        </div>
-
-        <!-- RÉFLEXION -->
-        <div class="card left">
-            <h2>Réflexion</h2>
-            <p>Je pense que mon erreur principale a été de baisser les bras dès le début, ce qui est contraire à ma nature, et de me laisser submerger par tous ces langages qui me dépassaient. Une approche plus rigoureuse et une meilleure ouverture à l’apprentissage me permettraient de progresser.</p>
-        </div>
-
-        <!-- MÉTHODE -->
-        <div class="card right">
-            <h2>Méthode</h2>
-            <p>Ma méthode de travail a évolué depuis le lycée : la plupart des matières m’intéressent réellement, ce qui me pousse à prendre de l’avance. En termes d’organisation, je me suis aussi améliorée : j’établis régulièrement un emploi du temps de révision. J’accepte cette formation avec ses défis, que je perçois non comme des obstacles, mais comme des opportunités de progression.</p>
-        </div>
-
-        <!-- PROJETS -->
-        <div class="card left">
-            <h2>Projets</h2>
-            <p>L’un des plus grands atouts de cette formation est la multiplicité des projets. Cette approche concrète m’aide particulièrement, car elle me permet d’évaluer mon niveau et de prendre conscience de mes compétences réelles. Ces projets me rapprochent des missions professionnelles et me familiarisent avec le travail en groupe et l'organisation collective.</p>
-        </div>
-
-        <!-- EMS -->
-        <div class="card right">
-            <h2>Orientation EMS</h2>
-            <p>Pour l’année prochaine, je souhaite m’orienter vers le parcours EMS (Exploration et Modélisation Statistique). Ce parcours combine statistiques et mathématiques, ce qui correspond davantage à mes points forts et à mes aspirations professionnelles, comparé au parcours VCOD plus axé sur la conception de bases de données.</p>
-        </div>
-
-        <!-- DEUXIÈME ANNÉE -->
-        <div class="card left">
-            <h2>Deuxième année & Futur</h2>
-            <p>À l’issue de cette deuxième année, j’ai réellement solidifié mes appuis et passé outre mes difficultés. J’ai réussi à obtenir des résultats très satisfaisants dans les matières informatiques et à m’investir davantage dans les mathématiques et statistiques propres à mon parcours. Je me sens plus mature et investie, car ce cursus se focalise sur des projets en concordance avec le métier que je souhaite faire : <strong>chargé d’étude statistique</strong>. Analyser, interpréter des données et concevoir des indicateurs est ce qui me plaît le plus. Pour y parvenir, je souhaiterais poursuivre en <strong>Master MIASHS</strong> (Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales).</p>
-        </div>
-
+    <div class="card left">
+        <h2>Bilan général</h2>
+        <p>Bilan de ces deux premières années en BUT SD
+Cette première année universitaire a conforté mon choix de parcours. Bien que ce ne fût pas mon premier choix, j’ai choisi cette formation par envie et curiosité, et non par dépit. À l’heure actuelle, je ne ressens aucun regret : cette formation offre une large palette de débouchés et de nombreuses matières m’intéressent, en lien avec les domaines dans lesquels je souhaiterais m’orienter plus tard.</p>
     </div>
+
+    <div class="card right">
+        <h2>Difficultés</h2>
+        <p>Cependant, il est important d’admettre aussi les aspects plus négatifs de mon parcours. Comme je le craignais, les matières informatiques représentent une difficulté pour moi. Mais je refuse de céder à la facilité. Contrairement aux mathématiques et à la communication, qui me sont plus familières, l’informatique est un domaine totalement nouveau.</p>
+    </div>
+
+    <div class="card left">
+        <h2>Réflexion</h2>
+        <p>Je pense que mon erreur principale a été de baisser les bras dès le début...</p>
+    </div>
+
+    <div class="card right">
+        <h2>Méthode</h2>
+        <p>Ma méthode de travail a évolué depuis le lycée...</p>
+    </div>
+
+    <div class="card left">
+        <h2>Projets</h2>
+        <p>L’un des plus grands atouts de cette formation...</p>
+    </div>
+
+    <div class="card right">
+        <h2>EMS</h2>
+        <p>Pour l’année prochaine, je souhaite m’orienter vers le parcours EMS...</p>
+    </div>
+
+    <div class="card left">
+        <h2>Deuxième année</h2>
+        <p>A l’issue de cette deuxième année j’ai réellement solidifié mes appuis et passé outre mes difficultés, j’ai réussi à obtenir des résultats très satisfaisants dans les matières informatiques et à m’investir davantage dans les matières mathématiques et statistiques propres à mon parcours. Je me sens plus mature et plus investie dans mes études vu que ce parcours me focus sur des matières et projets que j’apprécie et en concordance avec le métier que je souhaiterais faire plus tard. De ce que j’ai pu me renseigner je souhaiterais m’orienter vers le métier de chargé d’étude statistique, analyser et interpréter des données et la conception d’indicateurs est ce qui me plaît le plus à l’heure actuelle. Pour réaliser ce métier je souhaiterais à l’issue de mon BUT poursuivre si possible en master MIASHS (Mathématiques et informatique appliquées aux sciences humaines et sociales)</p>
+    </div>
+
+</div>
+
 </div>
 
 <script>
 function downloadPDF(){
-    // Note : Pour un vrai PDF propre, il faudrait utiliser une librairie comme html2pdf.js
-    // Ici, nous créons un fichier texte formaté pour l'exemple.
-    const textContent = `BILAN DE MES DEUX ANNÉES EN BUT SD - CLARA DECROS\n\n` +
-        `BILAN GÉNÉRAL :\nCette première année universitaire a conforté mon choix...\n\n` +
-        `DIFFICULTÉS :\nCependant, il est important d'admettre...\n\n` +
-        `RÉFLEXION :\nJe pense que mon erreur principale...\n\n` +
-        `MÉTHODE :\nMa méthode de travail a évolué...\n\n` +
-        `PROJETS :\nL'un des plus grands atouts...\n\n` +
-        `ORIENTATION :\nPour l'année prochaine, je souhaite m'orienter vers le parcours EMS...\n\n` +
-        `DEUXIÈME ANNÉE ET FUTUR :\nÀ l'issue de cette deuxième année... Poursuite envisagée en Master MIASHS.`;
 
-    const blob = new Blob([textContent], {type: "text/plain"});
+    const content = `
+Bilan des deux premières années en BUT SD Clara DECROS
+
+Cette première année universitaire a conforté mon choix de parcours...
+...
+
+A l’issue de cette deuxième année j’ai réellement solidifié mes appuis...
+`;
+
+    const blob = new Blob([content], {type:"application/pdf"});
     const url = URL.createObjectURL(blob);
+
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Bilan_Clara_Decros.txt";
+    a.download = "Bilan des deux premières années en BUT SD Clara DECROS.pdf";
     a.click();
+
     URL.revokeObjectURL(url);
 }
 </script>
