@@ -118,7 +118,7 @@ h1 span {
     gap: 30px;
 }
 
-/* CARTES STYLE IMAGE */
+/* CARTES STYLE */
 .project-card {
     background: var(--card-bg);
     backdrop-filter: blur(15px);
@@ -326,7 +326,7 @@ h1 span {
 
         <!-- PROJET 3 -->
         <div class="project-card" onclick="ouvrirModale('modal3')">
-            <img src="Projet3.PNG" alt="Gestion de Base de Données" class="card-image">
+            <img src="Projet3.PNG" alt="Reporting Power BI" class="card-image">
             <div class="card-content">
                 <h2>Reporting Décisionnel Power BI</h2>
                 <p>Traitement de données brutes et création de 20 indicateurs de pilotage stratégiques.</p>
@@ -341,19 +341,20 @@ h1 span {
 
         <!-- PROJET 4 -->
         <div class="project-card" onclick="ouvrirModale('modal4')">
-            <img src="Projet4.PNG" alt="Description projet 4" class="card-image">
+            <img src="Projet4.PNG" alt="SAE 4.02 Pauvreté" class="card-image">
             <div class="card-content">
-                <h2>Reporting d’une analyse multivariée</h2>
-                <p>Développement d'un outil visuel pour le suivi de la pauvreté en France, incluant des analyses descriptives et des méthodes statistiques avancées comme l'ACP et le Clustering.</p>
+                <h2>Reporting d'analyse multivariée</h2>
+                <p>Outil visuel pour le suivi de la pauvreté en France (INSEE), incluant des analyses ACP et du Clustering.</p>
                 <div class="tags">
                     <span class="tag">R Shiny</span>
+                    <span class="tag">Statistiques</span>
                 </div>
             </div>
         </div>
 
         <!-- PROJET 5 -->
         <div class="project-card" onclick="ouvrirModale('modal5')">
-            <img src="image_projet5.jpg" alt="Description projet 5" class="card-image">
+            <img src="image_projet5.jpg" alt="Projet 5" class="card-image">
             <div class="card-content">
                 <h2>Projet 5</h2>
                 <p>Description courte de votre cinquième projet et de ses objectifs.</p>
@@ -366,7 +367,7 @@ h1 span {
 
         <!-- PROJET 6 -->
         <div class="project-card" onclick="ouvrirModale('modal6')">
-            <img src="image_projet6.jpg" alt="Description projet 6" class="card-image">
+            <img src="image_projet6.jpg" alt="Projet 6" class="card-image">
             <div class="card-content">
                 <h2>Projet 6</h2>
                 <p>Description courte de votre sixième projet et de ses objectifs.</p>
@@ -387,28 +388,23 @@ h1 span {
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal1')">&times;</span>
         <h2 class="modal-title">Site Web Portfolio</h2>
-        <p>Ce projet a consisté en la création de mon site web personnel responsive pour présenter mes compétences, mon parcours et mes réalisations professionnelles.</p>
+        <p>Création d'un portfolio responsive pour présenter mes compétences et réalisations.</p>
         <div class="modal-grid">
             <div>
-                <h3 class="modal-section-title">Technologies Utilisées</h3>
+                <h3 class="modal-section-title">Technologies</h3>
                 <ul class="modal-list">
                     <li>HTML5 / CSS3</li>
-                    <li>JavaScript (navigation dynamique)</li>
-                    <li>Font Awesome (icônes)</li>
+                    <li>JavaScript</li>
+                    <li>Font Awesome</li>
                 </ul>
             </div>
             <div>
-                <h3 class="modal-section-title">Fonctionnalités Clés</h3>
+                <h3 class="modal-section-title">Points Clés</h3>
                 <ul class="modal-list">
-                    <li>Design responsive (mobile/tablette)</li>
-                    <li>Animations CSS fluides</li>
-                    <li>Formulaire de contact intégré</li>
+                    <li>Design adaptatif</li>
+                    <li>Animations fluides</li>
                 </ul>
             </div>
-        </div>
-        <div class="defis-section">
-            <h3 class="modal-section-title">Défis et Solutions</h3>
-            <p>L'un des plus gros défis a été de maintenir une structure de code organisée et évolutive. Jongler entre les multiples feuilles de style et les animations a nécessité une rigueur particulière dans l'écriture du CSS pour éviter les conflits visuels.</p>
         </div>
     </div>
 </div>
@@ -418,17 +414,17 @@ h1 span {
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal2')">&times;</span>
         <h2 class="modal-title">Indicateurs de performance</h2>
-        <p>Analyse de données pour Fleury Michon afin de piloter les performances via des indicateurs précis.</p>
+        <p>Analyse de données pour Fleury Michon via des indicateurs précis.</p>
         <div class="modal-grid">
             <div>
-                <h3 class="modal-section-title">Technologies Utilisées</h3>
+                <h3 class="modal-section-title">Technologies</h3>
                 <ul class="modal-list">
                     <li>Microsoft Excel</li>
                     <li>Tableaux Croisés Dynamiques</li>
                 </ul>
             </div>
             <div>
-                <h3 class="modal-section-title">Fonctionnalités Clés</h3>
+                <h3 class="modal-section-title">Fonctionnalités</h3>
                 <ul class="modal-list">
                     <li>Graphiques dynamiques</li>
                     <li>Calcul automatique des KPIs</li>
@@ -444,21 +440,21 @@ h1 span {
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal3')">&times;</span>
         <h2 class="modal-title">Reporting Power BI</h2>
-        <p>Chaîne complète de traitement de données : du nettoyage (ETL) à la visualisation finale.</p>
+        <p>Traitement complet de données : de l'ETL à la visualisation stratégique.</p>
         <div class="modal-grid">
             <div>
-                <h3 class="modal-section-title">Technologies Utilisées</h3>
+                <h3 class="modal-section-title">Technologies</h3>
                 <ul class="modal-list">
-                    <li>Talend (Nettoyage ETL)</li>
-                    <li>Power BI (Visualisation)</li>
-                    <li>Spyder (Python)</li>
+                    <li>Talend (ETL)</li>
+                    <li>Power BI</li>
+                    <li>Python (Spyder)</li>
                 </ul>
             </div>
             <div>
-                <h3 class="modal-section-title">Fonctionnalités Clés</h3>
+                <h3 class="modal-section-title">Réalisations</h3>
                 <ul class="modal-list">
-                    <li>20 Tableaux de bord stratégiques</li>
-                    <li>Automatisation des flux</li>
+                    <li>20 Tableaux de bord</li>
+                    <li>Flux automatisés</li>
                 </ul>
             </div>
         </div>
@@ -466,56 +462,48 @@ h1 span {
     </div>
 </div>
 
-<!-- Modale 4 -->
+<!-- Modale 4 - SAE 4.02 Pauvreté -->
 <div id="modal4" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal4')">&times;</span>
-        <h2 class="modal-title">Projet 4</h2>
-        <p>Description détaillée du projet 4.</p>
+        <h2 class="modal-title">Reporting d’analyse multivariée</h2>
+        <p>Expertise menée pour l'État visant à créer un outil automatisé de suivi de la pauvreté en France (données INSEE 1970-2021).</p>
         <div class="modal-grid">
-            <div><h3 class="modal-section-title">Infos</h3><p>Contenu à personnaliser...</p></div>
-            <div><h3 class="modal-section-title">Résultats</h3><p>Contenu à personnaliser...</p></div>
+            <div>
+                <h3 class="modal-section-title">Analyse Statistique</h3>
+                <ul class="modal-list">
+                    <li><strong>ACP :</strong> Identification des corrélations entre précarité et éducation.</li>
+                    <li><strong>Clustering (CAH) :</strong> Typologie des départements aux profils similaires.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Outils & Data Viz</h3>
+                <ul class="modal-list">
+                    <li><strong>R & Shiny :</strong> Application web interactive et ergonomique.</li>
+                    <li><strong>Variables :</strong> Étude de 20+ indicateurs socio-économiques.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="defis-section">
+            <h3 class="modal-section-title">Objectif Décisionnel</h3>
+            <p>Transformer des données complexes en outil d'aide à la décision pour cibler les politiques publiques au niveau régional et départemental.</p>
         </div>
     </div>
 </div>
 
-<!-- Modale 5 -->
-<div id="modal5" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="fermerModale('modal5')">&times;</span>
-        <h2 class="modal-title">Projet 5</h2>
-        <p>Description détaillée du projet 5.</p>
-        <div class="modal-grid">
-            <div><h3 class="modal-section-title">Infos</h3><p>Contenu à personnaliser...</p></div>
-            <div><h3 class="modal-section-title">Résultats</h3><p>Contenu à personnaliser...</p></div>
-        </div>
-    </div>
-</div>
-
-<!-- Modale 6 -->
-<div id="modal6" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="fermerModale('modal6')">&times;</span>
-        <h2 class="modal-title">Projet 6</h2>
-        <p>Description détaillée du projet 6.</p>
-        <div class="modal-grid">
-            <div><h3 class="modal-section-title">Infos</h3><p>Contenu à personnaliser...</p></div>
-            <div><h3 class="modal-section-title">Résultats</h3><p>Contenu à personnaliser...</p></div>
-        </div>
-    </div>
-</div>
+<!-- Modales 5 & 6 (Vides) -->
+<div id="modal5" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal5')">&times;</span><h2 class="modal-title">Projet 5</h2><p>Contenu à venir.</p></div></div>
+<div id="modal6" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal6')">&times;</span><h2 class="modal-title">Projet 6</h2><p>Contenu à venir.</p></div></div>
 
 <script>
 function ouvrirModale(id) {
     document.getElementById(id).style.display = "flex";
     document.body.style.overflow = "hidden";
 }
-
 function fermerModale(id) {
     document.getElementById(id).style.display = "none";
     document.body.style.overflow = "auto";
 }
-
 window.onclick = function(event) {
     if (event.target.className === 'modal') {
         event.target.style.display = "none";
