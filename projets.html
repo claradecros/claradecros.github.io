@@ -14,6 +14,7 @@
     --rose: #d4a3a3;
     --rose-soft: #e7c8c8;
     --text: #2f2f2f;
+    --dark-blue: #1a1a2e; /* Couleur sombre proche de ton image */
     --card-bg: rgba(255,255,255,0.6);
 }
 
@@ -71,11 +72,8 @@ body::before {
     position: relative;
 }
 
-.nav-item i {
-    color: var(--rose);
-}
+.nav-item i { color: var(--rose); }
 
-/* CONTAINER */
 .container {
     max-width: 1100px;
     margin: 120px auto 60px;
@@ -83,15 +81,12 @@ body::before {
 }
 
 h1 {
-    text-align: left;
     font-family: 'Playfair Display', serif;
     font-size: 2.8rem;
     margin-bottom: 10px;
 }
 
-h1 span {
-    color: var(--rose);
-}
+h1 span { color: var(--rose); }
 
 .line-left {
     width: 60px;
@@ -127,39 +122,15 @@ h1 span {
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-.card-image {
-    width: 100%;
-    height: 180px;
-    background: #e0e0e0;
-    object-fit: cover;
-}
+.card-image { width: 100%; height: 180px; object-fit: cover; background: #e0e0e0; }
 
-.card-content {
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
+.card-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
 
-.project-card h2 {
-    font-size: 1.3rem;
-    margin: 0 0 12px 0;
-    font-weight: 600;
-}
+.project-card h2 { font-size: 1.3rem; margin: 0 0 12px 0; font-weight: 600; }
 
-.project-card p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #555;
-    margin-bottom: 25px;
-}
+.project-card p { font-size: 0.95rem; line-height: 1.5; color: #555; margin-bottom: 25px; }
 
-/* TAGS */
-.tags {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
+.tags { display: flex; gap: 10px; flex-wrap: wrap; }
 
 .tag {
     background: var(--rose-soft);
@@ -168,66 +139,105 @@ h1 span {
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 600;
-    text-transform: uppercase;
 }
 
-/* --- MODALE --- */
+/* --- MODALE STYLE IMAGE --- */
 .modal {
     display: none; 
     position: fixed;
     z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px);
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    background-color: white;
-    padding: 40px;
-    border-radius: 25px;
-    max-width: 600px;
-    width: 90%;
+    background-color: var(--dark-blue);
+    color: #e0e0e0;
+    padding: 50px;
+    border-radius: 20px;
+    max-width: 900px;
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
 .close-modal {
     position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 28px;
+    top: 25px; right: 30px;
+    font-size: 30px;
     cursor: pointer;
     color: var(--rose);
 }
 
+.modal-title {
+    color: #b388ff; /* Violet comme sur l'image */
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #bbb;
+}
+
+/* Organisation en colonnes */
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.modal-section-title {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.modal-list {
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.modal-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.full-width-section {
+    margin-top: 20px;
+    border-top: 2px solid #333;
+    padding-top: 20px;
+}
+
 .btn-download {
     display: inline-block;
-    margin-top: 25px;
-    padding: 12px 25px;
-    background-color: var(--text);
-    color: white;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: var(--rose);
+    color: #fff;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 8px;
     font-weight: 600;
     transition: 0.3s;
 }
 
-.btn-download:hover {
-    background-color: var(--rose);
-}
+.btn-download:hover { opacity: 0.8; }
 
 @media(max-width:768px){
-    .nav-item span { display:none; }
+    .modal-grid { grid-template-columns: 1fr; }
+    .modal-content { padding: 30px; }
 }
 </style>
 </head>
@@ -249,87 +259,65 @@ h1 span {
     <div class="line-left"></div>
 
     <div class="projects-grid">
-        <!-- PROJET 1 -->
         <div class="project-card" onclick="openModal('modal1')">
             <img src="Projet1.PNG" alt="Site Web Portfolio" class="card-image">
             <div class="card-content">
                 <h2>Site Web Portfolio</h2>
                 <p>Développement d'un portfolio personnel avec HTML, CSS et JS.</p>
-                <div class="tags">
-                    <span class="tag">Programmation WEB</span>
-                </div>
+                <div class="tags"><span class="tag">Programmation WEB</span></div>
             </div>
         </div>
-
-        <!-- PROJET 2 -->
-        <div class="project-card" onclick="openModal('modal2')">
-            <img src="Projet2.PNG" alt="Indicateurs de performance" class="card-image">
-            <div class="card-content">
-                <h2>Indicateurs de performance</h2>
-                <p>Créer un tableau de bord de graphiques et d'indicateurs pour "Fleury Michon".</p>
-                <div class="tags">
-                    <span class="tag">Analyse</span>
-                    <span class="tag">Excel</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- PROJET 3 -->
-        <div class="project-card" onclick="openModal('modal3')">
-            <img src="Projet3.PNG" alt="Reporting Décisionnel" class="card-image">
-            <div class="card-content">
-                <h2>Reporting Décisionnel Power BI</h2>
-                <p>Traitement de données brutes et création de 20 indicateurs de pilotage.</p>
-                <div class="tags">
-                    <span class="tag">Talend</span>
-                    <span class="tag">Power BI</span>
-                </div>
-            </div>
-        </div>
+        <!-- Ajoute ici tes autres cartes avec openModal('modal2'), etc. -->
     </div>
 </div>
 
-<!-- --- LES MODALES (Fermées par défaut) --- -->
-
+<!-- --- MODALE PROJET 1 (Inspirée de image_396c43.png) --- -->
 <div id="modal1" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('modal1')">&times;</span>
-        <h2>Site Web Portfolio</h2>
-        <p>Ce projet consiste en la création d'une identité numérique complète. J'ai utilisé les langages HTML5 pour la structure, CSS3 pour le design responsive et le glassmorphism, ainsi que JavaScript pour les animations fluides.</p>
-        <a href="fichiers/portfolio.pdf" download class="btn-download"><i class="fas fa-download"></i> Télécharger le détail</a>
-    </div>
-</div>
+        
+        <h2 class="modal-title">Site Web Portfolio</h2>
+        <p class="modal-description">Ce projet a consisté en la création de mon site web personnel responsive pour présenter mes compétences, mon parcours et mes réalisations professionnelles. L'objectif était de fournir une plateforme centralisée et visuellement attrayante.</p>
+        
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Technologies Utilisées</h3>
+                <ul class="modal-list">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript (pour la navigation)</li>
+                    <li>Font Awesome (pour les icônes)</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Fonctionnalités Clés</h3>
+                <ul class="modal-list">
+                    <li>Design entièrement responsive</li>
+                    <li>Navigation fluide par onglets dynamiques</li>
+                    <li>Formulaire de contact</li>
+                    <li>Animations CSS pour l'expérience utilisateur</li>
+                </ul>
+            </div>
+        </div>
 
-<div id="modal2" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal2')">&times;</span>
-        <h2>Indicateurs de performance</h2>
-        <p>Analyse approfondie des ventes pour Fleury Michon. Nettoyage de données sous Excel et création de graphiques dynamiques pour suivre l'évolution du chiffre d'affaires par secteur.</p>
-        <a href="fichiers/sae102_complet.zip" download class="btn-download"><i class="fas fa-download"></i> Télécharger le projet</a>
-    </div>
-</div>
+        <div class="full-width-section">
+            <h3 class="modal-section-title">Défis et Solutions</h3>
+            <p class="modal-description">L'un des principaux défis a été de garantir une compatibilité optimale sur tous les appareils en adaptant la structure CSS. J'ai également développé une logique JavaScript personnalisée pour permettre le changement d'onglets sans recharger la page.</p>
+        </div>
 
-<div id="modal3" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal3')">&times;</span>
-        <h2>Reporting Décisionnel Power BI</h2>
-        <p>Ce projet illustre une chaîne ETL complète : extraction des données brutes, nettoyage automatisé avec Talend et visualisation avancée sur Power BI via 20 rapports interactifs.</p>
-        <a href="fichiers/reporting_bi.pdf" download class="btn-download"><i class="fas fa-download"></i> Télécharger le rapport</a>
+        <a href="fichiers/Projet1.pdf" download class="btn-download"><i class="fas fa-download"></i> Télécharger le projet</a>
     </div>
 </div>
 
 <script>
 function openModal(id) {
     document.getElementById(id).style.display = "flex";
-    document.body.style.overflow = "hidden"; // Empêche de scroller derrière
+    document.body.style.overflow = "hidden";
 }
-
 function closeModal(id) {
     document.getElementById(id).style.display = "none";
-    document.body.style.overflow = "auto"; // Réactive le scroll
+    document.body.style.overflow = "auto";
 }
-
-// Fermer si on clique en dehors de la boîte blanche
 window.onclick = function(event) {
     if (event.target.className === 'modal') {
         event.target.style.display = "none";
