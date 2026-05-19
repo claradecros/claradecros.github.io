@@ -1,26 +1,483 @@
-<!-- PROJET 6 -->
-<div class="project-card" onclick="ouvrirModale('modal6')">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mes Projets | Clara Decros</title>
 
-    <img src="Projet6.PNG" alt="Analyse géographique McDonald's" class="card-image">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-    <div class="card-content">
+<style>
+:root {
+    --bg: #f8f6f4;
+    --rose: #d4a3a3;
+    --rose-soft: #e7c8c8;
+    --text: #2f2f2f;
+    --card-bg: rgba(255,255,255,0.6);
+}
 
-        <h2>Analyse géographique des McDonald’s en France</h2>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #f8f6f4, #f1ebe5);
+    color: var(--text);
+    min-height: 100vh;
+}
 
-        <p>
-            Étude spatiale et stratégique des implantations McDonald’s en France à travers des analyses géographiques, démographiques et de proximité.
-        </p>
+/* Background animé */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(circle at 30% 30%, #e7c8c8 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, #d4a3a3 0%, transparent 40%);
+    animation: moveBg 12s infinite alternate ease-in-out;
+    z-index: -1;
+}
 
-        <div class="tags">
-            <span class="tag">QGIS</span>
-            <span class="tag">Cartographie</span>
-            <span class="tag">Analyse spatiale</span>
-            <span class="tag">Data Viz</span>
+@keyframes moveBg {
+    0% {transform: translate(0,0);}
+    100% {transform: translate(-10%, -10%);}
+}
+
+/* NAVBAR */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.7);
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    border: none;
+    background: none;
+    color: var(--text);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.nav-item i {
+    color: var(--rose);
+}
+
+.nav-item.active::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--rose);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 120px auto 60px;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+h1 span {
+    color: var(--rose);
+}
+
+.line-left {
+    width: 60px;
+    height: 4px;
+    background: var(--rose);
+    margin: 10px 0 40px 0;
+    border-radius: 2px;
+}
+
+/* GRID */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* CARTES */
+.project-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    background: #e0e0e0;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-card h2 {
+    font-size: 1.3rem;
+    margin: 0 0 12px 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* TAGS */
+.tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: var(--rose-soft);
+    color: var(--text);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* MODALES */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(47, 47, 47, 0.4);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fffaf8;
+    color: var(--text);
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border: 1px solid var(--rose-soft);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 35px;
+    cursor: pointer;
+    color: var(--rose);
+}
+
+.modal-title {
+    color: var(--rose);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.modal-section-title {
+    color: var(--text);
+    border-bottom: 2px solid var(--rose-soft);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.modal-list {
+    list-style: disc;
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+.defis-section {
+    margin-top: 30px;
+    border-top: 2px solid var(--rose-soft);
+    padding-top: 20px;
+}
+
+.btn-telecharger {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background: var(--text);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-telecharger:hover {
+    background: var(--rose);
+}
+
+@media(max-width:768px){
+
+    .nav-item span {
+        display:none;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .line-left {
+        margin: 10px auto 40px auto;
+    }
+
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+
+    <div class="nav-links">
+
+        <button class="nav-item" onclick="location.href='index.html'">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </button>
+
+        <button class="nav-item" onclick="location.href='infos.html'">
+            <i class="fas fa-user"></i>
+            <span>Profil</span>
+        </button>
+
+        <button class="nav-item active" onclick="location.href='projets.html'">
+            <i class="fas fa-chart-bar"></i>
+            <span>Projets</span>
+        </button>
+
+        <button class="nav-item" onclick="location.href='bilan.html'">
+            <i class="fas fa-book"></i>
+            <span>Bilan</span>
+        </button>
+
+        <button class="nav-item" onclick="location.href='contact.html'">
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+        </button>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <h1>Mes <span>Projets</span></h1>
+
+    <div class="line-left"></div>
+
+    <div class="projects-grid">
+
+        <!-- PROJET 1 -->
+        <div class="project-card" onclick="ouvrirModale('modal1')">
+
+            <img src="Projet1.PNG" alt="Site Web Portfolio" class="card-image">
+
+            <div class="card-content">
+
+                <h2>Site Web Portfolio</h2>
+
+                <p>
+                    Développement d'un portfolio personnel avec HTML, CSS et JS.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Programmation WEB</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PROJET 2 -->
+        <div class="project-card" onclick="ouvrirModale('modal2')">
+
+            <img src="Projet2.PNG" alt="Indicateurs de performance" class="card-image">
+
+            <div class="card-content">
+
+                <h2>Indicateurs de performance</h2>
+
+                <p>
+                    Créer un tableau de bord de graphiques et d'indicateurs pour Fleury Michon.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Analyse</span>
+                    <span class="tag">Graphiques</span>
+                    <span class="tag">Excel</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PROJET 3 -->
+        <div class="project-card" onclick="ouvrirModale('modal3')">
+
+            <img src="Projet3.PNG" alt="Reporting Power BI" class="card-image">
+
+            <div class="card-content">
+
+                <h2>Reporting Décisionnel Power BI</h2>
+
+                <p>
+                    Traitement de données brutes et création de 20 indicateurs de pilotage stratégiques.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Programmation</span>
+                    <span class="tag">Tableaux de bord</span>
+                    <span class="tag">Talend</span>
+                    <span class="tag">Power BI</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PROJET 4 -->
+        <div class="project-card" onclick="ouvrirModale('modal4')">
+
+            <img src="Projet4.PNG" alt="SAE 4.02 Pauvreté" class="card-image">
+
+            <div class="card-content">
+
+                <h2>Reporting d'analyse multivariée</h2>
+
+                <p>
+                    Outil visuel pour le suivi de la pauvreté en France (INSEE), incluant des analyses ACP et du Clustering.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">R Shiny</span>
+                    <span class="tag">Statistiques</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PROJET 5 -->
+        <div class="project-card" onclick="ouvrirModale('modal5')">
+
+            <img src="image_projet5.jpg" alt="Projet 5" class="card-image">
+
+            <div class="card-content">
+
+                <h2>Projet 5</h2>
+
+                <p>
+                    Description courte de votre cinquième projet et de ses objectifs.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Analyse</span>
+                    <span class="tag">Data</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PROJET 6 -->
+        <div class="project-card" onclick="ouvrirModale('modal6')">
+
+            <img src="Projet6.PNG" alt="Analyse géographique McDonald's" class="card-image">
+
+            <div class="card-content">
+
+                <h2>Analyse géographique des McDonald’s en France</h2>
+
+                <p>
+                    Étude géographique et stratégique des implantations McDonald’s en France à travers des analyses spatiales, démographiques et de proximité.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">QGIS</span>
+                    <span class="tag">Cartographie</span>
+                    <span class="tag">Analyse spatiale</span>
+                    <span class="tag">Data Viz</span>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
-</div>
 
+</div>
 
 <!-- MODALE 6 -->
 <div id="modal6" class="modal">
@@ -37,12 +494,11 @@
 
         <p>
             Réalisation d’une étude géomarketing visant à analyser la stratégie d’implantation des restaurants McDonald’s sur le territoire français.
-            Le projet avait pour objectif d’évaluer si les localisations choisies étaient stratégiques à partir de différents indicateurs géographiques et démographiques.
+            L’objectif était de déterminer si les localisations choisies étaient stratégiques à partir de plusieurs indicateurs géographiques et démographiques.
         </p>
 
         <div class="modal-grid">
 
-            <!-- COLONNE 1 -->
             <div>
 
                 <h3 class="modal-section-title">
@@ -51,31 +507,20 @@
 
                 <ul class="modal-list">
 
-                    <li>
-                        Étude du nombre de McDonald’s présents dans différents rayons géographiques.
-                    </li>
+                    <li>Analyse du nombre de McDonald’s présents dans différents rayons géographiques.</li>
 
-                    <li>
-                        Analyse de proximité avec les gares et les gares TGV.
-                    </li>
+                    <li>Étude de proximité avec les gares et les gares TGV.</li>
 
-                    <li>
-                        Étude des densités de population autour des implantations.
-                    </li>
+                    <li>Analyse des populations situées autour des restaurants.</li>
 
-                    <li>
-                        Analyse spatiale des zones stratégiques et attractives.
-                    </li>
+                    <li>Étude des zones stratégiques et attractives.</li>
 
-                    <li>
-                        Interprétation des choix d’implantation de l’enseigne.
-                    </li>
+                    <li>Interprétation des choix d’implantation de l’enseigne.</li>
 
                 </ul>
 
             </div>
 
-            <!-- COLONNE 2 -->
             <div>
 
                 <h3 class="modal-section-title">
@@ -84,21 +529,13 @@
 
                 <ul class="modal-list">
 
-                    <li>
-                        <strong>QGIS :</strong> création de cartes thématiques et analyses spatiales.
-                    </li>
+                    <li><strong>QGIS :</strong> analyses spatiales et cartographie thématique.</li>
 
-                    <li>
-                        <strong>Data Visualisation :</strong> représentation cartographique des indicateurs étudiés.
-                    </li>
+                    <li><strong>Cartographie :</strong> création de cartes variées pour visualiser les données étudiées.</li>
 
-                    <li>
-                        <strong>Présentation :</strong> réalisation d’un diaporama complet de plus de 20 slides.
-                    </li>
+                    <li><strong>Data Visualisation :</strong> représentation claire des indicateurs géographiques.</li>
 
-                    <li>
-                        <strong>Cartographie :</strong> création de cartes variées pour illustrer les analyses.
-                    </li>
+                    <li><strong>Présentation :</strong> réalisation d’un diaporama complet de plus de 20 slides.</li>
 
                 </ul>
 
@@ -106,7 +543,6 @@
 
         </div>
 
-        <!-- OBJECTIF -->
         <div class="defis-section">
 
             <h3 class="modal-section-title">
@@ -114,7 +550,7 @@
             </h3>
 
             <p>
-                Comprendre les logiques d’implantation territoriale d’une grande enseigne de restauration rapide et déterminer si les restaurants sont situés dans des zones stratégiques en fonction des infrastructures et de la population environnante.
+                Comprendre les logiques d’implantation territoriale d’une grande enseigne de restauration rapide et évaluer si les restaurants McDonald’s sont situés dans des zones stratégiques selon les infrastructures et la population environnante.
             </p>
 
         </div>
@@ -122,3 +558,31 @@
     </div>
 
 </div>
+
+<script>
+
+function ouvrirModale(id) {
+
+    document.getElementById(id).style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+function fermerModale(id) {
+
+    document.getElementById(id).style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+window.onclick = function(event) {
+
+    if (event.target.className === 'modal') {
+
+        event.target.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+}
+
+</script>
+
+</body>
+</html>
