@@ -25,7 +25,6 @@ body {
     min-height: 100vh;
 }
 
-/* Background animé */
 body::before {
     content: "";
     position: fixed;
@@ -41,7 +40,7 @@ body::before {
     100% {transform: translate(-10%, -10%);}
 }
 
-/* NAVBAR */
+/* NAV */
 .nav {
     position: fixed;
     top: 0;
@@ -71,9 +70,7 @@ body::before {
     position: relative;
 }
 
-.nav-item i {
-    color: var(--rose);
-}
+.nav-item i { color: var(--rose); }
 
 .nav-item.active::after {
     content: "";
@@ -93,22 +90,17 @@ body::before {
 }
 
 h1 {
-    text-align: left;
     font-family: 'Playfair Display', serif;
     font-size: 2.8rem;
-    margin-bottom: 10px;
 }
 
-h1 span {
-    color: var(--rose);
-}
+h1 span { color: var(--rose); }
 
 .line-left {
     width: 60px;
     height: 4px;
     background: var(--rose);
-    margin: 10px 0 40px 0;
-    border-radius: 2px;
+    margin: 10px 0 40px;
 }
 
 /* GRID */
@@ -118,25 +110,17 @@ h1 span {
     gap: 30px;
 }
 
-/* CARTES */
 .project-card {
     background: var(--card-bg);
     backdrop-filter: blur(15px);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border: 1px solid rgba(255,255,255,0.3);
-    transition: 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: inherit;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 .card-image {
@@ -147,9 +131,6 @@ h1 span {
 
 .card-content {
     padding: 25px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
 }
 
 .tags {
@@ -163,7 +144,6 @@ h1 span {
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.75rem;
-    font-weight: 600;
 }
 
 /* MODALES */
@@ -171,10 +151,11 @@ h1 span {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(47,47,47,0.4);
+    background: rgba(0,0,0,0.4);
     backdrop-filter: blur(8px);
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .modal-content {
@@ -208,8 +189,8 @@ h1 span {
 }
 
 .modal-list {
-    line-height: 1.8;
     padding-left: 20px;
+    line-height: 1.8;
 }
 
 .defis-section {
@@ -238,25 +219,25 @@ h1 span {
 
 <div class="projects-grid">
 
-<!-- PROJET 1 -->
+<!-- 1 -->
 <div class="project-card" onclick="ouvrirModale('modal1')">
 <img src="Projet1.PNG" class="card-image">
 <div class="card-content">
-<h2>Site Web Portfolio</h2>
-<p>Portfolio HTML/CSS/JS.</p>
+<h2>Portfolio</h2>
+<p>Site web personnel.</p>
 </div>
 </div>
 
-<!-- PROJET 2 -->
+<!-- 2 -->
 <div class="project-card" onclick="ouvrirModale('modal2')">
 <img src="Projet2.PNG" class="card-image">
 <div class="card-content">
-<h2>Indicateurs de performance</h2>
-<p>Tableau de bord Excel.</p>
+<h2>Indicateurs KPI</h2>
+<p>Analyse Excel.</p>
 </div>
 </div>
 
-<!-- PROJET 3 -->
+<!-- 3 -->
 <div class="project-card" onclick="ouvrirModale('modal3')">
 <img src="Projet3.PNG" class="card-image">
 <div class="card-content">
@@ -265,16 +246,16 @@ h1 span {
 </div>
 </div>
 
-<!-- PROJET 4 -->
+<!-- 4 -->
 <div class="project-card" onclick="ouvrirModale('modal4')">
 <img src="Projet4.PNG" class="card-image">
 <div class="card-content">
 <h2>Analyse multivariée</h2>
-<p>ACP et clustering.</p>
+<p>ACP & CAH.</p>
 </div>
 </div>
 
-<!-- PROJET 5 -->
+<!-- 5 -->
 <div class="project-card" onclick="ouvrirModale('modal5')">
 <img src="image_projet5.jpg" class="card-image">
 <div class="card-content">
@@ -283,16 +264,15 @@ h1 span {
 </div>
 </div>
 
-<!-- PROJET 6 -->
+<!-- 6 -->
 <div class="project-card" onclick="ouvrirModale('modal6')">
 <img src="Projet6.PNG" class="card-image">
 <div class="card-content">
-<h2>Analyse géographique des McDonald’s en France</h2>
-<p>Analyse des implantations et de leur stratégie territoriale.</p>
+<h2>Analyse McDonald’s France</h2>
+<p>Géomarketing et stratégie territoriale.</p>
 <div class="tags">
 <span class="tag">QGIS</span>
-<span class="tag">Géomarketing</span>
-<span class="tag">Analyse spatiale</span>
+<span class="tag">Spatial</span>
 </div>
 </div>
 </div>
@@ -300,129 +280,42 @@ h1 span {
 </div>
 </div>
 
-<!-- MODALE 1 -->
-<div id="modal1" class="modal">
-<div class="modal-content">
-<span class="close-modal" onclick="fermerModale('modal1')">&times;</span>
-<h2>Site Web Portfolio</h2>
-<div class="modal-grid">
-<div>
-<h3 class="modal-section-title">Technologies</h3>
-<ul class="modal-list">
-<li>HTML5</li>
-<li>CSS3</li>
-<li>JavaScript</li>
-</ul>
-</div>
-<div>
-<h3>Objectifs</h3>
-<ul class="modal-list">
-<li>Portfolio responsive</li>
-<li>UX moderne</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+<!-- MODALES -->
 
-<!-- MODALE 2 -->
-<div id="modal2" class="modal">
-<div class="modal-content">
-<span class="close-modal">&times;</span>
-<h2>Indicateurs de performance</h2>
-<div class="modal-grid">
-<div>
-<h3>Outils</h3>
-<ul class="modal-list">
-<li>Excel</li>
-<li>TCD</li>
-</ul>
-</div>
-<div>
-<h3>Analyse</h3>
-<ul class="modal-list">
-<li>KPI</li>
-<li>Graphiques</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+<div id="modal1" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal1')">&times;</span>
+<h2>Portfolio</h2>
+<p>Création d’un site web personnel responsive pour présenter mes projets.</p></div></div>
 
-<!-- MODALE 3 -->
-<div id="modal3" class="modal">
-<div class="modal-content">
-<span class="close-modal">&times;</span>
+<div id="modal2" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal2')">&times;</span>
+<h2>Indicateurs KPI</h2>
+<p>Analyse de données et création de tableaux de bord Excel.</p></div></div>
+
+<div id="modal3" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal3')">&times;</span>
 <h2>Power BI</h2>
-<div class="modal-grid">
-<div>
-<h3>Outils</h3>
-<ul class="modal-list">
-<li>Power BI</li>
-<li>Talend</li>
-</ul>
-</div>
-<div>
-<h3>Résultats</h3>
-<ul class="modal-list">
-<li>Dashboards</li>
-<li>Automatisation</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+<p>Création de dashboards interactifs et automatisation des données.</p></div></div>
 
-<!-- MODALE 4 -->
-<div id="modal4" class="modal">
-<div class="modal-content">
-<span class="close-modal">&times;</span>
+<div id="modal4" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal4')">&times;</span>
 <h2>Analyse multivariée</h2>
-<div class="modal-grid">
-<div>
-<h3>Méthodes</h3>
-<ul class="modal-list">
-<li>ACP</li>
-<li>CAH</li>
-</ul>
-</div>
-<div>
-<h3>Outils</h3>
-<ul class="modal-list">
-<li>R</li>
-<li>Shiny</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+<p>Étude statistique avec ACP et classification.</p></div></div>
 
-<!-- MODALE 5 -->
-<div id="modal5" class="modal">
-<div class="modal-content">
-<span class="close-modal">&times;</span>
+<div id="modal5" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal5')">&times;</span>
 <h2>Projet 5</h2>
-<p>À compléter.</p>
-</div>
-</div>
+<p>À compléter.</p></div></div>
 
-<!-- MODALE 6 -->
-<div id="modal6" class="modal">
-<div class="modal-content">
-<span class="close-modal" onclick="fermerModale('modal6')">&times;</span>
+<div id="modal6" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal6')">&times;</span>
 
-<h2>Analyse géographique des McDonald’s en France</h2>
+<h2>Analyse géographique McDonald’s</h2>
 
-<p>Analyse des implantations McDonald’s et de leur stratégie territoriale.</p>
+<p>Étude de la stratégie d’implantation des McDonald’s en France.</p>
 
 <div class="modal-grid">
 <div>
 <h3 class="modal-section-title">Analyses</h3>
 <ul class="modal-list">
 <li>Rayon de proximité</li>
-<li>Gares et TGV</li>
+<li>Gares / TGV</li>
 <li>Population</li>
-<li>Implantation stratégique</li>
+<li>Stratégie territoriale</li>
 </ul>
 </div>
 
@@ -437,12 +330,11 @@ h1 span {
 </div>
 
 <div class="defis-section">
-<h3 class="modal-section-title">Objectif</h3>
-<p>Déterminer si les implantations sont stratégiques selon les infrastructures et la population.</p>
+<h3>Conclusion</h3>
+<p>Analyse permettant de déterminer si les implantations sont stratégiques.</p>
 </div>
 
-</div>
-</div>
+</div></div>
 
 <script>
 function ouvrirModale(id){
@@ -453,9 +345,9 @@ function fermerModale(id){
 document.getElementById(id).style.display="none";
 document.body.style.overflow="auto";
 }
-window.onclick=function(event){
-if(event.target.className==='modal'){
-event.target.style.display="none";
+window.onclick=function(e){
+if(e.target.classList.contains("modal")){
+e.target.style.display="none";
 document.body.style.overflow="auto";
 }
 }
