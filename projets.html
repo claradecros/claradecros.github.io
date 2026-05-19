@@ -146,15 +146,6 @@ h1 span {
     object-fit: cover;
 }
 
-/* AJOUT petit effet propre */
-.card-image {
-    transition: transform 0.4s ease;
-}
-
-.project-card:hover .card-image {
-    transform: scale(1.05);
-}
-
 .card-content {
     padding: 25px;
     display: flex;
@@ -191,7 +182,6 @@ h1 span {
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 600;
-    text-transform: uppercase;
 }
 
 /* MODALES */
@@ -247,15 +237,12 @@ h1 span {
 }
 
 .modal-section-title {
-    color: var(--text);
     border-bottom: 2px solid var(--rose-soft);
     padding-bottom: 10px;
     margin-bottom: 15px;
-    font-weight: 600;
 }
 
 .modal-list {
-    list-style: disc;
     padding-left: 20px;
     line-height: 1.8;
 }
@@ -302,7 +289,6 @@ h1 span {
 </nav>
 
 <div class="container">
-
     <h1>Mes <span>Projets</span></h1>
     <div class="line-left"></div>
 
@@ -323,8 +309,11 @@ h1 span {
             <img src="Projet2.PNG" class="card-image">
             <div class="card-content">
                 <h2>Indicateurs de performance</h2>
-                <p>Tableau de bord pour Fleury Michon.</p>
-                <div class="tags"><span class="tag">Excel</span></div>
+                <p>Créer un tableau de bord de graphiques et d'indicateurs pour "Fleury Michon".</p>
+                <div class="tags">
+                    <span class="tag">Analyse</span>
+                    <span class="tag">Excel</span>
+                </div>
             </div>
         </div>
 
@@ -332,9 +321,11 @@ h1 span {
         <div class="project-card" onclick="ouvrirModale('modal3')">
             <img src="Projet3.PNG" class="card-image">
             <div class="card-content">
-                <h2>Power BI</h2>
-                <p>Reporting décisionnel complet.</p>
-                <div class="tags"><span class="tag">BI</span></div>
+                <h2>Reporting Power BI</h2>
+                <p>Traitement de données et création d'indicateurs stratégiques.</p>
+                <div class="tags">
+                    <span class="tag">BI</span>
+                </div>
             </div>
         </div>
 
@@ -343,8 +334,10 @@ h1 span {
             <img src="Projet4.PNG" class="card-image">
             <div class="card-content">
                 <h2>Analyse multivariée</h2>
-                <p>Étude pauvreté INSEE avec ACP et clustering.</p>
-                <div class="tags"><span class="tag">R</span></div>
+                <p>Étude INSEE avec ACP et clustering.</p>
+                <div class="tags">
+                    <span class="tag">R</span>
+                </div>
             </div>
         </div>
 
@@ -358,15 +351,17 @@ h1 span {
             </div>
         </div>
 
-        <!-- PROJET 6 -->
+        <!-- PROJET 6 (MODIFIÉ) -->
         <div class="project-card" onclick="ouvrirModale('modal6')">
             <img src="Projet6.PNG" class="card-image">
             <div class="card-content">
                 <h2>Analyse géographique des McDonald’s en France</h2>
-                <p>Étude des implantations McDo et analyse de leur stratégie territoriale.</p>
+                <p>
+                    Analyse géographique des implantations McDonald’s en France afin d’étudier leur stratégie territoriale, leur accessibilité et leur lien avec les infrastructures.
+                </p>
                 <div class="tags">
                     <span class="tag">QGIS</span>
-                    <span class="tag">Géomarketing</span>
+                    <span class="tag">Analyse spatiale</span>
                 </div>
             </div>
         </div>
@@ -374,49 +369,64 @@ h1 span {
     </div>
 </div>
 
-<!-- MODALE 6 COMPLETE -->
+<!-- MODALE 1 -->
+<div id="modal1" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal1')">&times;</span><h2 class="modal-title">Site Web Portfolio</h2><p>Création d'un portfolio responsive.</p></div></div>
+
+<!-- MODALE 2 -->
+<div id="modal2" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal2')">&times;</span><h2 class="modal-title">Indicateurs de performance</h2><p>Analyse de données pour Fleury Michon.</p></div></div>
+
+<!-- MODALE 3 -->
+<div id="modal3" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal3')">&times;</span><h2 class="modal-title">Reporting Power BI</h2><p>ETL et dashboards.</p></div></div>
+
+<!-- MODALE 4 -->
+<div id="modal4" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal4')">&times;</span><h2 class="modal-title">Analyse multivariée</h2><p>ACP et clustering INSEE.</p></div></div>
+
+<!-- MODALE 5 -->
+<div id="modal5" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal5')">&times;</span><h2 class="modal-title">Projet 5</h2><p>À compléter.</p></div></div>
+
+<!-- MODALE 6 (CORRIGÉE + COMPLÈTE) -->
 <div id="modal6" class="modal">
-<div class="modal-content">
+    <div class="modal-content">
+        <span class="close-modal" onclick="fermerModale('modal6')">&times;</span>
 
-<span class="close-modal" onclick="fermerModale('modal6')">&times;</span>
+        <h2 class="modal-title">Analyse géographique des McDonald’s en France</h2>
 
-<h2 class="modal-title">Analyse géographique des McDonald’s en France</h2>
+        <p>
+            Projet de géomarketing visant à analyser les implantations des McDonald’s en France afin de déterminer si leur localisation est stratégique.
+        </p>
 
-<p>
-Étude géomarketing visant à analyser la stratégie d’implantation des McDonald’s en France.
-L’objectif était de déterminer si les localisations étaient stratégiques.
-</p>
+        <div class="modal-grid">
 
-<div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Analyses réalisées</h3>
+                <ul class="modal-list">
+                    <li>Nombre de McDo dans un rayon donné</li>
+                    <li>Proximité des gares et TGV</li>
+                    <li>Analyse des populations environnantes</li>
+                    <li>Étude des logiques d’implantation</li>
+                </ul>
+            </div>
 
-<div>
-<h3 class="modal-section-title">Analyses réalisées</h3>
-<ul class="modal-list">
-<li>Nombre de McDo dans un rayon donné</li>
-<li>Proximité des gares et TGV</li>
-<li>Analyse des populations alentours</li>
-<li>Étude des zones stratégiques</li>
-</ul>
-</div>
+            <div>
+                <h3 class="modal-section-title">Outils utilisés</h3>
+                <ul class="modal-list">
+                    <li>QGIS</li>
+                    <li>Cartographie</li>
+                    <li>Analyse spatiale</li>
+                    <li>Diaporama (20+ slides)</li>
+                </ul>
+            </div>
 
-<div>
-<h3 class="modal-section-title">Outils</h3>
-<ul class="modal-list">
-<li>QGIS</li>
-<li>Cartographie</li>
-<li>Data Visualisation</li>
-<li>Diaporama +20 slides</li>
-</ul>
-</div>
+        </div>
 
-</div>
+        <div class="defis-section">
+            <h3 class="modal-section-title">Objectif</h3>
+            <p>
+                Comprendre si les implantations McDonald’s sont stratégiques selon les infrastructures et la population.
+            </p>
+        </div>
 
-<div class="defis-section">
-<h3 class="modal-section-title">Objectif</h3>
-<p>Comprendre si l’implantation des McDonald’s est stratégique selon les infrastructures et la population.</p>
-</div>
-
-</div>
+    </div>
 </div>
 
 <script>
