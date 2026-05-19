@@ -492,7 +492,24 @@ h1 span {
 
 <!-- Modales 5 & 6 (Vides) -->
 <div id="modal5" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal5')">&times;</span><h2 class="modal-title">Projet 5</h2><p>Contenu à venir.</p></div></div>
-<div id="modal6" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal6')">&times;</span><h2 class="modal-title">Projet 6</h2><p>Contenu à venir.</p></div></div>
+<div class="project-card" onclick="ouvrirModale('modal6')">
+    <img src="Projet6.PNG" alt="Analyse géographique McDonald's" class="card-image">
+    
+    <div class="card-content">
+        <h2>Analyse géographique des McDonald’s en France</h2>
+        
+        <p>
+            Étude spatiale et stratégique des implantations McDonald’s en France à travers des analyses géographiques, démographiques et de proximité.
+        </p>
+
+        <div class="tags">
+            <span class="tag">QGIS</span>
+            <span class="tag">Cartographie</span>
+            <span class="tag">Analyse spatiale</span>
+            <span class="tag">Data Viz</span>
+        </div>
+    </div>
+</div>
 
 <script>
 function ouvrirModale(id) {
