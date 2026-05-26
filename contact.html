@@ -276,37 +276,6 @@ h1 span{
     background:#2198ce;
 }
 
-/* FORMULAIRE */
-
-.form-title{
-    text-align:center;
-    font-family:'Playfair Display',serif;
-    font-size:2rem;
-    margin-bottom:25px;
-}
-
-form{
-    max-width:550px;
-    margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-}
-
-input,
-textarea{
-    padding:16px;
-    border-radius:16px;
-    border:1px solid rgba(0,0,0,0.08);
-    outline:none;
-    font-family:'Poppins',sans-serif;
-    background:rgba(255,255,255,0.75);
-}
-
-textarea{
-    resize:none;
-}
-
 /* BOUTON CV */
 
 .cv-container{
@@ -383,8 +352,6 @@ textarea{
 
 <body>
 
-<!-- NAVIGATION -->
-
 <nav class="nav">
 
     <div class="nav-links">
@@ -418,8 +385,6 @@ textarea{
 
 </nav>
 
-<!-- CONTENU -->
-
 <div class="container">
 
     <div class="contact-card">
@@ -434,11 +399,7 @@ textarea{
             je serai ravie de vous répondre.
         </p>
 
-        <!-- CONTACTS -->
-
         <div class="contact-grid">
-
-            <!-- EMAIL -->
 
             <div class="contact-box">
 
@@ -458,8 +419,6 @@ textarea{
                 </button>
 
             </div>
-
-            <!-- LINKEDIN -->
 
             <div class="contact-box">
 
@@ -483,8 +442,6 @@ textarea{
                 </a>
 
             </div>
-
-            <!-- TELEPHONE -->
 
             <div class="contact-box">
 
@@ -510,40 +467,6 @@ textarea{
 
         </div>
 
-        <!-- FORMULAIRE -->
-
-        <h2 class="form-title">
-            Envoyer un message
-        </h2>
-
-        <form onsubmit="sendMail(event)">
-
-            <input
-                id="email"
-                type="email"
-                placeholder="Votre email"
-                required
-            >
-
-            <textarea
-                id="message"
-                rows="6"
-                placeholder="Votre message"
-                required
-            ></textarea>
-
-            <button class="btn" type="submit">
-
-                <i class="fas fa-paper-plane"></i>
-
-                Envoyer
-
-            </button>
-
-        </form>
-
-        <!-- CV -->
-
         <div class="cv-container">
 
             <a href="Curriculum vitae DECROS Clara.pdf"
@@ -563,11 +486,7 @@ textarea{
 
 </div>
 
-<!-- TOAST -->
-
 <div class="toast" id="toast"></div>
-
-<!-- SCRIPT -->
 
 <script>
 
@@ -576,21 +495,6 @@ function copyMail(){
     navigator.clipboard.writeText("claradecros@gmail.com");
 
     showToast("Adresse email copiée ✨");
-
-}
-
-function sendMail(event){
-
-    event.preventDefault();
-
-    const email = document.getElementById("email").value;
-
-    const message = document.getElementById("message").value;
-
-    window.location.href =
-    `mailto:claradecros@gmail.com?subject=Message Portfolio (${email})&body=${encodeURIComponent(message + "\n\nEnvoyé par : " + email)}`;
-
-    showToast("Ouverture de Gmail ✨");
 
 }
 
@@ -613,4 +517,4 @@ function showToast(text){
 </script>
 
 </body>
-</html> 
+</html>
