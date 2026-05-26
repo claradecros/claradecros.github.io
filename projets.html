@@ -298,7 +298,6 @@ h1 span {
 
     <div class="projects-grid">
 
-        <!-- PROJET 1 -->
         <div class="project-card" onclick="ouvrirModale('modal1')">
             <img src="Projet1.PNG" alt="Site Web Portfolio" class="card-image">
             <div class="card-content">
@@ -310,7 +309,6 @@ h1 span {
             </div>
         </div>
 
-        <!-- PROJET 2 -->
         <div class="project-card" onclick="ouvrirModale('modal2')">
             <img src="Projet2.PNG" alt="Indicateurs de performance" class="card-image">
             <div class="card-content">
@@ -324,7 +322,6 @@ h1 span {
             </div>
         </div>
 
-        <!-- PROJET 3 -->
         <div class="project-card" onclick="ouvrirModale('modal3')">
             <img src="Projet3.PNG" alt="Reporting Power BI" class="card-image">
             <div class="card-content">
@@ -339,7 +336,6 @@ h1 span {
             </div>
         </div>
 
-        <!-- PROJET 4 -->
         <div class="project-card" onclick="ouvrirModale('modal4')">
             <img src="Projet4.PNG" alt="SAE 4.02 Pauvreté" class="card-image">
             <div class="card-content">
@@ -352,20 +348,18 @@ h1 span {
             </div>
         </div>
 
-        <!-- PROJET 5 -->
         <div class="project-card" onclick="ouvrirModale('modal5')">
-            <img src="image_projet5.jpg" alt="Projet 5" class="card-image">
+            <img src="Projet5.PNG" alt="Application Excel VBA de suivi scolaire" class="card-image">
             <div class="card-content">
-                <h2>Projet 5</h2>
-                <p>Description courte de votre cinquième projet et de ses objectifs.</p>
+                <h2>Application interactive Excel VBA</h2>
+                <p>Création d'une application de saisie de notes, suivi des moyennes de SD et analyse comparative des semestres.</p>
                 <div class="tags">
-                    <span class="tag">Analyse</span>
-                    <span class="tag">Data</span>
+                    <span class="tag">Excel VBA</span>
+                    <span class="tag">Automatisation</span>
                 </div>
             </div>
         </div>
 
-        <!-- PROJET 6 -->
         <div class="project-card" onclick="ouvrirModale('modal6')">
             <img src="Projet6.PNG" alt="Projet 6" class="card-image">
             <div class="card-content">
@@ -380,9 +374,6 @@ h1 span {
     </div>
 </div>
 
-<!-- STRUCTURES DES MODALES -->
-
-<!-- Modale 1 -->
 <div id="modal1" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal1')">&times;</span>
@@ -408,7 +399,6 @@ h1 span {
     </div>
 </div>
 
-<!-- Modale 2 - Fleury Michon -->
 <div id="modal2" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal2')">&times;</span>
@@ -434,7 +424,6 @@ h1 span {
     </div>
 </div>
 
-<!-- Modale 3 - Projet Sport One -->
 <div id="modal3" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal3')">&times;</span>
@@ -461,7 +450,6 @@ h1 span {
     </div>
 </div>
 
-<!-- Modale 4 - SAE 4.02 Pauvreté -->
 <div id="modal4" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal4')">&times;</span>
@@ -490,9 +478,36 @@ h1 span {
     </div>
 </div>
 
-<!-- Modales 5 & 6 (Vides) -->
-<div id="modal5" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal5')">&times;</span><h2 class="modal-title">Projet 5</h2><p>Contenu à venir.</p></div></div>
-<div id="modal6" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal6')">&times;</span><h2 class="modal-title">Projet 6</h2><p>Contenu à venir.</p></div></div>
+<div id="modal5" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="fermerModale('modal5')">&times;</span>
+        <h2 class="modal-title">Application interactive Excel VBA</h2>
+        <p>Développement d'un outil d'automatisation et de pilotage pédagogique pour la saisie et le suivi des résultats scolaires.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Fonctionnalités Clés</h3>
+                <ul class="modal-list">
+                    <li>Interface intuitive de saisie des notes des élèves de SD.</li>
+                    <li>Calcul automatique et suivi en temps réel des moyennes.</li>
+                    <li>Analyse comparative des performances entre les semestres.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Suivi Académique</h3>
+                <ul class="modal-list">
+                    <li>Vérification dynamique de la validité des blocs de compétences.</li>
+                    <li>Contrôle de conformité des coefficients et des validations de diplôme.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="defis-section">
+            <h3 class="modal-section-title">Objectif du Projet</h3>
+            <p>Optimiser le temps de traitement des données scolaires et sécuriser les calculs de validation grâce à une application VBA robuste et autonome.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modal6" class="modal"><div class="modal-content"><span class="close-modal" onclick="fermerModale('modal6')">&times;</span><h2 class="modal-title">Analyse géographique des Mcdo en France</h2><p>Contenu à venir.</p></div></div>
 
 <script>
 function ouvrirModale(id) {
