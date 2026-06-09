@@ -88,7 +88,7 @@ body::before {
 /* CONTAINER */
 .container {
     max-width: 1100px;
-    margin: 140px auto 60px; /* Augmenté légèrement pour éviter la superposition */
+    margin: 140px auto 60px;
     padding: 0 20px;
     position: relative;
     z-index: 10;
@@ -113,29 +113,30 @@ h1 span {
     border-radius: 2px;
 }
 
-/* FILTRES BUT EN DUR (Sécurisés) */
+/* FILTRES BUT */
 .filter-container {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    gap: 20px;
+    gap: 15px;
     margin: 30px 0 40px 0;
     position: relative;
     z-index: 20;
+    flex-wrap: wrap;
 }
 
 .btn-filter {
-    padding: 12px 30px;
+    padding: 10px 25px;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--text);
-    background-color: #ffffff; /* Fond blanc opaque pour être sûr de le voir */
-    border: 2px solid var(--rose);
+    background-color: #ffffff;
+    border: 2px solid var(--rose-soft);
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
 .btn-filter:hover {
@@ -145,6 +146,7 @@ h1 span {
 
 .btn-filter.active {
     background-color: var(--rose) !important;
+    border-color: var(--rose) !important;
     color: white !important;
     box-shadow: 0 5px 15px rgba(212, 163, 163, 0.4);
 }
@@ -297,12 +299,6 @@ h1 span {
     line-height: 1.8;
 }
 
-.defis-section {
-    margin-top: 30px;
-    border-top: 2px solid var(--rose-soft);
-    padding-top: 20px;
-}
-
 .btn-telecharger {
     display: inline-block;
     margin-top: 30px;
@@ -343,10 +339,11 @@ h1 span {
     <h1>Mes <span>Projets</span></h1>
     <div class="line-left"></div>
 
-    <!-- BOUTONS DE FILTRE NETS ET VISIBLES -->
+    <!-- ZONE DES BOUTONS DE FILTRE AJUSTÉE -->
     <div class="filter-container">
-        <button class="btn-filter" onclick="filtrerProjets(1, this)">Filtre BUT 1</button>
-        <button class="btn-filter" onclick="filtrerProjets(2, this)">Filtre BUT 2</button>
+        <button class="btn-filter active" onclick="filtrerProjets('tous', this)">Tous les projets</button>
+        <button class="btn-filter" onclick="filtrerProjets(1, this)">BUT 1</button>
+        <button class="btn-filter" onclick="filtrerProjets(2, this)">BUT 2</button>
     </div>
 
     <div class="projects-grid">
@@ -524,24 +521,7 @@ h1 span {
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal1')">&times;</span>
         <h2 class="modal-title">Site Web Portfolio</h2>
-        <p>Conception, architecture et développement d'un portfolio web responsive et moderne. Cet outil sert d'ancrage numérique pour valoriser mes compétences en science des données et centraliser l'ensemble de mes travaux universitaires.</p>
-        <div class="modal-grid">
-            <div>
-                <h3 class="modal-section-title">Environnement Technique</h3>
-                <ul class="modal-list">
-                    <li><strong>Structure :</strong> HTML5 sémantique pour l'accessibilité.</li>
-                    <li><strong>Mise en forme :</strong> CSS3 avancé avec variables globales, flexbox et grid layouts.</li>
-                    <li><strong>Dynamisme :</strong> JavaScript natif pour la gestion des événements et des modales.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="modal-section-title">Ingénierie et Ergonomie</h3>
-                <ul class="modal-list">
-                    <li><strong>Responsive Design :</strong> Adaptabilité complète aux smartphones, tablettes et ordinateurs via media queries.</li>
-                    <li><strong>UI/UX Design :</strong> Arrière-plan dynamique calculé en temps réel, flous algorithmiques (backdrop-filter) et transitions fluides.</li>
-                </ul>
-            </div>
-        </div>
+        <p>Conception, architecture et développement d'un portfolio web responsive et moderne.</p>
     </div>
 </div>
 
@@ -549,22 +529,7 @@ h1 span {
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal2')">&times;</span>
         <h2 class="modal-title">Indicateurs de performance</h2>
-        <p>Analyse de la performance commerciale et opérationnelle pour le groupe agroalimentaire "Fleury Michon". Ce projet a consisté à restructurer des bases de données volumineuses pour en extraire des insights stratégiques exploitables.</p>
-        <div class="modal-grid">
-            <div>
-                <h3 class="modal-section-title">Architecture des Données</h3>
-                <ul class="modal-list">
-                    <li><strong>Nettoyage :</strong> Traitement des valeurs manquantes under Microsoft Excel.</li>
-                    <li><strong>Modélisation :</strong> Mise en place de Tableaux Croisés Dynamiques (TCD) complexes.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="modal-section-title">Visualisation de Données</h3>
-                <ul class="modal-list">
-                    <li><strong>Dashboarding :</strong> Création d'un tableau de bord décisionnel entièrement interactif.</li>
-                </ul>
-            </div>
-        </div>
+        <p>Analyse de la performance commerciale et opérationnelle pour le groupe agroalimentaire "Fleury Michon".</p>
         <a href="Fleury Michon.pdf" download="Fleury Michon.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le projet</a>
     </div>
 </div>
@@ -574,20 +539,6 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal3')">&times;</span>
         <h2 class="modal-title">Reporting Décisionnel Power BI</h2>
         <p>Mise en place d'une infrastructure décisionnelle de bout en bout pour le projet "Sport One".</p>
-        <div class="modal-grid">
-            <div>
-                <h3 class="modal-section-title">Ingénierie ETL</h3>
-                <ul class="modal-list">
-                    <li><strong>Pipeline ETL :</strong> Utilisation de Talend Open Studio pour orchestrer l'extraction.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="modal-section-title">Analytics</h3>
-                <ul class="modal-list">
-                    <li><strong>Indicateurs DAX :</strong> Programmation de mesures temporelles avancées.</li>
-                </ul>
-            </div>
-        </div>
         <a href="Projet Sport One.pdf" download="Projet Sport One.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le rapport</a>
     </div>
 </div>
@@ -597,15 +548,6 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal4')">&times;</span>
         <h2 class="modal-title">Reporting d’analyse multivariée</h2>
         <p>Expertise menée pour l'État visant à créer un outil automatisé de suivi de la pauvreté en France (données INSEE 1970-2021).</p>
-        <div class="modal-grid">
-            <div>
-                <h3 class="modal-section-title">Analyse Statistique</h3>
-                <ul class="modal-list">
-                    <li><strong>ACP :</strong> Identification des corrélations entre précarité et éducation.</li>
-                    <li><strong>Clustering (CAH) :</strong> Typologie des départements aux profils similaires.</li>
-                </ul>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -680,23 +622,24 @@ h1 span {
 </div>
 
 <script>
-// LE SCRIPT DE FILTRAGE
+// SCRIPT DE FILTRAGE OPTIMISÉ AVEC LE BOUTON RESET
 function filtrerProjets(annee, boutonPresse) {
     const cartes = document.querySelectorAll('.project-card');
     const boutons = document.querySelectorAll('.btn-filter');
     
-    // Si déjà actif, on désactive le filtre
-    if (boutonPresse.classList.contains('active')) {
-        boutonPresse.classList.remove('active');
+    // Si on clique sur "Tous les projets" ou si on reclique sur un bouton déjà actif
+    if (annee === 'tous' || boutonPresse.classList.contains('active')) {
+        boutons.forEach(btn => btn.classList.remove('active'));
+        document.querySelector('.btn-filter[onclick*="tous"]').classList.add('active');
         cartes.forEach(carte => carte.classList.remove('muted'));
         return;
     }
     
-    // Switch de classe active
+    // Gestion visuelle des boutons
     boutons.forEach(btn => btn.classList.remove('active'));
     boutonPresse.classList.add('active');
     
-    // Application de l'effet grisé (muted)
+    // Filtrage des cartes
     cartes.forEach(carte => {
         const butCarte = parseInt(carte.getAttribute('data-but'));
         if (butCarte === annee) {
