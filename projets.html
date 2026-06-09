@@ -299,6 +299,12 @@ h1 span {
     line-height: 1.8;
 }
 
+.defis-section {
+    margin-top: 30px;
+    border-top: 2px solid var(--rose-soft);
+    padding-top: 20px;
+}
+
 .btn-telecharger {
     display: inline-block;
     margin-top: 30px;
@@ -339,7 +345,7 @@ h1 span {
     <h1>Mes <span>Projets</span></h1>
     <div class="line-left"></div>
 
-    <!-- ZONE DES BOUTONS DE FILTRE AJUSTÉE -->
+    <!-- ZONE DES BOUTONS DE FILTRE -->
     <div class="filter-container">
         <button class="btn-filter active" onclick="filtrerProjets('tous', this)">Tous les projets</button>
         <button class="btn-filter" onclick="filtrerProjets(1, this)">BUT 1</button>
@@ -487,7 +493,7 @@ h1 span {
 
         <!-- Projet 11 -> BUT 1 -->
         <div class="project-card" data-but="1" onclick="ouvrirModale('modal11')">
-            <img src="Photo11.PNG" alt="Analyse des dynamiques politiques" class="card-image">
+            <img src="Projet11.PNG" alt="Analyse des dynamiques politiques" class="card-image">
             <div class="card-content">
                 <h2>Analyse des déterminants sociopolitiques</h2>
                 <p>Étude des corrélations entre le profil socio-économique d'une population régionale et ses comportements électoraux.</p>
@@ -501,7 +507,7 @@ h1 span {
 
         <!-- Projet 12 -> BUT 1 -->
         <div class="project-card" data-but="1" onclick="ouvrirModale('modal12')">
-            <img src="Photo12.PNG" alt="Étude des profils BTS agricoles" class="card-image">
+            <img src="Projet12.PNG" alt="Étude des profils BTS agricoles" class="card-image">
             <div class="card-content">
                 <h2>Profils et Insertion en BTS Agricole</h2>
                 <p>Exploration statistique et dataviz des trajectoires étudiantes spécifiques aux filières agricoles en France.</p>
@@ -516,12 +522,29 @@ h1 span {
     </div>
 </div>
 
-<!-- SECTION MODALES -->
+<!-- SECTION MODALES ENTIÈREMENT RESTAURÉES -->
 <div id="modal1" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal1')">&times;</span>
         <h2 class="modal-title">Site Web Portfolio</h2>
-        <p>Conception, architecture et développement d'un portfolio web responsive et moderne.</p>
+        <p>Conception, architecture et développement d'un portfolio web responsive et moderne. Cet outil sert d'ancrage numérique pour valoriser mes compétences en science des données et centraliser l'ensemble de mes travaux universitaires.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Environnement Technique</h3>
+                <ul class="modal-list">
+                    <li><strong>Structure :</strong> HTML5 sémantique pour l'accessibilité.</li>
+                    <li><strong>Mise en forme :</strong> CSS3 avancé avec variables globales, flexbox et grid layouts.</li>
+                    <li><strong>Dynamisme :</strong> JavaScript natif pour la gestion des événements et des modales.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Ingénierie et Ergonomie</h3>
+                <ul class="modal-list">
+                    <li><strong>Responsive Design :</strong> Adaptabilité complète aux smartphones, tablettes et ordinateurs via media queries.</li>
+                    <li><strong>UI/UX Design :</strong> Arrière-plan dynamique calculé en temps réel, flous algorithmiques (backdrop-filter) et transitions fluides.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -529,7 +552,23 @@ h1 span {
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal2')">&times;</span>
         <h2 class="modal-title">Indicateurs de performance</h2>
-        <p>Analyse de la performance commerciale et opérationnelle pour le groupe agroalimentaire "Fleury Michon".</p>
+        <p>Analyse de la performance commerciale et opérationnelle pour le groupe agroalimentaire "Fleury Michon". Ce projet a consisté à restructurer des bases de données volumineuses pour en extraire des insights stratégiques exploitables.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Architecture des Données</h3>
+                <ul class="modal-list">
+                    <li><strong>Nettoyage :</strong> Traitement des valeurs manquantes, dédoublonnage et harmonisation des données sous Microsoft Excel.</li>
+                    <li><strong>Modélisation :</strong> Mise en place de Tableaux Croisés Dynamiques (TCD) complexes reliant les lignes de produits, les marges et les secteurs géographiques.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Visualisation de Données</h3>
+                <ul class="modal-list">
+                    <li><strong>Dashboarding :</strong> Création d'un tableau de bord décisionnel interactif intégrant des segments de filtrage par période et par gamme de produits.</li>
+                    <li><strong>Indicateurs clés (KPI) :</strong> Chiffre d'affaires consolidé, taux d'évolution des ventes, et taux de pénétration sectoriel.</li>
+                </ul>
+            </div>
+        </div>
         <a href="Fleury Michon.pdf" download="Fleury Michon.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le projet</a>
     </div>
 </div>
@@ -538,7 +577,23 @@ h1 span {
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal3')">&times;</span>
         <h2 class="modal-title">Reporting Décisionnel Power BI</h2>
-        <p>Mise en place d'une infrastructure décisionnelle de bout en bout pour le projet "Sport One".</p>
+        <p>Mise en place d'une infrastructure décisionnelle de bout en bout pour le projet "Sport One". L'objectif était de collecter, transformer et modéliser des bases de données de ventes mondiales massives afin de fournir un outil d'aide à la décision pour la direction générale.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Ingénierie ETL (Talend)</h3>
+                <ul class="modal-list">
+                    <li><strong>Pipeline ETL :</strong> Utilisation de Talend Open Studio pour orchestrer l'extraction, la transformation et le chargement des données.</li>
+                    <li><strong>Qualité des données :</strong> Filtrage des anomalies, traitement des types de variables et jointures entre tables transactionnelles et référentielles.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Modélisation & Analytics (Power BI)</h3>
+                <ul class="modal-list">
+                    <li><strong>Schéma en étoile :</strong> Conception du modèle de données (Tables de faits connectées aux dimensions clients, temps, géographie et produits).</li>
+                    <li><strong>Indicateurs DAX :</strong> Programmation de mesures temporelles avancées (Year-to-Date, calculs de variations de stocks et marges cumulées).</li>
+                </ul>
+            </div>
+        </div>
         <a href="Projet Sport One.pdf" download="Projet Sport One.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le rapport</a>
     </div>
 </div>
@@ -547,7 +602,23 @@ h1 span {
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModale('modal4')">&times;</span>
         <h2 class="modal-title">Reporting d’analyse multivariée</h2>
-        <p>Expertise menée pour l'État visant à créer un outil automatisé de suivi de la pauvreté en France (données INSEE 1970-2021).</p>
+        <p>Expertise menée pour l'État visant à créer un outil automatisé de suivi de la pauvreté en France, basé sur l'exploitation des données open-data de l'INSEE (période 1970-2021).</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Analyse Statistique Globale</h3>
+                <ul class="modal-list">
+                    <li><strong>Analyse en Composantes Principales (ACP) :</strong> Réduction de la dimensionnalité pour identifier les corrélations structurelles sous-jacentes entre précarité, niveau d'éducation et typologie d'emploi.</li>
+                    <li><strong>Clustering (CAH) :</strong> Classification Ascendante Hiérarchique pour segmenter les départements français en groupes homogènes de vulnérabilité.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Développement R Shiny</h3>
+                <ul class="modal-list">
+                    <li><strong>Interface réactive :</strong> Programmation réactive d'une application web permettant de filtrer dynamiquement les analyses multivariées par région.</li>
+                    <li><strong>Cartographie interactive :</strong> Intégration de packages Leaflet/Plotly pour visualiser les grappes de pauvreté à l'échelle départementale.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -556,6 +627,21 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal5')">&times;</span>
         <h2 class="modal-title">Application interactive Excel VBA</h2>
         <p>Développement d'un outil d'automatisation et de pilotage pédagogique pour la saisie et le suivi des résultats scolaires.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Automatisation VBA</h3>
+                <ul class="modal-list">
+                    <li>Création de macros pour automatiser l'intégration des notes et le calcul des moyennes pondérées.</li>
+                    <li>Conception d'une interface utilisateur fluide sécurisant la saisie des données.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Analyse Comparative</h3>
+                <ul class="modal-list">
+                    <li>Génération de rapports visuels automatisés pour analyser les performances par matière et comparer l'évolution inter-semestrielle.</li>
+                </ul>
+            </div>
+        </div>
         <a href="SAE reporting ClaraHelena.xlsm" download="SAE reporting ClaraHelena.xlsm" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le rapport</a>
     </div>
 </div>
@@ -565,6 +651,21 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal6')">&times;</span>
         <h2 class="modal-title">Analyse géographique des Mcdo en France</h2>
         <p>Étude spatiale approfondie visant à analyser et comprendre la distribution territoriale et les facteurs d'implantation du géant de la restauration rapide.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Système d'Information Géographique</h3>
+                <ul class="modal-list">
+                    <li>Collecte et géocodage des adresses des restaurants McDonald’s en France métropolitaine.</li>
+                    <li>Modélisation des zones de chalandise et croisement avec les données de densité de population.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Cartographie Décisionnelle</h3>
+                <ul class="modal-list">
+                    <li>Création de cartes de chaleur (heatmap) sous QGIS pour mettre en évidence les zones de forte concentration et les opportunités de maillage territorial.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -573,6 +674,21 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal7')">&times;</span>
         <h2 class="modal-title">Intégration et traitement de flux de données</h2>
         <p>Mise en situation professionnelle en tant que consultante intégration de données pour concevoir un programme de traitement et de migration de flux.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Programmation Python</h3>
+                <ul class="modal-list">
+                    <li>Utilisation de l'environnement Spyder pour structurer des scripts de manipulation de fichiers volumineux.</li>
+                    <li>Établissement de règles de gestion pour valider l'intégrité logique et technique des données en entrée.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Ingénierie ETL Native</h3>
+                <ul class="modal-list">
+                    <li>Développement complet de fonctions d'extraction, de nettoyage (gestion des formats de date, encodages et doublons) et de chargement dans des structures décisionnelles cibles.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -581,6 +697,22 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal8')">&times;</span>
         <h2 class="modal-title">Concours Dataviz : Étudiants en France</h2>
         <p>Projet réalisé dans le cadre d'un concours académique de Dataviz mettant en compétition l'ensemble des groupes de la classe.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Analyse Thématique</h3>
+                <ul class="modal-list">
+                    <li>Étude de l'impact macro-géographique du lieu de vie sur le parcours d'insertion éducatif et professionnel des 15-29 ans (Bases INSEE).</li>
+                    <li>Mise en lumière des disparités d'accès à l'enseignement supérieur selon l'enclavement des territoires.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Savoir-Faire Dataviz</h3>
+                <ul class="modal-list">
+                    <li>Conception d'une identité graphique rigoureuse, épurée et professionnelle sous Power BI.</li>
+                    <li>Utilisation d'éléments interactifs (filtres croisés, infobulles enrichies) pour rendre la navigation fluide pour le jury.</li>
+                </ul>
+            </div>
+        </div>
         <a href="Concours Dataviz.pdf" download="Concours Dataviz.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le rapport</a>
     </div>
 </div>
@@ -590,6 +722,22 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal9')">&times;</span>
         <h2 class="modal-title">Modélisation & Prévision : Le Cours du Cuivre</h2>
         <p>Étude approfondie de la série chronologique du prix mondial mensuel moyen du cuivre sur 15 ans.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Analyse de la Chronologie</h3>
+                <ul class="modal-list">
+                    <li>Dcomposition de la série : isolement de la tendance long-terme, identification de la saisonnalité et analyse du résidu.</li>
+                    <li>Calcul d'indices de saisonnalité et étude de la stationnarité de la série sous Microsoft Excel.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Modélisation Prédictive</h3>
+                <ul class="modal-list">
+                    <li>Mise en œuvre de méthodes de lissage exponentiel (simple, double et Holt-Winters).</li>
+                    <li>Projection des tendances futures sur 12 mois et évaluation de la précision des modèles via les indicateurs d'erreur (MAPE, RMSE).</li>
+                </ul>
+            </div>
+        </div>
         <a href="Rapport SAE série temporelle Clara Decros et Rose Chauvin.pdf" download="Rapport SAE série temporelle Clara Decros et Rose Chauvin.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le rapport d'analyse</a>
     </div>
 </div>
@@ -599,6 +747,22 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal10')">&times;</span>
         <h2 class="modal-title">Prédiction d'une variable quantitative</h2>
         <p>Application concrète des concepts fondamentaux de Machine Learning pour modéliser, ajuster et analyser les dépendances.</p>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Modélisation et Machine Learning</h3>
+                <ul class="modal-list">
+                    <li>Préparation des variables explicatives (encodage, normalisation) et découpage de la base en échantillons d'apprentissage et de test.</li>
+                    <li>Implémentation sous R de modèles de régression linéaire multiple et d'arbres de décision.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Analyse Métier des Résultats</h3>
+                <ul class="modal-list">
+                    <li>Analyse de la performance des modèles (étude des résidus, calcul du $R^2$ ajusté, MAE et MSE).</li>
+                    <li>Comparaison critique de la robustesse des deux algorithmes pour retenir le modèle optimal.</li>
+                </ul>
+            </div>
+        </div>
         <a href="Rapport SAE Prédiction d'une variable quantitative.pdf" download="Rapport SAE Prédiction d'une variable quantitative.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le rapport d'analyse</a>
     </div>
 </div>
@@ -608,7 +772,22 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal11')">&times;</span>
         <h2 class="modal-title">Analyse des déterminants sociopolitiques</h2>
         <p>Modélisation et étude de l'influence des caractéristiques socio-économiques d'une région choisie sur ses comportements électoraux.</p>
-        <a href="SAE Economie (3).docx.pdf" download="SAE Economie (3).docx.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le rapport</a>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Statistiques Descriptives</h3>
+                <ul class="modal-list">
+                    <li>Agrégation de bases de données sociodémographiques (taux de chômage, niveau de diplôme, CSP) à l'échelle locale.</li>
+                    <li>Modélisation de matrices de corrélation pour mettre en évidence les liens linéaires majeurs.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Interprétation Analytique</h3>
+                <ul class="modal-list">
+                    <li>Analyse critique de l'impact des facteurs de précarité ou d'urbanisation sur l'orientation des votes et le taux d'abstention.</li>
+                </ul>
+            </div>
+        </div>
+        <a href="Analyse Sociopolitique Regionale.pdf" download="Analyse Sociopolitique Regionale.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger le rapport</a>
     </div>
 </div>
 
@@ -617,12 +796,27 @@ h1 span {
         <span class="close-modal" onclick="fermerModale('modal12')">&times;</span>
         <h2 class="modal-title">Profils et Insertion en BTS Agricole</h2>
         <p>Exploration statistique multidimensionnelle et conception d'un écosystème de graphiques analytiques dédiés à la compréhension des profils étudiants.</p>
-        <a href="Etude BTS Agricoles R.pdf" download="Graphiques R BTS-Agricoles.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger les graphiques</a>
+        <div class="modal-grid">
+            <div>
+                <h3 class="modal-section-title">Data Visualisation</h3>
+                <ul class="modal-list">
+                    <li>Génération automatisée de graphiques avancés avec R (Graphes de distribution, pyramides des âges, mosaïques croisées).</li>
+                    <li>Mise en relief de la répartition hommes/femmes par filière et des origines géographiques des bacheliers.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="modal-section-title">Analyse de Données</h3>
+                <ul class="modal-list">
+                    <li>Étude approfondie de l'insertion post-diplôme (poursuite d'études vs entrée sur le marché du travail) selon la spécialité du BTS.</li>
+                </ul>
+            </div>
+        </div>
+        <a href="Etude BTS Agricoles R.pdf" download="Etude BTS Agricoles R.pdf" class="btn-telecharger"><i class="fas fa-download"></i> Télécharger les graphiques</a>
     </div>
 </div>
 
 <script>
-// SCRIPT DE FILTRAGE OPTIMISÉ AVEC LE BOUTON RESET
+// SCRIPT DE FILTRAGE AVEC TOUS LES PROJETS
 function filtrerProjets(annee, boutonPresse) {
     const cartes = document.querySelectorAll('.project-card');
     const boutons = document.querySelectorAll('.btn-filter');
